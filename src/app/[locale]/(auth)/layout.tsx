@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import Image from "next/image";
 
 export default function AuthLayout({
   children,
@@ -15,21 +16,31 @@ export default function AuthLayout({
       {/* Header minimal */}
       <header className="bg-ids-black py-4">
         <div className="container-ids flex justify-center">
-          <Link href={`/${locale}`} className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-ids-gold flex items-center justify-center flex-shrink-0">
-              <span className="text-ids-black font-display font-bold text-sm">
-                IDS
-              </span>
-            </div>
-            <div>
-              <p className="text-white font-bold text-sm leading-tight">
-                Institut für die Deutsche Sprache
-              </p>
-              <p className="text-ids-red text-xs">
-                Lernen. Verstehen. Erfolgreich sein.
-              </p>
-            </div>
-          </Link>
+          
+          {/* Logo */}
+                    <Link href={`/${locale}`} className="flex items-center gap-3">
+                      <div className="relative w-14 h-14 flex-shrink-0">
+                        <Image
+                          src="/images/logo.png"
+                          alt="IDS Logo"
+                          fill
+                          className="object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = "none";
+                          }}
+                        />
+                      </div>
+                      <div className="hidden sm:block">
+                        <p className="font-display font-bold text-white text-sm leading-tight uppercase tracking-wide">
+                          Institut für die
+                          <br />
+                          Deutsche Sprache
+                        </p>
+                        <p className="text-ids-red text-xs font-semibold mt-0.5">
+                          Lernen. Verstehen. Erfolgreich sein.
+                        </p>
+                      </div>
+                    </Link>
         </div>
       </header>
 

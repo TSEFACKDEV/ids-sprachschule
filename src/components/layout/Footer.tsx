@@ -46,19 +46,31 @@ export default function Footer() {
           {/* Colonne 1 — Identité */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-12 h-12 flex-shrink-0 bg-ids-gold rounded-full flex items-center justify-center">
-                <span className="text-ids-black font-display font-bold text-sm">IDS</span>
-              </div>
-              <div>
-                <p className="font-display font-bold text-sm leading-tight uppercase tracking-wide">
-                  Institut für die
-                  <br />
-                  Deutsche Sprache
-                </p>
-                <p className="text-ids-red text-xs font-semibold mt-0.5">
-                  {t("footer.slogan")}
-                </p>
-              </div>
+              
+{/* Logo */}
+          <Link href={`/${locale}`} className="flex items-center gap-3">
+            <div className="relative w-14 h-14 flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="IDS Logo"
+                fill
+                className="object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = "none";
+                }}
+              />
+            </div>
+            <div className="hidden sm:block">
+              <p className="font-display font-bold text-white text-sm leading-tight uppercase tracking-wide">
+                Institut für die
+                <br />
+                Deutsche Sprache
+              </p>
+              <p className="text-ids-red text-xs font-semibold mt-0.5">
+                Lernen. Verstehen. Erfolgreich sein.
+              </p>
+            </div>
+          </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Centre de formation en langue allemande basé à Yaoundé, Cameroun.
@@ -74,7 +86,7 @@ export default function Footer() {
                   >
                     <Icon size={15} />
                   </a>
-                )
+                ),
               )}
             </div>
           </div>
@@ -126,7 +138,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-gray-400">
-                <FaMapMarkerAlt className="text-ids-gold mt-0.5 flex-shrink-0" size={14} />
+                <FaMapMarkerAlt
+                  className="text-ids-gold mt-0.5 flex-shrink-0"
+                  size={14}
+                />
                 <span>
                   Carrefour Scalom, Immeuble Africa Finance,
                   <br />
@@ -135,14 +150,18 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <FaPhone className="text-ids-gold flex-shrink-0" size={13} />
-                <a href="tel:+4915732878223" className="hover:text-ids-gold transition-colors">
+                <a
+                  href="tel:+4915732878223"
+                  className="hover:text-ids-gold transition-colors"
+                >
                   +49 1573 2878223
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <FaWhatsapp className="text-ids-gold flex-shrink-0" size={14} />
-                
-                <a  href="https://wa.me/4915732878223"
+
+                <a
+                  href="https://wa.me/4915732878223"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-ids-gold transition-colors"
@@ -152,16 +171,18 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <FaEnvelope className="text-ids-gold flex-shrink-0" size={13} />
-               <a 
+                <a
                   href="mailto:info@ids-sprachschule.com"
                   className="hover:text-ids-gold transition-colors"
                 >
-                
                   info@ids-sprachschule.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
-                <FaClock className="text-ids-gold mt-0.5 flex-shrink-0" size={13} />
+                <FaClock
+                  className="text-ids-gold mt-0.5 flex-shrink-0"
+                  size={13}
+                />
                 <span>Lundi – Samedi : 8h00 – 20h00</span>
               </li>
             </ul>

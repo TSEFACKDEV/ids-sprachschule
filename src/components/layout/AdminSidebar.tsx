@@ -10,6 +10,7 @@ import {
   FaFileInvoiceDollar, FaEnvelope, FaSignOutAlt, FaBars, FaTimes,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 export default function AdminSidebar() {
   const t = useTranslations("admin");
@@ -37,15 +38,30 @@ export default function AdminSidebar() {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       <div className="p-6 border-b border-white/10">
-        <Link href={`/${locale}/admin`} className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-ids-gold flex items-center justify-center flex-shrink-0">
-            <span className="text-ids-black font-bold text-sm">IDS</span>
-          </div>
-          <div>
-            <p className="text-white font-bold text-sm leading-tight">IDS Admin</p>
-            <p className="text-ids-red text-xs">{t("dashboard")}</p>
-          </div>
-        </Link>
+       {/* Logo */}
+          <Link href={`/${locale}`} className="flex items-center gap-3">
+            <div className="relative w-14 h-14 flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="IDS Logo"
+                fill
+                className="object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = "none";
+                }}
+              />
+            </div>
+            <div className="hidden sm:block">
+              <p className="font-display font-bold text-ids-black text-sm leading-tight uppercase tracking-wide">
+                Institut für die
+                <br />
+                Deutsche Sprache
+              </p>
+              <p className="text-ids-red text-xs font-semibold mt-0.5">
+                Lernen. Verstehen. Erfolgreich sein.
+              </p>
+            </div>
+          </Link>
       </div>
       <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
         {navItems.map((item) => {
