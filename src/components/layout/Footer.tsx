@@ -4,11 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaLinkedin,
-  FaTiktok,
+ 
   FaMapMarkerAlt,
   FaPhone,
   FaEnvelope,
@@ -76,19 +72,7 @@ export default function Footer() {
               Centre de formation en langue allemande basé à Yaoundé, Cameroun.
               De A1 à l&apos;Allemagne, nous vous accompagnons.
             </p>
-            <div className="flex gap-3">
-              {[FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaTiktok].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:bg-ids-red hover:text-white transition-colors duration-200"
-                  >
-                    <Icon size={15} />
-                  </a>
-                ),
-              )}
-            </div>
+          
           </div>
 
           {/* Colonne 2 — Liens rapides */}

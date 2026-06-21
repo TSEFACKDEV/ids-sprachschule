@@ -52,7 +52,7 @@ export default function AdminSidebar() {
               />
             </div>
             <div className="hidden sm:block">
-              <p className="font-display font-bold text-ids-black text-sm leading-tight uppercase tracking-wide">
+              <p className="font-display font-bold text-white text-sm leading-tight uppercase tracking-wide">
                 Institut für die
                 <br />
                 Deutsche Sprache
