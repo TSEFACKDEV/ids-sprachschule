@@ -1,0 +1,205 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+enum Role {
+  ADMIN
+  ETUDIANT
+}
+
+enum StatutInscription {
+  EN_ATTENTE
+  VALIDE
+  REFUSE
+}
+
+enum Objectif {
+  ETUDES_ALLEMAGNE
+  TRAVAIL
+  EXAMEN
+  VOYAGE
+  AUTRE
+}
+
+enum TypeCours {
+  SEMAINE_MATIN
+  SEMAINE_SOIR
+  WEEKEND_SAT_DIM
+  WEEKEND_SAT_MER_DIM
+  EN_LIGNE
+  PRESENTIEL
+}
+
+enum NiveauAllemand {
+  A1
+  A2
+  B1
+  B2
+  C1
+}
+
+enum TypeExamen {
+  GOETHE
+  OSD
+  TELC
+  ECL
+  TESTDAF
+}
+
+enum NatureFacture {
+  ACOMPTE
+  TOTAL
+}
+
+enum ModePaiement {
+  ESPECES
+  VIREMENT
+  PAYPAL
+  ORANGE_MONEY
+  MTN_MONEY
+}
+
+model User {
+  id                 String    @id @default(cuid())
+  email              String    @unique
+  password           String
+  role               Role      @default(ETUDIANT)
+  mustChangePassword Boolean   @default(true)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  etudiant           Etudiant?
+}
+
+model Etudiant {
+  id                String            @id @default(cuid())
+  userId            String?           @unique
+  user              User?             @relation(fields: [userId], references: [id])
+  numeroInscription String            @unique
+  nom               String
+  prenom            String
+  dateNaissance     DateTime
+  sexe              String
+  nationalite       String
+  adresse           String
+  ville             String
+  codePostal        String?
+  telephone         String
+  email             String
+  photoUrl          String?
+  niveauEtudes      String
+  profession        String?
+  objectif          Objectif
+  disponibilites    Json
+  joursPreferees    Json
+  niveauAllemand    NiveauAllemand
+  typeCours         String
+  statut            StatutInscription @default(EN_ATTENTE)
+  dateInscription   DateTime          @default(now())
+  inscriptionCours  InscriptionCours?
+  groupes           GroupeEtudiant[]
+  factures          Facture[]
+}
+
+model Cours {
+  id                         String             @id @default(cuid())
+  niveau                     NiveauAllemand
+  nom                        String
+  description                String             @db.Text
+  competences                String             @db.Text
+  dureeEnMois                Int
+  preparationGratuiteIncluse Boolean            @default(false)
+  formats                    FormatCours[]
+  inscriptions               InscriptionCours[]
+}
+
+model FormatCours {
+  id           String             @id @default(cuid())
+  coursId      String
+  cours        Cours              @relation(fields: [coursId], references: [id])
+  type         TypeCours
+  dureeMois    Int
+  prixFCFA     Float
+  prixEUR      Float
+  inscriptions InscriptionCours[]
+}
+
+model InscriptionCours {
+  id         String      @id @default(cuid())
+  etudiantId String      @unique
+  etudiant   Etudiant    @relation(fields: [etudiantId], references: [id])
+  coursId    String
+  cours      Cours       @relation(fields: [coursId], references: [id])
+  formatId   String
+  format     FormatCours @relation(fields: [formatId], references: [id])
+  createdAt  DateTime    @default(now())
+}
+
+model Groupe {
+  id         String           @id @default(cuid())
+  nom        String
+  niveau     NiveauAllemand
+  type       TypeCours
+  heureDebut String
+  heureFin   String
+  salle      String
+  enseignant String
+  etudiants  GroupeEtudiant[]
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+}
+
+model GroupeEtudiant {
+  id         String   @id @default(cuid())
+  groupeId   String
+  groupe     Groupe   @relation(fields: [groupeId], references: [id])
+  etudiantId String
+  etudiant   Etudiant @relation(fields: [etudiantId], references: [id])
+
+  @@unique([groupeId, etudiantId])
+}
+
+model Examen {
+  id                   String         @id @default(cuid())
+  type                 TypeExamen
+  niveau               NiveauAllemand
+  tarifFCFA            Float
+  gratuitPourNiveauIDS Boolean        @default(true)
+  duree                Int            @default(1)
+}
+
+model Facture {
+  id           String        @id @default(cuid())
+  numeroRecu   String        @unique
+  etudiantId   String
+  etudiant     Etudiant      @relation(fields: [etudiantId], references: [id])
+  formation    String
+  montantTotal Float
+  montantVerse Float
+  resteAPayer  Float
+  nature       NatureFacture
+  modePaiement ModePaiement
+  statut       String        @default("PAYE")
+  date         DateTime      @default(now())
+  createdAt    DateTime      @default(now())
+}
+
+model Message {
+  id            String    @id @default(cuid())
+  sujet         String
+  corps         String    @db.Text
+  destinataires Json
+  envoye        Boolean   @default(false)
+  sentAt        DateTime?
+  createdAt     DateTime  @default(now())
+}

@@ -1,0 +1,187 @@
+{
+  "nav": { "home": "Startseite", "about": "Über uns", "courses": "Unsere Kurse", "exams": "Prüfungen", "services": "Leistungen", "offers": "Sonderangebote", "faq": "FAQ", "contact": "Kontakt", "studentSpace": "Studentenbereich", "register": "Anmelden" },
+  "topBar": { "address": "Biyem-Assi, Yaoundé – Kamerun", "hours": "Mo – Sa: 8:00 – 20:00 Uhr", "phone": "+49 1573 2878223", "email": "info@ids-sprachschule.com" },
+  "hero": {
+    "tagline": "Von A1 bis Deutschland begleiten wir Sie den ganzen Weg.",
+    "registerBtn": "Jetzt anmelden", "coursesBtn": "Unsere Kurse",
+    "slides": [
+      { "title": "Deutsch lernen.", "subtitle": "Studieren, arbeiten und erfolgreich sein in Deutschland." },
+      { "title": "Offizielle Prüfungen bestehen.", "subtitle": "Goethe, ÖSD, telc, ECL, TestDaF" },
+      { "title": "Ihr Deutschlandvisum,", "subtitle": "wir begleiten Sie Schritt für Schritt." },
+      { "title": "Universitätsbewerbung", "subtitle": "Finden Sie Ihren Platz an einer deutschen Universität." },
+      { "title": "Ankunft in Deutschland,", "subtitle": "wir sind für Sie da." }
+    ]
+  },
+  "advantages": {
+    "title": "Warum IDS wählen?",
+    "items": [
+      { "title": "Qualifizierte Lehrer", "desc": "Zertifizierte und erfahrene Lehrkräfte" },
+      { "title": "Prüfungsvorbereitung", "desc": "Goethe, ÖSD, telc, ECL, TestDaF" },
+      { "title": "Visumbegleitung", "desc": "Akte, Botschaftstermin, Orientierung" },
+      { "title": "Flexible Kurse", "desc": "Morgen, Abend, Wochenende, online" },
+      { "title": "Persönliche Betreuung", "desc": "Individuelle Unterstützung für jeden Studenten" }
+    ]
+  },
+  "stats": { "students": "Ausgebildete Studenten", "success": "Erfolgsquote", "teachers": "Qualifizierte Lehrer", "nationalities": "Nationalitäten" },
+  "about": {
+    "title": "Über IDS", "sectionLabel": "Unsere Geschichte", "heading": "Aus einem einfachen Ziel geboren",
+    "text": "Das Institut für die Deutsche Sprache (IDS) wurde mit einem einfachen Ziel gegründet: Kamerun eine moderne, seriöse Deutschausbildung zu bieten, die auf internationale Chancen ausgerichtet ist.",
+    "text2": "Angesichts der wachsenden Nachfrage nach Studium, Berufsausbildung und Karrieren in Deutschland wurde IDS gegründet, um Studierende und Fachleute auf ihrem sprachlichen und akademischen Weg zu begleiten.",
+    "text3": "Seit seiner Gründung ist IDS bestrebt, qualitativ hochwertige Bildung, innovative Lehrmethoden und persönliche Unterstützung vom Deutschlernen bis zur Integration in Deutschland anzubieten.",
+    "learnMore": "Mehr erfahren",
+    "points": ["Muttersprachliche und zertifizierte Lehrer", "Moderne Lehrmethoden", "Begleitung von A1 bis Deutschland", "Persönliche Betreuung jedes Studenten"],
+    "ctaTitle": "Bereit, Ihre Reise zu beginnen?", "ctaDesc": "Melden Sie sich in wenigen Minuten online an. Unser Team prüft Ihre Akte und kontaktiert Sie schnell.",
+    "ctaPoints": ["100% Online-Anmeldung", "Antwort innerhalb von 48h", "Zugangsdaten per E-Mail", "Erster Kurs innerhalb einer Woche"],
+    "ctaBtn": "Jetzt anmelden", "valuesTitle": "Unsere Werte",
+    "values": [
+      { "title": "Exzellenz", "desc": "Hochwertige Bildung mit modernen und bewährten Lehrmethoden." },
+      { "title": "Begleitung", "desc": "Persönliche Betreuung jedes Studenten von der Anmeldung bis zur Integration in Deutschland." },
+      { "title": "Integrität", "desc": "Vollständige Transparenz bei unseren Dienstleistungen, Preisen und Verpflichtungen gegenüber Studierenden." },
+      { "title": "Innovation", "desc": "Digitale Tools, Online-Kurse und ständig aktualisierte Lehrmaterialien." }
+    ],
+    "teamTitle": "Unser Team", "locationTitle": "Uns finden",
+    "address": "Adresse", "addressValue": "Carrefour Scalom, Africa Finance Gebäude, Biyem-Assi, Yaoundé, Kamerun",
+    "hours": "Öffnungszeiten", "hoursValue": "Montag – Samstag: 8:00 – 20:00 Uhr",
+    "closed": "Sonntag: Geschlossen", "contactBtn": "Kontakt aufnehmen",
+    "pageTitle": "Über IDS", "pageSubtitle": "Unsere Geschichte, Mission und die Menschen, die IDS zum besten Deutschzentrum in Kamerun machen.",
+    "teamMembers": [
+      { "nom": "Dr. Klaus Müller", "poste": "Pädagogischer Direktor" },
+      { "nom": "Marie Atangana", "poste": "Kurskoordinatorin" },
+      { "nom": "Hans Weber", "poste": "Zertifizierter Lehrer" },
+      { "nom": "Sophie Biya", "poste": "Visum- & Orientierungsberaterin" }
+    ]
+  },
+  "courses": {
+    "title": "Unsere Programme", "sectionLabel": "Programme", "subtitle": "Kurse für jedes Niveau und jedes Ziel",
+    "register": "Anmelden", "registerLevel": "Für dieses Niveau anmelden",
+    "learnMore": "Mehr erfahren", "viewAll": "Alle Programme anzeigen",
+    "duration": "Dauer", "months": "Monate", "price": "Ab",
+    "whatYouLearn": "Was Sie lernen werden", "formatsAvailable": "Verfügbare Formate",
+    "filters": { "all": "Alle Niveaus", "format": "Format" },
+    "prepExamIncluded": "Kostenlose Prüfungsvorbereitung inklusive",
+    "pageTitle": "Unsere Programme", "pageSubtitle": "Kurse für jedes Niveau und jedes Ziel",
+    "items": [
+      { "key": "a1-a2", "titre": "Deutsch A1 – A2", "duree": "2 Monate pro Niveau", "desc": "Sprachgrundlagen: Alphabet, Begrüßungen, Vorstellung, Alltag. Ideal für absolute Anfänger.", "href": "#a1" },
+      { "key": "b1-b2", "titre": "Deutsch B1 – B2", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "desc": "Mittel- bis Fortgeschrittenes Niveau. Ab B1 kostenlose offizielle Prüfungsvorbereitung inklusive.", "href": "#b1" },
+      { "key": "c1", "titre": "Deutsch C1", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "desc": "Fortgeschrittene Beherrschung. Ideal für den Einstieg in eine deutsche Universität oder qualifizierte Stellen.", "href": "#c1" },
+      { "key": "examens", "titre": "Prüfungsvorbereitung", "duree": "1 Intensivmonat", "desc": "Goethe, ÖSD, telc, ECL, TestDaF. Zertifizierte Prüfungen in Deutschland und Europa anerkannt.", "href": "/preparation-examens" },
+      { "key": "intensifs", "titre": "Intensivkurse", "duree": "Flexibel", "desc": "Beschleunigtes Programm für schnelle Fortschritte. Morgen, Abend, Wochenende oder online je nach Verfügbarkeit.", "href": "/nos-cours" }
+    ],
+    "levels": [
+      { "id": "a1", "niveau": "A1", "titre": "Deutsch A1", "description": "Absolutes Anfängerniveau. Sie lernen das deutsche Alphabet, Begrüßungen, Vorstellung, Zahlen, Farben und grundlegende Alltagsausdrücke.", "duree": "2 Monate", "prepGratuite": false, "competences": ["Vertraute Ausdrücke verstehen und verwenden", "Sich und andere vorstellen", "Einfach kommunizieren", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Zertifizierte Lehrer"] },
+      { "id": "a2", "niveau": "A2", "titre": "Deutsch A2", "description": "Elementarniveau. Sie können über vertraute Themen kommunizieren und isolierte Sätze über Ihre unmittelbare Umgebung verstehen.", "duree": "2 Monate", "prepGratuite": false, "competences": ["Sätze zu sehr häufigen Themen verstehen", "Bei einfachen Aufgaben kommunizieren", "Ausbildung und Umgebung beschreiben", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Zertifizierte Lehrer"] },
+      { "id": "b1", "niveau": "B1", "titre": "Deutsch B1", "description": "Mittleres Niveau. Sie verstehen die Kernpunkte klarer Kommunikation zu vertrauten Themen bei der Arbeit, in der Schule und in der Freizeit.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Kernpunkte klarer Sprache verstehen", "In den meisten Situationen zurechtkommen", "Sich einfach und zusammenhängend ausdrücken", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
+      { "id": "b2", "niveau": "B2", "titre": "Deutsch B2", "description": "Fortgeschrittenes Niveau. Sie können den wesentlichen Inhalt komplexer Themen verstehen und sich spontan und fließend mit einem Muttersprachler unterhalten.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Komplexe und abstrakte Texte verstehen", "Spontan und fließend kommunizieren", "Einen Standpunkt zu einem aktuellen Thema vertreten", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
+      { "id": "c1", "niveau": "C1", "titre": "Deutsch C1", "description": "Beherrschungsniveau. Sie verstehen ein breites Spektrum langer und anspruchsvoller Texte und drücken sich spontan und fließend aus, ohne nach Worten suchen zu müssen.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Lange und anspruchsvolle Texte verstehen", "Spontan und fließend kommunizieren", "Sprache effektiv für soziale, akademische und berufliche Zwecke einsetzen", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] }
+    ],
+    "formats": [
+      { "label": "Wochentag Morgen" }, { "label": "Wochentag Abend" },
+      { "label": "Wochenende Sa+So" }, { "label": "Wochenende Sa+Mi+So" }, { "label": "Online" }
+    ],
+    "allLevels": "Alle Niveaus"
+  },
+  "faq": {
+    "title": "Häufige Fragen", "pageTitle": "Häufige Fragen",
+    "pageSubtitle": "Alle Antworten auf Ihre Fragen zu unseren Kursen, Prüfungen, Visa und Leistungen.",
+    "viewAll": "Alle Fragen anzeigen",
+    "notFoundTitle": "Ihre Antwort nicht gefunden?",
+    "notFoundDesc": "Unser Team ist Montag bis Samstag von 8:00 bis 20:00 Uhr für alle Ihre Fragen erreichbar.",
+    "notFoundBtn": "Uns auf WhatsApp schreiben",
+    "items": [
+      { "q": "Helfen Sie beim Visumverfahren?", "a": "Ja, IDS unterstützt seine Studenten bei der gesamten deutschen Visumantragstellung: Zusammenstellung der Unterlagen, Vorbereitung auf den Botschaftstermin und Orientierung zum geeigneten Visumtyp (Student, Ausbildung, Arbeit)." },
+      { "q": "Bieten Sie Vorbereitung auf offizielle Prüfungen an?", "a": "Absolut. IDS bietet Vorbereitung auf Goethe, ÖSD, telc, ECL und TestDaF. Die Vorbereitung ist für die bei IDS absolvierten Niveaus B1, B2 und C1 kostenlos." },
+      { "q": "Helfen Sie bei der Suche nach Ausbildungsverträgen?", "a": "Ja. IDS hilft Studenten, einen deutschen Lebenslauf, ein auf deutsche Standards zugeschnittenes Motivationsschreiben zu verfassen und bereitet sie auf Vorstellungsgespräche mit Arbeitgebern vor." },
+      { "q": "Ist TestDaF für ein Studium in Deutschland Pflicht?", "a": "Nein. TestDaF ist eine von mehreren Möglichkeiten. Je nach Universität und Studiengang können Goethe B2/C1, telc Deutsch B2/C1 Hochschule oder DSH akzeptiert werden. IDS führt Sie bei der Wahl der geeignetsten Prüfung." },
+      { "q": "Was sind die Vorteile von Kursen bei IDS?", "a": "IDS bietet qualifizierte und zertifizierte Lehrer, moderne Lehrmethoden, kostenlose Lehrmaterialien, WLAN-Zugang, wöchentliche Bewertungen, Visumunterstützung, Universitätsvorbereitung und persönliche Betreuung." },
+      { "q": "Bieten Sie Online-Kurse an?", "a": "Ja. IDS bietet Online-Kurse für alle Niveaus von A1 bis C1. Online-Kurse werden über Videokonferenzplattformen mit denselben qualifizierten Lehrern und demselben Lehrplan wie Präsenzkurse durchgeführt." }
+    ]
+  },
+  "testimonials": { "title": "Sie vertrauen uns" },
+  "footer": { "slogan": "Lernen. Verstehen. Erfolgreich sein.", "quickLinks": "Schnelllinks", "ourCourses": "Unsere Kurse", "contact": "Kontakt", "copyright": "© 2025 Institut für die Deutsche Sprache (IDS) Kamerun. Alle Rechte vorbehalten.", "legal": "Impressum", "privacy": "Datenschutzerklärung", "desc": "Deutschsprachiges Ausbildungszentrum in Yaoundé, Kamerun. Von A1 bis Deutschland begleiten wir Sie." },
+  "auth": { "login": "Anmelden", "loginTitle": "Studentenbereich", "inscriptionNumber": "Einschreibungsnummer", "inscriptionPlaceholder": "IDS-2025-00001", "password": "Passwort", "forgotPassword": "Passwort vergessen?", "loginBtn": "Einloggen", "logging": "Einloggen...", "changePasswordTitle": "Passwort festlegen", "changePasswordInfo": "Bitte legen Sie zu Ihrer Sicherheit ein persönliches Passwort fest, bevor Sie auf Ihren Bereich zugreifen.", "newPassword": "Neues Passwort", "confirmPassword": "Passwort bestätigen", "changeBtn": "Aktualisieren", "changing": "Aktualisierung...", "logout": "Abmelden", "noAccount": "Noch nicht angemeldet?", "submitFile": "Meine Anmeldedatei einreichen", "problem": "Anmeldeproblem?" },
+  "inscription": {
+    "title": "Anmeldeformular", "subtitle": "Treten Sie dem Institut für die Deutsche Sprache bei. Füllen Sie die 3 Schritte aus. Ihre Akte wird innerhalb von 48h geprüft.",
+    "step1": "Persönliche Informationen", "step2": "Ausbildung & Verfügbarkeit", "step3": "Akademisch & Verpflichtung",
+    "next": "Weiter", "previous": "Zurück", "submit": "Meine Anmeldung einreichen", "submitting": "Wird gesendet...",
+    "successTitle": "Anmeldung erhalten!", "successText": "Ihre Akte wurde erfasst. Ihre Aktennummer lautet:",
+    "successNote": "Bewahren Sie diese Nummer auf. Sie erhalten sie auch per E-Mail. Unser Team prüft Ihre Akte innerhalb von 48h und sendet Ihre Zugangsdaten nach der Validierung.",
+    "recap": "Zusammenfassung Ihrer Anmeldung", "reglementText": "Ich habe die Hausordnung des Instituts für die Deutsche Sprache gelesen und akzeptiere sie.",
+    "pageTitle": "Anmeldeformular", "pageSubtitle": "Treten Sie dem Institut für die Deutsche Sprache bei. Füllen Sie die 3 Schritte aus.",
+    "fields": { "nom": "Nachname", "prenom": "Vorname", "dateNaissance": "Geburtsdatum", "sexe": "Geschlecht", "homme": "Männlich", "femme": "Weiblich", "nationalite": "Nationalität", "adresse": "Adresse", "ville": "Stadt", "codePostal": "Postleitzahl", "telephone": "Telefon / WhatsApp", "email": "E-Mail", "photo": "Ausweis-Foto", "niveau": "Deutschniveau", "typeCours": "Kurstyp", "objectif": "Ziel", "disponibilites": "Verfügbarkeit", "jours": "Bevorzugte Tage", "niveauEtudes": "Bildungsniveau", "profession": "Beruf / Studienfeld", "reglement": "Ich habe die Hausordnung gelesen und akzeptiere sie", "photoClick": "Klicken Sie, um Ihr Foto hinzuzufügen", "photoFormats": "JPG, PNG – max 5MB", "photoUploaded": "Foto hochgeladen" },
+    "typeCours": [
+      { "value": "SEMAINE_MATIN", "label": "Wochentag – Morgen" }, { "value": "SEMAINE_SOIR", "label": "Wochentag – Abend" },
+      { "value": "WEEKEND_SAT_DIM", "label": "Wochenende Samstag + Sonntag" }, { "value": "WEEKEND_SAT_MER_DIM", "label": "Wochenende Sa + Mi + So" },
+      { "value": "EN_LIGNE", "label": "Online" }, { "value": "PRESENTIEL", "label": "Präsenz" }
+    ],
+    "objectifs": [
+      { "value": "ETUDES_ALLEMAGNE", "label": "Studium in Deutschland" }, { "value": "TRAVAIL", "label": "Arbeit" },
+      { "value": "EXAMEN", "label": "Prüfungsvorbereitung" }, { "value": "VOYAGE", "label": "Reise" }, { "value": "AUTRE", "label": "Sonstiges" }
+    ],
+    "dispos": [
+      { "key": "matin", "label": "Morgen 8:00 – 12:00 Uhr" }, { "key": "apresMidi", "label": "Nachmittag 12:00 – 16:00 Uhr" },
+      { "key": "soir", "label": "Abend 16:00 – 20:00 Uhr" }, { "key": "weekend", "label": "Wochenende" }
+    ],
+    "jours": ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+    "niveauEtudes": ["Gymnasium", "Universität", "Beruflich", "Sonstiges"]
+  },
+  "services": {
+    "pageTitle": "Unsere Leistungen", "pageSubtitle": "Umfassende Unterstützung, vom Deutschlernen bis zu Ihrer Integration in Deutschland.",
+    "ctaText": "Bereit, Ihre Reise nach Deutschland zu beginnen?", "ctaBtn": "Jetzt anmelden", "viewOffers": "Angebote ansehen",
+    "items": [
+      { "titre": "Deutschsprachige Ausbildung", "sous": "Niveaus A1 bis C1", "desc": "Strukturierte Kurse für alle Niveaus, vom absoluten Anfänger bis zum Fortgeschrittenen. Gruppen-, Einzel-, Präsenz- oder Online-Kurse.", "points": ["Niveaus A1, A2, B1, B2, C1", "Wochentags Morgen- und Abendkurse", "Wochenenddkurse (Sa+So oder Sa+Mi+So)", "Online-Kurse verfügbar", "Lehrmaterialien bereitgestellt", "Wöchentliche Bewertungen"] },
+      { "titre": "Offizielle Prüfungsvorbereitung", "sous": "Goethe, ÖSD, telc, ECL, TestDaF", "desc": "Intensive Einmonatsprogramme zur Vorbereitung auf international anerkannte Prüfungen. Kostenlos für B1-, B2- und C1-Niveaus bei IDS.", "points": ["Goethe-Zertifikat B1 / B2", "ÖSD B1 / B2", "telc Deutsch B1 / B2", "ECL B1 / B2", "TestDaF (C1-Niveau)", "Kostenlos bei IDS absolviertem Niveau"] },
+      { "titre": "Deutschland-Visumbegleitung", "sous": "Von der Antragstellung bis zur Botschaft", "desc": "Unser Team führt Sie bei jedem Schritt Ihrer Visumantragstellung: Aktenzusammenstellung, Botschaftsterminvorbereitung und Orientierung.", "points": ["Vollständige Aktenzusammenstellung", "Botschaftsterminvorbereitung", "Visumtyp-Orientierung (Student, Arbeit, Ausbildung)", "Überprüfung erforderlicher Dokumente", "Persönliche Beratung", "Begleitung bis zur Entscheidung"] },
+      { "titre": "Universitätsvorbewerbung", "sous": "Für Studierende auf B2-Niveau", "desc": "Wir helfen Ihnen, Ihre Universität in Deutschland zu finden und Ihre Bewerbung für geeignete Studiengänge einzureichen.", "points": ["Informatik", "Bauingenieurwesen", "Maschinenbau", "Elektrotechnik", "B2-Niveau erforderlich", "Vollständige Akte von IDS vorbereitet"] },
+      { "titre": "Ausbildungsvertragssuche", "sous": "Berufsausbildung in Deutschland", "desc": "IDS unterstützt Sie bei der Suche nach einem Ausbildungsvertrag: Lebenslauf, Motivationsschreiben und Interviewvorbereitung.", "points": ["Lebenslauf im deutschen Format", "Angepasstes Motivationsschreiben", "Interviewvorbereitung", "Stellensuche", "Arbeitgebervermittlung", "Bewerbungsbegleitung"] },
+      { "titre": "Sonderangebote und Pakete", "sous": "Alles inklusive, von A1 bis Deutschland", "desc": "Unsere All-in-one-Pakete kombinieren Ausbildung, Visumunterstützung, Vorbewerbung und mehr zu einem vorteilhaften Preis.", "points": ["Vollständige A1- bis B2-Ausbildung", "Anmeldegebühren inklusive", "Prüfungsvorbereitung inklusive", "Vollständige Visumakte", "Universitätsvorbewerbung", "Empfang und Orientierung in Deutschland"], "lien": "/offres-speciales" }
+    ]
+  },
+  "exams": {
+    "pageTitle": "Prüfungsvorbereitungszentrum", "pageSubtitle": "Offizielle deutsche Prüfungen in Europa und Deutschland anerkannt. Bereiten Sie sich mit den Besten vor.",
+    "howTitle": "Wie funktioniert die Vorbereitung?", "howText": "Jede Vorbereitungssitzung dauert 1 Monat. Sie ist darauf ausgelegt, Sie intensiv auf die offizielle Prüfung Ihres Niveaus mit den besten Erfolgschancen vorzubereiten.",
+    "freeNote": "Die Vorbereitung ist für Studierende kostenlos, die die Niveaus B1, B2 oder C1 bei IDS absolviert haben.",
+    "includedTitle": "Was in jeder Vorbereitung enthalten ist",
+    "included": ["Simulation offizieller Prüfungen", "Detaillierte Korrektur und persönliches Feedback", "Hör- und Leseverständnistraining", "Mündliche und schriftliche Ausdrucksvorbereitung", "Authentische Dokumente und vergangene Prüfungsthemen", "Zugang zur IDS-Ressourcenbibliothek"],
+    "perMonth": "pro Monat", "freeForIDS": "Kostenlos für IDS-Schüler",
+    "levels": "Niveau", "levelsPlural": "Niveaus", "ctaBtn": "Für Vorbereitung anmelden",
+    "examItems": [
+      { "type": "ÖSD", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": true, "desc": "ÖSD B1 bestätigt ein in Österreich, Deutschland und der Schweiz anerkanntes Mittelniveau." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": true, "desc": "ÖSD B2 ist für den Zugang zu vielen Berufs- und Studiengängen erforderlich." }] },
+      { "type": "ECL", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "ECL B1 ist eine in mehreren Ländern anerkannte europäische Prüfung." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "ECL B2 bestätigt ein fortgeschrittenes Niveau gemäß dem Gemeinsamen Europäischen Referenzrahmen." }] },
+      { "type": "telc", "niveaux": [{ "niveau": "B1", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Digitales Format am Computer mit deutscher Tastatur. In Deutschland und Europa anerkannte Prüfung." }, { "niveau": "B2", "tarif": "45 000 FCFA", "gratuit": false, "desc": "telc Deutsch B2 wird von deutschen Universitäten und Arbeitgebern weitgehend akzeptiert." }] },
+      { "type": "Goethe", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "Das Goethe-Zertifikat ist das international anerkannteste für die deutsche Sprache." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Goethe B2 ist für den Zugang zu vielen Studiengängen in Deutschland erforderlich." }] },
+      { "type": "TestDaF", "niveaux": [{ "niveau": "C1", "tarif": "50 000 FCFA", "gratuit": false, "desc": "TestDaF ist die Referenzprüfung für die Zulassung an deutschen Universitäten. Mindest-TDN 4 in der Regel erforderlich." }] }
+    ]
+  },
+  "offers": {
+    "pageTitle": "Sonderangebote", "pageSubtitle": "Vollständige Pakete für Ihr Lebensprojekt in Deutschland. Ausbildung, Prüfungen, Visum, Universität — alles inklusive.",
+    "recommended": "Empfohlen", "included": "Was enthalten ist",
+    "perWeek": "Wochentags-Kurse", "perWeekend": "Wochenend-Kurse",
+    "chooseBtn": "Dieses Paket wählen", "contactBtn": "Kontakt aufnehmen",
+    "externalTitle": "Externe Kandidaten", "externalDesc": "Sie haben bereits B2-Niveau anderswo erworben? Profitieren Sie von unseren Begleitservices zu einem reduzierten Preis.",
+    "externalB2": "Sie haben bereits B2-Niveau",
+    "legalNote": "Die endgültige Visuimentscheidung obliegt ausschließlich den deutschen Konsularbehörden. IDS kann die Visumgenehmigung nicht garantieren. Die Teilerstattung des Sérénité-Pakets unterliegt strengen Anspruchsvoraussetzungen im Ausbildungsvertrag.",
+    "guarantee": "Sérénité-Garantie", "guaranteeText": "Bei Visumverweigerung durch die Konsularbehörden verpflichtet sich IDS, 50% des gezahlten Betrags zu erstatten, sofern alle Anspruchsvoraussetzungen erfüllt sind (vollständige Akte, Kursanwesenheit, offizielle Prüfung bestanden).",
+    "packs": [
+      { "titre": "Standard-Studentenpaket", "desc": "Die komplette Lösung für Ihr Studien- oder Arbeitsprojekt in Deutschland. Alles inklusive, von der Sprachausbildung bis zu Ihrer Ankunft.", "prixSemaine": "900.000 FCFA", "prixWeekend": "1.000.000 FCFA", "inclus": ["Vollständige A1- bis B2-Ausbildung", "Anmeldegebühren inklusive", "Offizielle Prüfungsvorbereitung", "Deutsche Universitätsvorbewerbung", "Deutscher Lebenslauf", "Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Vollständige Visumakte", "Diplomübersetzung", "Visumentscheidungsbegleitung", "Empfang und Orientierung in Deutschland"], "badge": null, "hasGuarantee": false },
+      { "titre": "Sérénité-Studentenpaket", "desc": "Alle Inhalte des Standard-Pakets, plus eine Teilerstattungsgarantie bei Visumverweigerung unter strengen Bedingungen.", "prixSemaine": "1.000.000 FCFA", "prixWeekend": "1.100.000 FCFA", "inclus": ["Vollständige A1- bis B2-Ausbildung", "Anmeldegebühren inklusive", "Offizielle Prüfungsvorbereitung", "Deutsche Universitätsvorbewerbung", "Deutscher Lebenslauf", "Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Vollständige Visumakte", "Diplomübersetzung", "Visumentscheidungsbegleitung", "Empfang und Orientierung in Deutschland", "50% Erstattung bei Visumverweigerung (Bedingungen)"], "badge": "Empfohlen", "hasGuarantee": true }
+    ],
+    "external": [
+      { "titre": "Standard-Paket – Externer Kandidat", "prix": "500.000 FCFA", "inclus": ["Vollständige Visumakte", "Universitätsvorbewerbung", "Deutscher Lebenslauf und Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Empfang in Deutschland"] },
+      { "titre": "Sérénité-Paket – Externer Kandidat", "prix": "600.000 FCFA", "inclus": ["Gesamtes externes Standard-Paket", "50% Erstattung bei Visumverweigerung (Bedingungen)"] }
+    ]
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns", "subtitle": "Unser Team ist für Sie da",
+    "name": "Vollständiger Name", "email": "E-Mail", "phone": "Telefon", "subject": "Betreff", "message": "Nachricht",
+    "send": "Nachricht senden", "sending": "Wird gesendet...", "successMsg": "Nachricht erfolgreich gesendet!", "errorMsg": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "infoTitle": "Kontaktinformationen", "addressLabel": "Adresse", "phoneLabel": "Telefon",
+    "whatsappLabel": "WhatsApp", "emailLabel": "E-Mail", "hoursLabel": "Öffnungszeiten",
+    "subjects": ["Kursinformationen", "Anmeldung", "Offizielle Prüfungen", "Deutschland-Visum", "Sonderangebote", "Sonstiges"],
+    "selectSubject": "Betreff auswählen", "messagePlaceholder": "Ihre Nachricht...",
+    "pageTitle": "Kontaktieren Sie uns", "pageSubtitle": "Unser Team ist für alle Ihre Fragen erreichbar.",
+    "formTitle": "Schreiben Sie uns"
+  },
+  "admin": { "dashboard": "Übersicht", "students": "Studenten", "groups": "Gruppen", "exams": "Prüfungen", "invoices": "Abrechnung", "messages": "Nachrichten", "totalStudents": "Studenten gesamt", "newThisWeek": "Neue Anmeldungen (7T)", "pending": "Ausstehend", "totalRevenue": "Gesamtumsatz", "validate": "Bestätigen", "refuse": "Ablehnen", "delete": "Löschen", "details": "Details", "regeneratePwd": "Passwort zurücksetzen", "search": "Suchen...", "export": "CSV exportieren", "statuts": { "EN_ATTENTE": "Ausstehend", "VALIDE": "Bestätigt", "REFUSE": "Abgelehnt" } },
+  "studentSpace": { "title": "Mein Studentenbereich", "myGroup": "Meine Gruppe", "myDocuments": "Meine Dokumente", "downloadCard": "Anmeldekarte herunterladen", "downloadReceipts": "Quittungen herunterladen", "nextEvals": "Nächste Bewertungen", "noGroup": "Sie wurden noch keiner Gruppe zugewiesen.", "notValidated": "Die Zuweisung erfolgt nach der Validierung Ihrer Akte.", "welcomeMsg": "Willkommen,", "statusLabel": "Status Ihrer Akte", "levelLabel": "Niveau", "infoTitle": "Meine Informationen", "receiptsTitle": "Zahlungsbelege", "noReceipts": "Noch keine Belege verfügbar." },
+  "errors": { "required": "Dieses Feld ist erforderlich", "invalidEmail": "Ungültige E-Mail", "invalidPhone": "Ungültige Telefonnummer", "passwordMin": "Mindestens 8 Zeichen", "passwordStrength": "Das Passwort muss mindestens 1 Großbuchstaben, 1 Zahl und 1 Symbol enthalten", "passwordMatch": "Passwörter stimmen nicht überein", "loginFailed": "Falsche Einschreibungsnummer oder falsches Passwort", "serverError": "Ein Serverfehler ist aufgetreten" }
+}

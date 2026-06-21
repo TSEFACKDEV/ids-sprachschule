@@ -1,0 +1,187 @@
+{
+  "nav": { "home": "Home", "about": "About", "courses": "Our Courses", "exams": "Exams", "services": "Services", "offers": "Special Offers", "faq": "FAQ", "contact": "Contact", "studentSpace": "Student Space", "register": "Register" },
+  "topBar": { "address": "Biyem-Assi, Yaoundé – Cameroon", "hours": "Mon – Sat: 8:00 AM – 8:00 PM", "phone": "+49 1573 2878223", "email": "info@ids-sprachschule.com" },
+  "hero": {
+    "tagline": "From A1 to Germany, we guide you every step of the way.",
+    "registerBtn": "Register now", "coursesBtn": "Our courses",
+    "slides": [
+      { "title": "Learn German.", "subtitle": "Study, work and succeed in Germany." },
+      { "title": "Pass your official exams.", "subtitle": "Goethe, ÖSD, telc, ECL, TestDaF" },
+      { "title": "Your German visa,", "subtitle": "we guide you step by step." },
+      { "title": "University pre-enrollment", "subtitle": "Find your place in a German university." },
+      { "title": "Arriving in Germany,", "subtitle": "we are here for you." }
+    ]
+  },
+  "advantages": {
+    "title": "Why choose IDS?",
+    "items": [
+      { "title": "Qualified teachers", "desc": "Certified and experienced instructors" },
+      { "title": "Exam preparation", "desc": "Goethe, ÖSD, telc, ECL, TestDaF" },
+      { "title": "Visa support", "desc": "File, embassy appointment, guidance" },
+      { "title": "Flexible courses", "desc": "Morning, evening, weekend, online" },
+      { "title": "Personal coaching", "desc": "Tailored support for each student" }
+    ]
+  },
+  "stats": { "students": "Students trained", "success": "Success rate", "teachers": "Qualified teachers", "nationalities": "Nationalities" },
+  "about": {
+    "title": "About IDS", "sectionLabel": "Our story", "heading": "Born from a simple ambition",
+    "text": "The Institut für die Deutsche Sprache (IDS) was born from a simple ambition: to offer Cameroon a modern, serious German language training oriented toward international opportunities.",
+    "text2": "Faced with growing demand for studies, vocational training, and careers in Germany, IDS was created to support students and professionals in their language and academic journey.",
+    "text3": "Since its founding, IDS has been committed to providing quality education, innovative teaching methods, and personalized support from learning German to integrating into Germany.",
+    "learnMore": "Learn more",
+    "points": ["Native and certified teachers", "Modern teaching methods", "Support from A1 to Germany", "Personalized follow-up for each student"],
+    "ctaTitle": "Ready to start your journey?", "ctaDesc": "Register online in a few minutes. Our team reviews your file and contacts you quickly.",
+    "ctaPoints": ["100% online registration", "Response within 48h", "Credentials sent by email", "First class within a week"],
+    "ctaBtn": "Register now", "valuesTitle": "Our values",
+    "values": [
+      { "title": "Excellence", "desc": "Superior quality education with modern and proven teaching methods." },
+      { "title": "Support", "desc": "Personalized follow-up of each student, from registration to integration in Germany." },
+      { "title": "Integrity", "desc": "Full transparency in our services, prices and commitments to students." },
+      { "title": "Innovation", "desc": "Digital tools, online courses and constantly updated teaching resources." }
+    ],
+    "teamTitle": "Our team", "locationTitle": "Find us",
+    "address": "Address", "addressValue": "Carrefour Scalom, Africa Finance Building, Biyem-Assi, Yaoundé, Cameroon",
+    "hours": "Hours", "hoursValue": "Monday – Saturday: 8:00 AM – 8:00 PM",
+    "closed": "Sunday: Closed", "contactBtn": "Contact us",
+    "pageTitle": "About IDS", "pageSubtitle": "Our story, mission and the people who make IDS the best German language center in Cameroon.",
+    "teamMembers": [
+      { "nom": "Dr. Klaus Müller", "poste": "Pedagogical Director" },
+      { "nom": "Marie Atangana", "poste": "Course Coordinator" },
+      { "nom": "Hans Weber", "poste": "Certified Teacher" },
+      { "nom": "Sophie Biya", "poste": "Visa & Orientation Advisor" }
+    ]
+  },
+  "courses": {
+    "title": "Our Programs", "sectionLabel": "Programs", "subtitle": "Courses adapted to every level and goal",
+    "register": "Register", "registerLevel": "Register for this level",
+    "learnMore": "Learn more", "viewAll": "View all programs",
+    "duration": "Duration", "months": "months", "price": "Starting from",
+    "whatYouLearn": "What you will learn", "formatsAvailable": "Available formats",
+    "filters": { "all": "All levels", "format": "Format" },
+    "prepExamIncluded": "Free exam preparation included",
+    "pageTitle": "Our Programs", "pageSubtitle": "Courses adapted to every level and goal",
+    "items": [
+      { "key": "a1-a2", "titre": "German A1 – A2", "duree": "2 months per level", "desc": "Language basics: alphabet, greetings, self-introduction, daily life. Ideal for absolute beginners.", "href": "#a1" },
+      { "key": "b1-b2", "titre": "German B1 – B2", "duree": "2 months + 1 month free prep", "desc": "Intermediate to advanced level. Free official exam preparation included from B1.", "href": "#b1" },
+      { "key": "c1", "titre": "German C1", "duree": "2 months + 1 month free prep", "desc": "Advanced mastery. Ideal for entering a German university or accessing qualified positions.", "href": "#c1" },
+      { "key": "examens", "titre": "Exam Preparation", "duree": "1 intensive month", "desc": "Goethe, ÖSD, telc, ECL, TestDaF. Certified exams recognized in Germany and Europe.", "href": "/preparation-examens" },
+      { "key": "intensifs", "titre": "Intensive Courses", "duree": "Flexible", "desc": "Accelerated program to progress quickly. Morning, evening, weekend or online according to your availability.", "href": "/nos-cours" }
+    ],
+    "levels": [
+      { "id": "a1", "niveau": "A1", "titre": "German A1", "description": "Absolute beginner level. You will learn the German alphabet, greetings, self-introduction, numbers, colors and basic expressions of daily life.", "duree": "2 months", "prepGratuite": false, "competences": ["Understand and use familiar expressions", "Introduce yourself and others", "Communicate in a simple way", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Certified teachers"] },
+      { "id": "a2", "niveau": "A2", "titre": "German A2", "description": "Elementary level. You will be able to communicate on familiar topics and understand isolated sentences about your immediate environment.", "duree": "2 months", "prepGratuite": false, "competences": ["Understand sentences on very common topics", "Communicate in simple tasks", "Describe your training, your environment", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Certified teachers"] },
+      { "id": "b1", "niveau": "B1", "titre": "German B1", "description": "Intermediate level. You will understand the key points of clear communication on familiar topics at work, school and leisure.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand the key points of clear language", "Get by in most situations", "Express yourself simply and coherently", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] },
+      { "id": "b2", "niveau": "B2", "titre": "German B2", "description": "Advanced level. You will be able to understand the essential content of complex topics and express yourself spontaneously and fluently with a native speaker.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand complex and abstract texts", "Express yourself spontaneously and fluently", "Present a point of view on a current topic", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] },
+      { "id": "c1", "niveau": "C1", "titre": "German C1", "description": "Mastery level. You will understand a wide range of long and demanding texts and express yourself spontaneously and fluently without searching for words.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand long and demanding texts", "Express yourself spontaneously and fluently", "Use language effectively for social, academic and professional purposes", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] }
+    ],
+    "formats": [
+      { "label": "Weekday morning" }, { "label": "Weekday evening" },
+      { "label": "Weekend Sat+Sun" }, { "label": "Weekend Sat+Wed+Sun" }, { "label": "Online" }
+    ],
+    "allLevels": "All levels"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions", "pageTitle": "Frequently Asked Questions",
+    "pageSubtitle": "All answers to your questions about our courses, exams, visas and services.",
+    "viewAll": "See all questions",
+    "notFoundTitle": "Didn't find your answer?",
+    "notFoundDesc": "Our team is available to answer all your questions Monday to Saturday from 8:00 AM to 8:00 PM.",
+    "notFoundBtn": "Write to us on WhatsApp",
+    "items": [
+      { "q": "Do you help with the visa process?", "a": "Yes, IDS supports its students throughout the German visa application process: file preparation, embassy appointment preparation, and guidance on the appropriate visa type for your project (student, Ausbildung, work)." },
+      { "q": "Do you offer official exam preparation?", "a": "Absolutely. IDS offers preparation for Goethe, ÖSD, telc, ECL and TestDaF exams. Preparation is included free for B1, B2 and C1 levels taken at IDS." },
+      { "q": "Do you help with finding Ausbildung contracts?", "a": "Yes. IDS helps students write a German CV, a motivation letter tailored to German standards, and prepares them for interviews with employers." },
+      { "q": "Is TestDaF mandatory to study in Germany?", "a": "No. TestDaF is one option among several. Depending on the university and program, Goethe B2/C1, telc Deutsch B2/C1 Hochschule or DSH may be accepted. IDS guides you in choosing the most suitable exam for your project." },
+      { "q": "What are the advantages of taking courses at IDS?", "a": "IDS offers qualified and certified teachers, modern teaching methods, free teaching materials, WiFi access, weekly assessments, visa support, university pre-enrollment and personalized follow-up throughout." },
+      { "q": "Do you offer online courses?", "a": "Yes. IDS offers online courses for all levels from A1 to C1. Online courses are conducted via video conferencing platforms with the same qualified teachers and the same curriculum as in-person courses." }
+    ]
+  },
+  "testimonials": { "title": "They trust us" },
+  "footer": { "slogan": "Lernen. Verstehen. Erfolgreich sein.", "quickLinks": "Quick links", "ourCourses": "Our courses", "contact": "Contact", "copyright": "© 2025 Institut für die Deutsche Sprache (IDS) Cameroon. All rights reserved.", "legal": "Legal notice", "privacy": "Privacy policy", "desc": "German language training center based in Yaoundé, Cameroon. From A1 to Germany, we guide you." },
+  "auth": { "login": "Login", "loginTitle": "Student Space", "inscriptionNumber": "Enrollment number", "inscriptionPlaceholder": "IDS-2025-00001", "password": "Password", "forgotPassword": "Forgot password?", "loginBtn": "Log in", "logging": "Logging in...", "changePasswordTitle": "Set your password", "changePasswordInfo": "For your security, please set a personal password before accessing your space.", "newPassword": "New password", "confirmPassword": "Confirm password", "changeBtn": "Update", "changing": "Updating...", "logout": "Logout", "noAccount": "Not registered yet?", "submitFile": "Submit my registration file", "problem": "Login problem?" },
+  "inscription": {
+    "title": "Registration form", "subtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed within 48h.",
+    "step1": "Personal information", "step2": "Training & availability", "step3": "Academic & commitment",
+    "next": "Next", "previous": "Previous", "submit": "Submit my registration", "submitting": "Submitting...",
+    "successTitle": "Registration received!", "successText": "Your file has been registered. Your file number is:",
+    "successNote": "Keep this number. You will also receive it by email. Our team will review your file within 48h and send your login credentials upon validation.",
+    "recap": "Registration summary", "reglementText": "I have read and accept the internal regulations of the Institut für die Deutsche Sprache.",
+    "pageTitle": "Registration form", "pageSubtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed within 48h.",
+    "fields": { "nom": "Last name", "prenom": "First name", "dateNaissance": "Date of birth", "sexe": "Gender", "homme": "Male", "femme": "Female", "nationalite": "Nationality", "adresse": "Address", "ville": "City", "codePostal": "Postal code", "telephone": "Phone / WhatsApp", "email": "Email", "photo": "ID photo", "niveau": "German level", "typeCours": "Course type", "objectif": "Goal", "disponibilites": "Availability", "jours": "Preferred days", "niveauEtudes": "Education level", "profession": "Profession / Field of study", "reglement": "I have read and accept the internal regulations", "photoClick": "Click to add your photo", "photoFormats": "JPG, PNG – max 5MB", "photoUploaded": "Photo uploaded" },
+    "typeCours": [
+      { "value": "SEMAINE_MATIN", "label": "Weekday – Morning" }, { "value": "SEMAINE_SOIR", "label": "Weekday – Evening" },
+      { "value": "WEEKEND_SAT_DIM", "label": "Weekend Saturday + Sunday" }, { "value": "WEEKEND_SAT_MER_DIM", "label": "Weekend Sat + Wed + Sun" },
+      { "value": "EN_LIGNE", "label": "Online" }, { "value": "PRESENTIEL", "label": "In person" }
+    ],
+    "objectifs": [
+      { "value": "ETUDES_ALLEMAGNE", "label": "Studies in Germany" }, { "value": "TRAVAIL", "label": "Work" },
+      { "value": "EXAMEN", "label": "Exam preparation" }, { "value": "VOYAGE", "label": "Travel" }, { "value": "AUTRE", "label": "Other" }
+    ],
+    "dispos": [
+      { "key": "matin", "label": "Morning 8am – 12pm" }, { "key": "apresMidi", "label": "Afternoon 12pm – 4pm" },
+      { "key": "soir", "label": "Evening 4pm – 8pm" }, { "key": "weekend", "label": "Weekend" }
+    ],
+    "jours": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "niveauEtudes": ["High school", "University", "Professional", "Other"]
+  },
+  "services": {
+    "pageTitle": "Our Services", "pageSubtitle": "Comprehensive support, from learning German to your integration in Germany.",
+    "ctaText": "Ready to start your journey to Germany?", "ctaBtn": "Register now", "viewOffers": "View offers",
+    "items": [
+      { "titre": "German language training", "sous": "Levels A1 to C1", "desc": "Structured courses for all levels, from absolute beginner to advanced. Group, individual, in-person or online courses.", "points": ["Levels A1, A2, B1, B2, C1", "Weekday morning and evening courses", "Weekend courses (Sat+Sun or Sat+Wed+Sun)", "Online courses available", "Teaching materials provided", "Weekly assessments"] },
+      { "titre": "Official exam preparation", "sous": "Goethe, ÖSD, telc, ECL, TestDaF", "desc": "Intensive one-month programs to prepare you for internationally recognized exams. Free for B1, B2 and C1 levels taken at IDS.", "points": ["Goethe-Zertifikat B1 / B2", "ÖSD B1 / B2", "telc Deutsch B1 / B2", "ECL B1 / B2", "TestDaF (C1 level)", "Free if level taken at IDS"] },
+      { "titre": "Germany visa support", "sous": "From application to embassy", "desc": "Our team guides you at every step of your visa application: file preparation, consular appointment and guidance.", "points": ["Complete file preparation", "Embassy appointment preparation", "Visa type guidance (student, work, Ausbildung)", "Required document verification", "Personalized advice", "Follow-up until decision"] },
+      { "titre": "University pre-enrollment", "sous": "For B2 level students", "desc": "We help you find your university in Germany and submit your application for programs suited to your profile.", "points": ["Informatik (computer science)", "Bauingenieurwesen (civil engineering)", "Maschinenbau (mechanical engineering)", "Elektrotechnik (electrical engineering)", "B2 level required", "Complete file prepared by IDS"] },
+      { "titre": "Ausbildung contract search", "sous": "Vocational training in Germany", "desc": "IDS supports you in finding an Ausbildung contract: CV writing, motivation letter and interview preparation.", "points": ["German-format CV writing", "Adapted motivation letter", "Interview preparation", "Job search", "Employer networking", "Application follow-up"] },
+      { "titre": "Special offers and packages", "sous": "All-inclusive, from A1 to Germany", "desc": "Our all-in-one packages combine training, visa support, pre-enrollment and more at an advantageous price.", "points": ["Complete A1 to B2 training", "Registration fees included", "Exam preparation included", "Complete visa file", "University pre-enrollment", "Welcome and guidance in Germany"], "lien": "/offres-speciales" }
+    ]
+  },
+  "exams": {
+    "pageTitle": "Exam Preparation Center", "pageSubtitle": "Official German exams recognized in Europe and Germany. Prepare with the best.",
+    "howTitle": "How does preparation work?", "howText": "Each preparation session lasts 1 month. It is designed to prepare you intensively to pass the official exam at your level with the best chances of success.",
+    "freeNote": "Preparation is included free for students who have completed B1, B2 or C1 levels at IDS.",
+    "includedTitle": "What is included in each preparation",
+    "included": ["Simulation of official exams", "Detailed correction and personalized feedback", "Listening and reading comprehension training", "Oral and written expression preparation", "Authentic documents and past exam topics", "Access to IDS resource library"],
+    "perMonth": "per month", "freeForIDS": "Free for IDS students",
+    "levels": "level", "levelsPlural": "levels", "ctaBtn": "Register for preparation",
+    "examItems": [
+      { "type": "ÖSD", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": true, "desc": "ÖSD B1 certifies an intermediate level recognized in Austria, Germany and Switzerland." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": true, "desc": "ÖSD B2 is required for access to many vocational and university programs." }] },
+      { "type": "ECL", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "ECL B1 is a European exam recognized in several countries." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "ECL B2 validates an advanced level according to the Common European Framework." }] },
+      { "type": "telc", "niveaux": [{ "niveau": "B1", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Digital format on computer with German keyboard. Exam recognized in Germany and Europe." }, { "niveau": "B2", "tarif": "45 000 FCFA", "gratuit": false, "desc": "telc Deutsch B2 is widely accepted by German universities and employers." }] },
+      { "type": "Goethe", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "Goethe certification is the most internationally recognized for the German language." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Goethe B2 is required for access to many university programs in Germany." }] },
+      { "type": "TestDaF", "niveaux": [{ "niveau": "C1", "tarif": "50 000 FCFA", "gratuit": false, "desc": "TestDaF is the reference exam for admission to German universities. Minimum TDN 4 level generally required." }] }
+    ]
+  },
+  "offers": {
+    "pageTitle": "Special Offers", "pageSubtitle": "Complete packages for your life project in Germany. Training, exams, visa, university — all included.",
+    "recommended": "Recommended", "included": "What is included",
+    "perWeek": "Weekday courses", "perWeekend": "Weekend courses",
+    "chooseBtn": "Choose this package", "contactBtn": "Contact us",
+    "externalTitle": "External candidates", "externalDesc": "You already have B2 level obtained elsewhere? Benefit from our support services at a reduced rate.",
+    "externalB2": "You already have B2 level",
+    "legalNote": "The final visa decision belongs solely to the German consular authorities. IDS cannot guarantee visa approval. Partial refund of the Serenity Pack is subject to strict eligibility conditions defined in the training contract.",
+    "guarantee": "Serenity Guarantee", "guaranteeText": "In case of visa refusal by consular authorities, IDS commits to refunding 50% of the amount paid, provided all eligibility conditions are met (complete file, course attendance, official exam passed).",
+    "packs": [
+      { "titre": "Standard Student Package", "desc": "The complete solution for your study or work project in Germany. Everything included, from language training to your arrival.", "prixSemaine": "900,000 FCFA", "prixWeekend": "1,000,000 FCFA", "inclus": ["Complete A1 to B2 training", "Registration fees included", "Official exam preparation", "German university pre-enrollment", "German CV writing", "Motivation letter", "Interview preparation", "Application assistance", "Complete visa file", "Diploma translation", "Visa decision follow-up", "Welcome and guidance in Germany"], "badge": null, "hasGuarantee": false },
+      { "titre": "Serenity Student Package", "desc": "All the Standard Package content, plus a partial refund guarantee in case of visa refusal under strict conditions.", "prixSemaine": "1,000,000 FCFA", "prixWeekend": "1,100,000 FCFA", "inclus": ["Complete A1 to B2 training", "Registration fees included", "Official exam preparation", "German university pre-enrollment", "German CV writing", "Motivation letter", "Interview preparation", "Application assistance", "Complete visa file", "Diploma translation", "Visa decision follow-up", "Welcome and guidance in Germany", "50% refund if visa refused (conditions apply)"], "badge": "Recommended", "hasGuarantee": true }
+    ],
+    "external": [
+      { "titre": "Standard Package – External candidate", "prix": "500,000 FCFA", "inclus": ["Complete visa file", "University pre-enrollment", "German CV and motivation letter", "Interview preparation", "Application support", "Welcome in Germany"] },
+      { "titre": "Serenity Package – External candidate", "prix": "600,000 FCFA", "inclus": ["All Standard external package", "50% refund if visa refused (conditions apply)"] }
+    ]
+  },
+  "contact": {
+    "title": "Contact us", "subtitle": "Our team is here to answer you",
+    "name": "Full name", "email": "Email", "phone": "Phone", "subject": "Subject", "message": "Message",
+    "send": "Send message", "sending": "Sending...", "successMsg": "Message sent successfully!", "errorMsg": "An error occurred. Please try again.",
+    "infoTitle": "Contact information", "addressLabel": "Address", "phoneLabel": "Phone",
+    "whatsappLabel": "WhatsApp", "emailLabel": "Email", "hoursLabel": "Hours",
+    "subjects": ["Course information", "Registration", "Official exams", "Germany visa", "Special offers", "Other"],
+    "selectSubject": "Select a subject", "messagePlaceholder": "Your message...",
+    "pageTitle": "Contact us", "pageSubtitle": "Our team is available to answer all your questions.",
+    "formTitle": "Send us a message"
+  },
+  "admin": { "dashboard": "Dashboard", "students": "Students", "groups": "Groups", "exams": "Exams", "invoices": "Invoicing", "messages": "Messaging", "totalStudents": "Total students", "newThisWeek": "New enrollments (7d)", "pending": "Pending", "totalRevenue": "Total revenue", "validate": "Validate", "refuse": "Refuse", "delete": "Delete", "details": "Details", "regeneratePwd": "Reset password", "search": "Search...", "export": "Export CSV", "statuts": { "EN_ATTENTE": "Pending", "VALIDE": "Validated", "REFUSE": "Refused" } },
+  "studentSpace": { "title": "My Student Space", "myGroup": "My group", "myDocuments": "My documents", "downloadCard": "Download my registration card", "downloadReceipts": "Download my receipts", "nextEvals": "Upcoming evaluations", "noGroup": "You have not been assigned to a group yet.", "notValidated": "Assignment occurs after your file is validated.", "welcomeMsg": "Welcome,", "statusLabel": "File status", "levelLabel": "Level", "infoTitle": "My information", "receiptsTitle": "Payment receipts", "noReceipts": "No receipts available yet." },
+  "errors": { "required": "This field is required", "invalidEmail": "Invalid email", "invalidPhone": "Invalid phone number", "passwordMin": "Minimum 8 characters", "passwordStrength": "Password must contain at least 1 uppercase, 1 number and 1 symbol", "passwordMatch": "Passwords do not match", "loginFailed": "Incorrect enrollment number or password", "serverError": "A server error occurred" }
+}
