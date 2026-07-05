@@ -3,7 +3,7 @@
   "topBar": { "address": "Biyem-Assi, Yaoundé – Kamerun", "hours": "Mo – Sa: 8:00 – 20:00 Uhr", "phone": "+49 1573 2878223", "email": "info@ids-sprachschule.com" },
   "hero": {
     "tagline": "Von A1 bis Deutschland begleiten wir Sie den ganzen Weg.",
-    "registerBtn": "Jetzt anmelden", "coursesBtn": "Unsere Kurse",
+    "registerBtn": "Jetzt anmelden", "coursesBtn": "Unsere Kurse",  "testLevel": "Mein Deutschlevel testen",
     "slides": [
       { "title": "Deutsch lernen.", "subtitle": "Studieren, arbeiten und erfolgreich sein in Deutschland." },
       { "title": "Offizielle Prüfungen bestehen.", "subtitle": "Goethe, ÖSD, telc, ECL, TestDaF" },

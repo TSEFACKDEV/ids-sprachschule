@@ -3,7 +3,7 @@
   "topBar": { "address": "Biyem-Assi, Yaoundé – Cameroon", "hours": "Mon – Sat: 8:00 AM – 8:00 PM", "phone": "+49 1573 2878223", "email": "info@ids-sprachschule.com" },
   "hero": {
     "tagline": "From A1 to Germany, we guide you every step of the way.",
-    "registerBtn": "Register now", "coursesBtn": "Our courses",
+    "registerBtn": "Register now", "coursesBtn": "Our courses",  "testLevel": "Assess my German level",
     "slides": [
       { "title": "Learn German.", "subtitle": "Study, work and succeed in Germany." },
       { "title": "Pass your official exams.", "subtitle": "Goethe, ÖSD, telc, ECL, TestDaF" },
