@@ -74,10 +74,11 @@
       { "id": "b2", "niveau": "B2", "titre": "Deutsch B2", "description": "Fortgeschrittenes Niveau. Sie können den wesentlichen Inhalt komplexer Themen verstehen und sich spontan und fließend mit einem Muttersprachler unterhalten.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Komplexe und abstrakte Texte verstehen", "Spontan und fließend kommunizieren", "Einen Standpunkt zu einem aktuellen Thema vertreten", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
       { "id": "c1", "niveau": "C1", "titre": "Deutsch C1", "description": "Beherrschungsniveau. Sie verstehen ein breites Spektrum langer und anspruchsvoller Texte und drücken sich spontan und fließend aus, ohne nach Worten suchen zu müssen.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Lange und anspruchsvolle Texte verstehen", "Spontan und fließend kommunizieren", "Sprache effektiv für soziale, akademische und berufliche Zwecke einsetzen", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] }
     ],
-    "formats": [
-      { "label": "Wochentag Morgen" }, { "label": "Wochentag Abend" },
-      { "label": "Wochenende Sa+So" }, { "label": "Wochenende Sa+Mi+So" }, { "label": "Online" }
-    ],
+   "formats": [
+  { "label": "Tageskurs" },
+  { "label": "Abendkurs" },
+  { "label": "Wochenendkurs (Sa+So)" }
+],
     "allLevels": "Alle Niveaus"
   },
   "faq": {
@@ -161,10 +162,79 @@
     "externalB2": "Sie haben bereits B2-Niveau",
     "legalNote": "Die endgültige Visuimentscheidung obliegt ausschließlich den deutschen Konsularbehörden. IDS kann die Visumgenehmigung nicht garantieren. Die Teilerstattung des Sérénité-Pakets unterliegt strengen Anspruchsvoraussetzungen im Ausbildungsvertrag.",
     "guarantee": "Sérénité-Garantie", "guaranteeText": "Bei Visumverweigerung durch die Konsularbehörden verpflichtet sich IDS, 50% des gezahlten Betrags zu erstatten, sofern alle Anspruchsvoraussetzungen erfüllt sind (vollständige Akte, Kursanwesenheit, offizielle Prüfung bestanden).",
-    "packs": [
-      { "titre": "Standard-Studentenpaket", "desc": "Die komplette Lösung für Ihr Studien- oder Arbeitsprojekt in Deutschland. Alles inklusive, von der Sprachausbildung bis zu Ihrer Ankunft.", "prixSemaine": "900.000 FCFA", "prixWeekend": "1.000.000 FCFA", "inclus": ["Vollständige A1- bis B2-Ausbildung", "Anmeldegebühren inklusive", "Offizielle Prüfungsvorbereitung", "Deutsche Universitätsvorbewerbung", "Deutscher Lebenslauf", "Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Vollständige Visumakte", "Diplomübersetzung", "Visumentscheidungsbegleitung", "Empfang und Orientierung in Deutschland"], "badge": null, "hasGuarantee": false },
-      { "titre": "Sérénité-Studentenpaket", "desc": "Alle Inhalte des Standard-Pakets, plus eine Teilerstattungsgarantie bei Visumverweigerung unter strengen Bedingungen.", "prixSemaine": "1.000.000 FCFA", "prixWeekend": "1.100.000 FCFA", "inclus": ["Vollständige A1- bis B2-Ausbildung", "Anmeldegebühren inklusive", "Offizielle Prüfungsvorbereitung", "Deutsche Universitätsvorbewerbung", "Deutscher Lebenslauf", "Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Vollständige Visumakte", "Diplomübersetzung", "Visumentscheidungsbegleitung", "Empfang und Orientierung in Deutschland", "50% Erstattung bei Visumverweigerung (Bedingungen)"], "badge": "Empfohlen", "hasGuarantee": true }
+   "packs": [
+  {
+    "titre": "Standard-Studentenpaket",
+    "desc": "Die komplette Lösung für Ihr Studien- oder Arbeitsprojekt in Deutschland. Alles inklusive, von der Sprachausbildung bis zu Ihrer Ankunft.",
+    "prixSemaine": "900.000 FCFA",
+    "prixWeekend": "1.000.000 FCFA",
+    "inclus": [
+      "Vollständige Deutschausbildung von A1 bis B2",
+      "Anmeldegebühren inklusive",
+      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL, TestDaF)",
+      "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche",
+      "Vollständige Unterstützung bei Universitätsbewerbungen in Deutschland",
+      "Garantierte Vorbewerbung oder direkte Zulassung für B2-Kandidaten",
+      "Unterstützung bei der Erstellung eines professionellen Lebenslaufs nach deutschen Standards",
+      "Zwei personalisierte Motivationsschreiben auf Deutsch",
+      "Unterstützung bei der Terminvereinbarung und Visaformalitäten",
+      "Unterstützung bei der Eröffnung Ihres Sperrkontos (Finanzierung nicht enthalten)",
+      "Beratung zu Krankenversicherung und Impfungen",
+      "Vollständige Zusammenstellung der Visumantragsunterlagen",
+      "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung",
+      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland"
     ],
+    "badge": null,
+    "hasGuarantee": false
+  },
+  {
+    "titre": "Sérénité-Studentenpaket",
+    "desc": "Alle Inhalte des Standard-Pakets, plus eine Teilerstattungsgarantie bei Visumverweigerung unter strengen Bedingungen.",
+    "prixSemaine": "1.000.000 FCFA",
+    "prixWeekend": "1.100.000 FCFA",
+    "inclus": [
+      "Vollständige Deutschausbildung von A1 bis B2",
+      "Anmeldegebühren inklusive",
+      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL, TestDaF)",
+      "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche",
+      "Vollständige Unterstützung bei Universitätsbewerbungen in Deutschland",
+      "Garantierte Vorbewerbung oder direkte Zulassung für B2-Kandidaten",
+      "Unterstützung bei der Erstellung eines professionellen Lebenslaufs nach deutschen Standards",
+      "Zwei personalisierte Motivationsschreiben auf Deutsch",
+      "Unterstützung bei der Terminvereinbarung und Visaformalitäten",
+      "Unterstützung bei der Eröffnung Ihres Sperrkontos (Finanzierung nicht enthalten)",
+      "Beratung zu Krankenversicherung und Impfungen",
+      "Vollständige Zusammenstellung der Visumantragsunterlagen",
+      "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung",
+      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland",
+      "50% Erstattung bei Visumverweigerung (Bedingungen)"
+    ],
+    "badge": "Empfohlen",
+    "hasGuarantee": true
+  }
+],
+"external": [
+  {
+    "titre": "Standard-Paket – Externer Kandidat",
+    "prix": "450.000 FCFA",
+    "inclus": [
+      "Vollständige Visumantragsmappe",
+      "Universitätsvorbewerbung",
+      "Professioneller Lebenslauf und Motivationsschreiben auf Deutsch",
+      "Interviewvorbereitung",
+      "Bewerbungsunterstützung",
+      "Empfang in Deutschland"
+    ]
+  },
+  {
+    "titre": "Sérénité-Paket – Externer Kandidat",
+    "prix": "450.000 FCFA",
+    "inclus": [
+      "Alle Leistungen des Standard-Pakets für externe Kandidaten",
+      "50% Erstattung bei Visumverweigerung (Bedingungen)"
+    ]
+  }
+],
     "external": [
       { "titre": "Standard-Paket – Externer Kandidat", "prix": "500.000 FCFA", "inclus": ["Vollständige Visumakte", "Universitätsvorbewerbung", "Deutscher Lebenslauf und Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Empfang in Deutschland"] },
       { "titre": "Sérénité-Paket – Externer Kandidat", "prix": "600.000 FCFA", "inclus": ["Gesamtes externes Standard-Paket", "50% Erstattung bei Visumverweigerung (Bedingungen)"] }

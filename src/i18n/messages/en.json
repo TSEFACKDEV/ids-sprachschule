@@ -74,10 +74,11 @@
       { "id": "b2", "niveau": "B2", "titre": "German B2", "description": "Advanced level. You will be able to understand the essential content of complex topics and express yourself spontaneously and fluently with a native speaker.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand complex and abstract texts", "Express yourself spontaneously and fluently", "Present a point of view on a current topic", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] },
       { "id": "c1", "niveau": "C1", "titre": "German C1", "description": "Mastery level. You will understand a wide range of long and demanding texts and express yourself spontaneously and fluently without searching for words.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand long and demanding texts", "Express yourself spontaneously and fluently", "Use language effectively for social, academic and professional purposes", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] }
     ],
-    "formats": [
-      { "label": "Weekday morning" }, { "label": "Weekday evening" },
-      { "label": "Weekend Sat+Sun" }, { "label": "Weekend Sat+Wed+Sun" }, { "label": "Online" }
-    ],
+  "formats": [
+  { "label": "Weekday course" },
+  { "label": "Evening course" },
+  { "label": "Weekend course (Sat+Sun)" }
+],
     "allLevels": "All levels"
   },
   "faq": {
@@ -161,10 +162,79 @@
     "externalB2": "You already have B2 level",
     "legalNote": "The final visa decision belongs solely to the German consular authorities. IDS cannot guarantee visa approval. Partial refund of the Serenity Pack is subject to strict eligibility conditions defined in the training contract.",
     "guarantee": "Serenity Guarantee", "guaranteeText": "In case of visa refusal by consular authorities, IDS commits to refunding 50% of the amount paid, provided all eligibility conditions are met (complete file, course attendance, official exam passed).",
-    "packs": [
-      { "titre": "Standard Student Package", "desc": "The complete solution for your study or work project in Germany. Everything included, from language training to your arrival.", "prixSemaine": "900,000 FCFA", "prixWeekend": "1,000,000 FCFA", "inclus": ["Complete A1 to B2 training", "Registration fees included", "Official exam preparation", "German university pre-enrollment", "German CV writing", "Motivation letter", "Interview preparation", "Application assistance", "Complete visa file", "Diploma translation", "Visa decision follow-up", "Welcome and guidance in Germany"], "badge": null, "hasGuarantee": false },
-      { "titre": "Serenity Student Package", "desc": "All the Standard Package content, plus a partial refund guarantee in case of visa refusal under strict conditions.", "prixSemaine": "1,000,000 FCFA", "prixWeekend": "1,100,000 FCFA", "inclus": ["Complete A1 to B2 training", "Registration fees included", "Official exam preparation", "German university pre-enrollment", "German CV writing", "Motivation letter", "Interview preparation", "Application assistance", "Complete visa file", "Diploma translation", "Visa decision follow-up", "Welcome and guidance in Germany", "50% refund if visa refused (conditions apply)"], "badge": "Recommended", "hasGuarantee": true }
+   "packs": [
+  {
+    "titre": "Standard Student Package",
+    "desc": "The complete solution for your study or work project in Germany. Everything included, from language training to your arrival.",
+    "prixSemaine": "900,000 FCFA",
+    "prixWeekend": "1,000,000 FCFA",
+    "inclus": [
+      "Complete German training from A1 to B2 level",
+      "Registration fees included",
+      "Preparation for official exams (Goethe, telc, ÖSD, ECL, TestDaF)",
+      "Certified translation of your diplomas and academic documents into German",
+      "Full assistance with university applications in Germany",
+      "Guaranteed pre-enrollment or direct admission for B2 candidates",
+      "Assistance with writing a professional CV according to German standards",
+      "Two personalized motivation letters in German",
+      "Assistance with appointment booking and visa formalities",
+      "Assistance with opening your blocked account (funding not included)",
+      "Advice on health insurance and vaccination requirements",
+      "Complete visa application file preparation",
+      "Personalized follow-up of your visa application until final decision",
+      "Welcome, accompaniment and orientation upon arrival in Germany"
     ],
+    "badge": null,
+    "hasGuarantee": false
+  },
+  {
+    "titre": "Serenity Student Package",
+    "desc": "All the Standard Package content, plus a partial refund guarantee in case of visa refusal under strict conditions.",
+    "prixSemaine": "1,000,000 FCFA",
+    "prixWeekend": "1,100,000 FCFA",
+    "inclus": [
+      "Complete German training from A1 to B2 level",
+      "Registration fees included",
+      "Preparation for official exams (Goethe, telc, ÖSD, ECL, TestDaF)",
+      "Certified translation of your diplomas and academic documents into German",
+      "Full assistance with university applications in Germany",
+      "Guaranteed pre-enrollment or direct admission for B2 candidates",
+      "Assistance with writing a professional CV according to German standards",
+      "Two personalized motivation letters in German",
+      "Assistance with appointment booking and visa formalities",
+      "Assistance with opening your blocked account (funding not included)",
+      "Advice on health insurance and vaccination requirements",
+      "Complete visa application file preparation",
+      "Personalized follow-up of your visa application until final decision",
+      "Welcome, accompaniment and orientation upon arrival in Germany",
+      "50% refund in case of visa refusal (conditions apply)"
+    ],
+    "badge": "Recommended",
+    "hasGuarantee": true
+  }
+],
+"external": [
+  {
+    "titre": "Standard Package – External candidate",
+    "prix": "450,000 FCFA",
+    "inclus": [
+      "Complete visa file preparation",
+      "University pre-enrollment",
+      "Professional CV and motivation letters in German",
+      "Interview preparation",
+      "Application support",
+      "Welcome in Germany"
+    ]
+  },
+  {
+    "titre": "Serenity Package – External candidate",
+    "prix": "450,000 FCFA",
+    "inclus": [
+      "All services of the Standard external package",
+      "50% refund if visa refused (conditions apply)"
+    ]
+  }
+],
     "external": [
       { "titre": "Standard Package – External candidate", "prix": "500,000 FCFA", "inclus": ["Complete visa file", "University pre-enrollment", "German CV and motivation letter", "Interview preparation", "Application support", "Welcome in Germany"] },
       { "titre": "Serenity Package – External candidate", "prix": "600,000 FCFA", "inclus": ["All Standard external package", "50% refund if visa refused (conditions apply)"] }
