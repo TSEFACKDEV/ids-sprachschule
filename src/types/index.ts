@@ -55,7 +55,7 @@ export interface EtudiantPublic {
   adresse: string;
   ville: string;
   codePostal?: string;
-  photoUrl?: string;
+  photoUrl?: string | null;
   niveauEtudes: string;
   profession?: string;
   objectif: Objectif;

@@ -273,7 +273,8 @@
     "logout": "Déconnexion",
     "noAccount": "Pas encore inscrit ?",
     "submitFile": "Soumettre mon dossier d'inscription",
-    "problem": "Problème de connexion ?"
+    "problem": "Problème de connexion ?",
+    "contact":"Contact"
   },
   "inscription": {
     "title": "Formulaire d'inscription",
