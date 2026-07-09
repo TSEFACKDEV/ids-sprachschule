@@ -110,6 +110,15 @@ export default function HeroSlider() {
                 >
                   {t("coursesBtn")}
                 </Link>
+                {/* Nouveau bouton : Évaluer mon niveau */}
+                <Link
+                  href="https://share.google/BN7GP8iOWRbM4piLL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-ids-black font-bold rounded-lg hover:bg-ids-gold hover:text-ids-black transition-colors duration-200 text-sm shadow-lg"
+                >
+                  {t("testLevel")}
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>

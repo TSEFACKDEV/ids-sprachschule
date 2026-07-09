@@ -10,11 +10,31 @@ import SafeImage from "@/components/ui/SafeImage";
 type Niveau = "tous" | "A1" | "A2" | "B1" | "B2" | "C1";
 
 const PRIX: Record<string, { prixFCFA: string; prixEUR: string }[]> = {
-  A1: [{ prixFCFA: "85 000 FCFA", prixEUR: "130 €" }, { prixFCFA: "85 000 FCFA", prixEUR: "130 €" }, { prixFCFA: "90 000 FCFA", prixEUR: "137 €" }, { prixFCFA: "90 000 FCFA", prixEUR: "137 €" }, { prixFCFA: "75 000 FCFA", prixEUR: "115 €" }],
-  A2: [{ prixFCFA: "85 000 FCFA", prixEUR: "130 €" }, { prixFCFA: "85 000 FCFA", prixEUR: "130 €" }, { prixFCFA: "90 000 FCFA", prixEUR: "137 €" }, { prixFCFA: "90 000 FCFA", prixEUR: "137 €" }, { prixFCFA: "75 000 FCFA", prixEUR: "115 €" }],
-  B1: [{ prixFCFA: "95 000 FCFA", prixEUR: "145 €" }, { prixFCFA: "95 000 FCFA", prixEUR: "145 €" }, { prixFCFA: "100 000 FCFA", prixEUR: "152 €" }, { prixFCFA: "100 000 FCFA", prixEUR: "152 €" }, { prixFCFA: "85 000 FCFA", prixEUR: "130 €" }],
-  B2: [{ prixFCFA: "100 000 FCFA", prixEUR: "152 €" }, { prixFCFA: "100 000 FCFA", prixEUR: "152 €" }, { prixFCFA: "105 000 FCFA", prixEUR: "160 €" }, { prixFCFA: "105 000 FCFA", prixEUR: "160 €" }, { prixFCFA: "90 000 FCFA", prixEUR: "137 €" }],
-  C1: [{ prixFCFA: "110 000 FCFA", prixEUR: "168 €" }, { prixFCFA: "110 000 FCFA", prixEUR: "168 €" }, { prixFCFA: "115 000 FCFA", prixEUR: "175 €" }, { prixFCFA: "115 000 FCFA", prixEUR: "175 €" }, { prixFCFA: "100 000 FCFA", prixEUR: "152 €" }],
+  A1: [
+    { prixFCFA: "110 000 FCFA", prixEUR: "170 €" },
+    { prixFCFA: "110 000 FCFA", prixEUR: "170 €" },
+    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" }
+  ],
+  A2: [
+    { prixFCFA: "120 000 FCFA", prixEUR: "185 €" },
+    { prixFCFA: "120 000 FCFA", prixEUR: "185 €" },
+    { prixFCFA: "150 000 FCFA", prixEUR: "230 €" }
+  ],
+  B1: [
+    { prixFCFA: "130 000 FCFA", prixEUR: "200 €" },
+    { prixFCFA: "130 000 FCFA", prixEUR: "200 €" },
+    { prixFCFA: "160 000 FCFA", prixEUR: "245 €" }
+  ],
+  B2: [
+    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
+    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
+    { prixFCFA: "170 000 FCFA", prixEUR: "260 €" }
+  ],
+  C1: [
+    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
+    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
+    { prixFCFA: "170 000 FCFA", prixEUR: "260 €" }
+  ]
 };
 
 const IMAGES: Record<string, string> = { a1: "/images/cours/a1.jpg", a2: "/images/cours/a2.jpg", b1: "/images/cours/b1.jpg", b2: "/images/cours/b2.jpg", c1: "/images/cours/c1.jpg" };

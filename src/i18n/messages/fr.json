@@ -21,6 +21,7 @@
     "tagline": "De A1 à l'Allemagne, nous vous accompagnons jusqu'au bout.",
     "registerBtn": "S'inscrire maintenant",
     "coursesBtn": "Nos cours",
+    "testLevel": "Évaluer mon niveau d'allemand",
     "slides": [
       { "title": "Apprenez l'allemand.", "subtitle": "Étudiez, travaillez et réussissez en Allemagne." },
       { "title": "Réussissez vos examens officiels.", "subtitle": "Goethe, ÖSD, telc, ECL, TestDaF" },
@@ -222,11 +223,9 @@
       }
     ],
     "formats": [
-      { "label": "Semaine matin" },
-      { "label": "Semaine soir" },
-      { "label": "Week-end Sam+Dim" },
-      { "label": "Week-end Sam+Mer+Dim" },
-      { "label": "En ligne" }
+        { "label": "Cours du jour" },
+        { "label": "Cours du soir" },
+        { "label": "Cours du week-end (Sam+Dim)" }
     ],
     "allLevels": "Tous les niveaux"
   },
@@ -276,7 +275,8 @@
     "logout": "Déconnexion",
     "noAccount": "Pas encore inscrit ?",
     "submitFile": "Soumettre mon dossier d'inscription",
-    "problem": "Problème de connexion ?"
+    "problem": "Problème de connexion ?",
+    "contact":"Contact"
   },
   "inscription": {
     "title": "Formulaire d'inscription",
@@ -447,21 +447,78 @@
     "guarantee": "Garantie Sérénité",
     "guaranteeText": "En cas de refus de visa par les autorités consulaires, IDS s'engage à rembourser 50% du montant versé, sous réserve que toutes les conditions d'éligibilité soient remplies (dossier complet, assiduité aux cours, examen officiel obtenu).",
     "packs": [
-      {
-        "titre": "Pack Étudiant Standard",
-        "desc": "La solution complète pour votre projet d'études ou de travail en Allemagne. Tout est inclus, de la formation linguistique jusqu'à votre arrivée.",
-        "prixSemaine": "900 000 FCFA", "prixWeekend": "1 000 000 FCFA",
-        "inclus": ["Formation A1 à B2 complète", "Frais d'inscription inclus", "Préparation examens officiels", "Pré-inscription université allemande", "Rédaction CV allemand", "Lettre de motivation", "Préparation aux entretiens", "Assistance aux candidatures", "Dossier visa complet", "Traduction des diplômes", "Suivi de la décision visa", "Accueil et orientation en Allemagne"],
-        "badge": null, "hasGuarantee": false
-      },
-      {
-        "titre": "Pack Étudiant Sérénité",
-        "desc": "Tout le contenu du Pack Standard, avec en plus une garantie de remboursement partiel en cas de refus de visa sous conditions strictes.",
-        "prixSemaine": "1 000 000 FCFA", "prixWeekend": "1 100 000 FCFA",
-        "inclus": ["Formation A1 à B2 complète", "Frais d'inscription inclus", "Préparation examens officiels", "Pré-inscription université allemande", "Rédaction CV allemand", "Lettre de motivation", "Préparation aux entretiens", "Assistance aux candidatures", "Dossier visa complet", "Traduction des diplômes", "Suivi de la décision visa", "Accueil et orientation en Allemagne", "Remboursement 50% si refus visa (sous conditions)"],
-        "badge": "Recommandé", "hasGuarantee": true
-      }
+  {
+    "titre": "Pack Étudiant Standard",
+    "desc": "La solution complète pour votre projet d'études ou de travail en Allemagne. Tout est inclus, de la formation linguistique jusqu'à votre arrivée.",
+    "prixSemaine": "900 000 FCFA",
+    "prixWeekend": "1 000 000 FCFA",
+    "inclus": [
+      "Formation complète en allemand du niveau A1 au B2",
+      "Frais d'inscription inclus",
+      "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL, TestDaF)",
+      "Traduction certifiée de vos diplômes et documents académiques en allemand",
+      "Assistance complète pour les candidatures universitaires en Allemagne",
+      "Garantie d'obtention de préinscriptions ou admission directe pour les candidats B2",
+      "Assistance à la rédaction d'un CV professionnel conforme aux standards allemands",
+      "Rédaction de deux lettres de motivation personnalisées en allemand",
+      "Assistance pour la prise de rendez-vous et formalités préalables au visa",
+      "Assistance pour l'ouverture de votre compte bloqué (sauf financement)",
+      "Conseils pour le choix de l'assurance maladie et informations sur les vaccins",
+      "Constitution complète du dossier de demande de visa",
+      "Suivi personnalisé de votre demande de visa jusqu'à la décision finale",
+      "Accueil, accompagnement et orientation à votre arrivée en Allemagne"
     ],
+    "badge": null,
+    "hasGuarantee": false
+  },
+  {
+    "titre": "Pack Étudiant Sérénité",
+    "desc": "Tout le contenu du Pack Standard, avec en plus une garantie de remboursement partiel en cas de refus de visa sous conditions strictes.",
+    "prixSemaine": "1 000 000 FCFA",
+    "prixWeekend": "1 100 000 FCFA",
+    "inclus": [
+      "Formation complète en allemand du niveau A1 au B2",
+      "Frais d'inscription inclus",
+      "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL, TestDaF)",
+      "Traduction certifiée de vos diplômes et documents académiques en allemand",
+      "Assistance complète pour les candidatures universitaires en Allemagne",
+      "Garantie d'obtention de préinscriptions ou admission directe pour les candidats B2",
+      "Assistance à la rédaction d'un CV professionnel conforme aux standards allemands",
+      "Rédaction de deux lettres de motivation personnalisées en allemand",
+      "Assistance pour la prise de rendez-vous et formalités préalables au visa",
+      "Assistance pour l'ouverture de votre compte bloqué (sauf financement)",
+      "Conseils pour le choix de l'assurance maladie et informations sur les vaccins",
+      "Constitution complète du dossier de demande de visa",
+      "Suivi personnalisé de votre demande de visa jusqu'à la décision finale",
+      "Accueil, accompagnement et orientation à votre arrivée en Allemagne",
+      "Remboursement de 50% du montant en cas de refus de visa (sous conditions)"
+    ],
+    "badge": "Recommandé",
+    "hasGuarantee": true
+  }
+],
+"external": [
+  {
+    "titre": "Pack Standard – Candidat externe",
+    "prix": "450 000 FCFA",
+    "inclus": [
+      "Constitution complète du dossier de visa",
+      "Pré-inscription universitaire",
+      "CV professionnel et lettres de motivation en allemand",
+      "Préparation aux entretiens",
+      "Accompagnement dans les candidatures",
+      "Accueil en Allemagne"
+    ]
+  },
+  {
+    "titre": "Pack Sérénité – Candidat externe",
+    "prix": "450 000 FCFA",
+    "inclus": [
+      "Tous les services du Pack Standard externe",
+      "Remboursement de 50% du montant en cas de refus de visa (sous conditions)"
+    ]
+  }
+],
     "external": [
       {
         "titre": "Pack Standard – Candidat externe", "prix": "500 000 FCFA",
