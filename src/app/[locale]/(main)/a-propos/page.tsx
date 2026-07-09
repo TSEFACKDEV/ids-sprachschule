@@ -31,6 +31,7 @@ export default function AProposPage() {
                 <p>{t("text")}</p>
                 <p>{t("text2")}</p>
                 <p>{t("text3")}</p>
+                <p>{t("text4")}</p>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="relative h-80 lg:h-[420px] rounded-2xl overflow-hidden shadow-xl">

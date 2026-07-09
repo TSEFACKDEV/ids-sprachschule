@@ -48,24 +48,27 @@
   "about": {
     "title": "À propos de IDS",
     "sectionLabel": "Notre histoire",
-    "heading": "Né d'une ambition simple",
-    "text": "L'Institut für die Deutsche Sprache (IDS) est né d'une ambition simple : offrir au Cameroun une formation en langue allemande moderne, sérieuse et orientée vers les opportunités internationales.",
-    "text2": "Face à la demande croissante d'études, de formations professionnelles et de carrières en Allemagne, IDS a été créé pour accompagner les étudiants et professionnels dans leur parcours linguistique et académique.",
-    "text3": "Depuis sa création, IDS s'engage à proposer un enseignement de qualité, des méthodes pédagogiques innovantes et un accompagnement personnalisé allant de l'apprentissage de la langue allemande jusqu'à l'intégration en Allemagne.",
+    "heading": "Une ambition au service de votre avenir",
+    "text": "L'Institut für die Deutsche Sprache (IDS) est né d'une ambition simple : offrir au Cameroun une formation en langue allemande d'excellence, moderne et orientée vers les besoins concrets des étudiants et des professionnels.",
+    "text2": "Face à l'intérêt grandissant pour les études supérieures, les formations professionnelles et les opportunités de carrière en Allemagne, IDS a été créé afin d'offrir un accompagnement complet, allant bien au-delà de l'apprentissage de la langue.",
+    "text3": "Depuis sa création, l'Institut s'engage à proposer un enseignement de qualité dispensé par des enseignants qualifiés, des méthodes pédagogiques innovantes et un suivi personnalisé à chaque étape du parcours de ses apprenants. De la maîtrise de la langue allemande à l'obtention d'une admission universitaire, de la préparation du dossier de visa à l'intégration en Allemagne, IDS accompagne ses étudiants avec professionnalisme, rigueur et engagement.",
+    "text4": "Aujourd'hui, l'Institut für die Deutsche Sprache (IDS) a pour vocation de former des candidats compétents, autonomes et parfaitement préparés à réussir leur projet académique ou professionnel en Allemagne.",
     "learnMore": "En savoir plus",
     "points": [
-      "Enseignants natifs et certifiés",
-      "Méthodes pédagogiques modernes",
-      "Accompagnement de A1 jusqu'à l'Allemagne",
-      "Suivi personnalisé de chaque étudiant"
+      "Enseignants qualifiés, certifiés et expérimentés",
+      "Méthodes pédagogiques modernes et adaptées aux examens officiels",
+      "Cours en journée, en soirée, chaque samedi et dimanche, ainsi qu'en ligne ou en présentiel, pour s'adapter aux contraintes des étudiants, salariés et professionnels",
+      "Accompagnement complet, du niveau A1 jusqu'à votre installation en Allemagne",
+      "Suivi personnalisé tout au long de votre parcours"
     ],
     "ctaTitle": "Prêt à commencer votre parcours ?",
-    "ctaDesc": "Inscrivez-vous en ligne en quelques minutes. Notre équipe examine votre dossier et vous contacte rapidement.",
+    "ctaDesc": "Inscrivez-vous en ligne en quelques minutes. Notre équipe étudie votre dossier et vous contacte sous 24 heures afin de vous accompagner dans les prochaines étapes de votre projet d'études en Allemagne.",
     "ctaPoints": [
-      "Inscription 100% en ligne",
-      "Réponse sous 48h",
-      "Identifiants envoyés par email",
-      "Premier cours en une semaine"
+      "Inscription 100 % en ligne",
+      "Réponse sous 24 heures",
+      "Paiement possible sur place ou à distance",
+      "Une nouvelle rentrée chaque mois",
+      "Cours disponibles en ligne ou en présentiel"
     ],
     "ctaBtn": "S'inscrire maintenant",
     "valuesTitle": "Nos valeurs",
@@ -84,7 +87,7 @@
     "closed": "Dimanche : Fermé",
     "contactBtn": "Nous contacter",
     "pageTitle": "À Propos de IDS",
-    "pageSubtitle": "Notre histoire, notre mission et les femmes et hommes qui font d'IDS le meilleur centre de langue allemande au Cameroun.",
+    "pageSubtitle": "Découvrez notre histoire, notre mission et les valeurs qui font de l'Institut für die Deutsche Sprache (IDS) un partenaire de confiance pour tous ceux qui souhaitent apprendre l'allemand et réaliser leur projet d'études ou de carrière en Allemagne.",
     "teamMembers": [
       { "nom": "Dr. Klaus Müller", "poste": "Directeur pédagogique" },
       { "nom": "Marie Atangana", "poste": "Coordinatrice des cours" },
