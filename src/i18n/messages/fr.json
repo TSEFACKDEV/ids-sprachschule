@@ -108,6 +108,7 @@
     "months": "mois",
     "price": "À partir de",
     "whatYouLearn": "Ce que vous apprendrez",
+    "includedInTraining": "Inclus dans la formation",
     "formatsAvailable": "Formats disponibles",
     "filters": { "all": "Tous les niveaux", "format": "Format" },
     "prepExamIncluded": "Préparation examen offerte",
@@ -153,79 +154,100 @@
     "levels": [
       {
         "id": "a1", "niveau": "A1", "titre": "Allemand A1",
-        "description": "Niveau débutant absolu. Vous apprendrez l'alphabet allemand, les salutations, la présentation personnelle, les nombres, les couleurs et les expressions de base de la vie quotidienne.",
+        "description": "Niveau débutant, aucune connaissance préalable requise. Ce niveau vous permet d'acquérir les bases de la langue allemande. Vous apprendrez l'alphabet, les salutations, les présentations, les nombres, les couleurs, ainsi que les expressions courantes utilisées dans les situations de la vie quotidienne.",
         "duree": "2 mois", "prepGratuite": false,
         "competences": [
-          "Comprendre et utiliser des expressions familières",
-          "Se présenter et présenter quelqu'un",
-          "Communiquer de manière simple",
+          "Comprendre et utiliser des expressions familières de la vie courante",
+          "Se présenter et présenter une autre personne",
+          "Poser des questions simples et y répondre",
+          "Communiquer de manière simple dans des situations du quotidien"
+        ],
+        "inclus": [
           "Livres et supports pédagogiques fournis gratuitement",
-          "Évaluations hebdomadaires",
-          "Accès WiFi gratuit",
-          "Enseignants certifiés"
+          "Évaluations hebdomadaires pour suivre votre progression",
+          "Accès Wi-Fi gratuit",
+          "Formation assurée par des enseignants certifiés"
         ]
       },
       {
         "id": "a2", "niveau": "A2", "titre": "Allemand A2",
-        "description": "Niveau élémentaire. Vous serez capable de communiquer sur des sujets familiers et de comprendre des phrases isolées concernant votre environnement immédiat.",
+        "description": "Niveau élémentaire. À ce niveau, vous développerez votre capacité à communiquer dans des situations courantes et à comprendre des phrases et des expressions fréquemment utilisées en lien avec votre vie quotidienne, votre travail ou vos études.",
         "duree": "2 mois", "prepGratuite": false,
         "competences": [
-          "Comprendre des phrases sur des sujets très fréquents",
-          "Communiquer lors de tâches simples",
-          "Décrire sa formation, son environnement",
+          "Comprendre des phrases et des expressions portant sur des sujets familiers et fréquents",
+          "Communiquer lors de tâches simples nécessitant un échange d'informations",
+          "Décrire votre parcours, votre environnement, vos besoins et vos expériences de manière simple",
+          "Participer à des conversations courantes avec davantage d'aisance"
+        ],
+        "inclus": [
           "Livres et supports pédagogiques fournis gratuitement",
-          "Évaluations hebdomadaires",
-          "Accès WiFi gratuit",
-          "Enseignants certifiés"
+          "Évaluations hebdomadaires pour suivre votre progression",
+          "Accès Wi-Fi gratuit",
+          "Formation assurée par des enseignants certifiés"
         ]
       },
       {
         "id": "b1", "niveau": "B1", "titre": "Allemand B1",
-        "description": "Niveau intermédiaire. Vous comprendrez les points essentiels d'une communication claire sur des sujets familiers au travail, à l'école et dans les loisirs.",
+        "description": "Niveau intermédiaire. À ce niveau, vous serez capable de comprendre les points essentiels d'une communication claire sur des sujets courants liés au travail, aux études, aux loisirs et à la vie quotidienne. Vous développerez votre autonomie à l'oral comme à l'écrit et gagnerez en aisance dans vos échanges.",
         "duree": "2 mois + 1 mois de préparation gratuite", "prepGratuite": true,
         "competences": [
-          "Comprendre les points essentiels d'un langage clair",
-          "Se débrouiller dans la plupart des situations",
-          "S'exprimer de façon simple et cohérente",
+          "Comprendre les points essentiels d'un discours clair sur des sujets familiers",
+          "Vous exprimer de manière simple, claire et cohérente à l'oral et à l'écrit",
+          "Faire face à la plupart des situations rencontrées lors d'un voyage ou dans la vie quotidienne",
+          "Raconter des expériences, exprimer vos opinions et expliquer vos projets"
+        ],
+        "inclus": [
           "Livres et supports pédagogiques fournis gratuitement",
-          "Évaluations hebdomadaires",
-          "Accès WiFi gratuit",
+          "Évaluations hebdomadaires pour suivre votre progression",
+          "Accès Wi-Fi gratuit",
           "Préparation gratuite aux examens officiels incluse"
         ]
       },
       {
         "id": "b2", "niveau": "B2", "titre": "Allemand B2",
-        "description": "Niveau avancé. Vous pourrez comprendre le contenu essentiel de sujets complexes et vous exprimer de façon spontanée et fluide avec un locuteur natif.",
+        "description": "Niveau avancé. À ce niveau, vous serez capable de comprendre le contenu essentiel de textes et de conversations portant sur des sujets complexes. Vous développerez une expression orale et écrite fluide, précise et spontanée, vous permettant d'échanger avec des locuteurs natifs avec aisance.",
         "duree": "2 mois + 1 mois de préparation gratuite", "prepGratuite": true,
         "competences": [
-          "Comprendre des textes complexes et abstraits",
-          "S'exprimer spontanément et couramment",
-          "Présenter un point de vue sur un sujet d'actualité",
+          "Comprendre des textes et des discours complexes, y compris sur des sujets abstraits ou spécialisés",
+          "Vous exprimer de manière spontanée, fluide et précise dans des situations variées",
+          "Défendre et argumenter votre point de vue sur des sujets d'actualité ou de société",
+          "Rédiger des textes clairs, détaillés et bien structurés"
+        ],
+        "inclus": [
           "Livres et supports pédagogiques fournis gratuitement",
-          "Évaluations hebdomadaires",
-          "Accès WiFi gratuit",
+          "Évaluations hebdomadaires pour suivre votre progression",
+          "Accès Wi-Fi gratuit",
           "Préparation gratuite aux examens officiels incluse"
         ]
       },
       {
         "id": "c1", "niveau": "C1", "titre": "Allemand C1",
-        "description": "Niveau maîtrise. Vous comprendrez une grande gamme de textes longs et exigeants et vous vous exprimerez de façon spontanée et fluide sans chercher vos mots.",
+        "description": "Niveau avancé supérieur. À ce niveau, vous maîtriserez l'allemand avec aisance et précision. Vous serez capable de comprendre une grande variété de textes longs et complexes, de vous exprimer de manière spontanée et fluide, et d'utiliser la langue efficacement dans des contextes sociaux, académiques et professionnels.",
         "duree": "2 mois + 1 mois de préparation gratuite", "prepGratuite": true,
         "competences": [
-          "Comprendre des textes longs et exigeants",
-          "S'exprimer spontanément et couramment",
-          "Utiliser la langue de façon efficace pour des fins sociales, académiques et professionnelles",
+          "Comprendre des textes longs, exigeants et implicites",
+          "Vous exprimer de façon spontanée, fluide et précise, sans chercher vos mots",
+          "Utiliser l'allemand avec efficacité dans des contextes sociaux, universitaires et professionnels",
+          "Produire des discours et des écrits clairs, bien structurés et adaptés à différents publics"
+        ],
+        "inclus": [
           "Livres et supports pédagogiques fournis gratuitement",
-          "Évaluations hebdomadaires",
-          "Accès WiFi gratuit",
+          "Évaluations hebdomadaires pour suivre votre progression",
+          "Accès Wi-Fi gratuit",
           "Préparation gratuite aux examens officiels incluse"
         ]
       }
     ],
+    "supportTitle": "Votre parcours, accompagné à chaque étape",
+    "visaSupport": "Accompagnement visa : conseils et orientation, accompagnement dans la constitution du dossier de demande de visa et soumission de la demande.",
+    "flexibleCourses": "Cours flexibles : des cours de jour, de soir et de week-end, disponibles en ligne ou en présentiel.",
+    "studentSpaceTitle": "Espace étudiant",
+    "studentSpaceDesc": "Accédez à votre espace personnel pour suivre votre progression, vos documents et vos prochaines étapes.",
+    "studentSpaceBtn": "Espace étudiant",
     "formats": [
         { "label": "Cours du jour" },
         { "label": "Cours du soir" },
-        { "label": "Cours du week-end (Sam+Dim)" }
+        { "label": "Cours du week-end (samedi + dimanche)" }
     ],
     "allLevels": "Tous les niveaux"
   },
@@ -433,7 +455,7 @@
   },
   "offers": {
     "pageTitle": "Offres Spéciales",
-    "pageSubtitle": "Des packs complets pour votre projet de vie en Allemagne. Formation, examens, visa, université — tout inclus.",
+    "pageSubtitle": "Des packs complets pour votre projet d'études ou de carrière en Allemagne. Formation, examens, visa, université — tout inclus.",
     "recommended": "Recommandé",
     "included": "Ce qui est inclus",
     "perWeek": "Cours en semaine",
@@ -443,90 +465,88 @@
     "externalTitle": "Candidats externes",
     "externalDesc": "Vous disposez déjà du niveau B2 obtenu ailleurs ? Profitez de nos services d'accompagnement à tarif réduit.",
     "externalB2": "Vous avez déjà le niveau B2",
-    "legalNote": "La décision finale d'attribution du visa appartient uniquement aux autorités consulaires allemandes. IDS ne peut garantir l'obtention d'un visa. Le remboursement partiel du Pack Sérénité est soumis à des conditions strictes d'éligibilité définies dans le contrat de formation.",
+    "legalNote": "Important : la décision finale d'accorder ou de refuser un visa relève exclusivement des autorités consulaires allemandes. Notre rôle est de vous accompagner à chaque étape, de vous préparer efficacement et de constituer un dossier solide afin de maximiser vos chances de succès.",
     "guarantee": "Garantie Sérénité",
     "guaranteeText": "En cas de refus de visa par les autorités consulaires, IDS s'engage à rembourser 50% du montant versé, sous réserve que toutes les conditions d'éligibilité soient remplies (dossier complet, assiduité aux cours, examen officiel obtenu).",
     "packs": [
-  {
-    "titre": "Pack Étudiant Standard",
-    "desc": "La solution complète pour votre projet d'études ou de travail en Allemagne. Tout est inclus, de la formation linguistique jusqu'à votre arrivée.",
-    "prixSemaine": "900 000 FCFA",
-    "prixWeekend": "1 000 000 FCFA",
-    "inclus": [
-      "Formation complète en allemand du niveau A1 au B2",
-      "Frais d'inscription inclus",
-      "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL, TestDaF)",
-      "Traduction certifiée de vos diplômes et documents académiques en allemand",
-      "Assistance complète pour les candidatures universitaires en Allemagne",
-      "Garantie d'obtention de préinscriptions ou admission directe pour les candidats B2",
-      "Assistance à la rédaction d'un CV professionnel conforme aux standards allemands",
-      "Rédaction de deux lettres de motivation personnalisées en allemand",
-      "Assistance pour la prise de rendez-vous et formalités préalables au visa",
-      "Assistance pour l'ouverture de votre compte bloqué (sauf financement)",
-      "Conseils pour le choix de l'assurance maladie et informations sur les vaccins",
-      "Constitution complète du dossier de demande de visa",
-      "Suivi personnalisé de votre demande de visa jusqu'à la décision finale",
-      "Accueil, accompagnement et orientation à votre arrivée en Allemagne"
-    ],
-    "badge": null,
-    "hasGuarantee": false
-  },
-  {
-    "titre": "Pack Étudiant Sérénité",
-    "desc": "Tout le contenu du Pack Standard, avec en plus une garantie de remboursement partiel en cas de refus de visa sous conditions strictes.",
-    "prixSemaine": "1 000 000 FCFA",
-    "prixWeekend": "1 100 000 FCFA",
-    "inclus": [
-      "Formation complète en allemand du niveau A1 au B2",
-      "Frais d'inscription inclus",
-      "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL, TestDaF)",
-      "Traduction certifiée de vos diplômes et documents académiques en allemand",
-      "Assistance complète pour les candidatures universitaires en Allemagne",
-      "Garantie d'obtention de préinscriptions ou admission directe pour les candidats B2",
-      "Assistance à la rédaction d'un CV professionnel conforme aux standards allemands",
-      "Rédaction de deux lettres de motivation personnalisées en allemand",
-      "Assistance pour la prise de rendez-vous et formalités préalables au visa",
-      "Assistance pour l'ouverture de votre compte bloqué (sauf financement)",
-      "Conseils pour le choix de l'assurance maladie et informations sur les vaccins",
-      "Constitution complète du dossier de demande de visa",
-      "Suivi personnalisé de votre demande de visa jusqu'à la décision finale",
-      "Accueil, accompagnement et orientation à votre arrivée en Allemagne",
-      "Remboursement de 50% du montant en cas de refus de visa (sous conditions)"
-    ],
-    "badge": "Recommandé",
-    "hasGuarantee": true
-  }
-],
-"external": [
-  {
-    "titre": "Pack Standard – Candidat externe",
-    "prix": "450 000 FCFA",
-    "inclus": [
-      "Constitution complète du dossier de visa",
-      "Pré-inscription universitaire",
-      "CV professionnel et lettres de motivation en allemand",
-      "Préparation aux entretiens",
-      "Accompagnement dans les candidatures",
-      "Accueil en Allemagne"
-    ]
-  },
-  {
-    "titre": "Pack Sérénité – Candidat externe",
-    "prix": "450 000 FCFA",
-    "inclus": [
-      "Tous les services du Pack Standard externe",
-      "Remboursement de 50% du montant en cas de refus de visa (sous conditions)"
-    ]
-  }
-],
-    "external": [
       {
-        "titre": "Pack Standard – Candidat externe", "prix": "500 000 FCFA",
-        "inclus": ["Dossier visa complet", "Pré-inscription universitaire", "CV allemand et lettre de motivation", "Préparation aux entretiens", "Accompagnement candidatures", "Accueil en Allemagne"]
+        "titre": "Pack Étudiant Standard",
+        "desc": "La solution complète pour votre projet d'études ou de travail en Allemagne. Tout est inclus, de la formation linguistique jusqu'à votre arrivée.",
+        "prixSemaine": "900 000 FCFA",
+        "prixSemaineEUR": "1 372 €",
+        "prixWeekend": "1 000 000 FCFA",
+        "prixWeekendEUR": "1 524 €",
+        "inclus": [
+          "Moins de stress et un gain de temps : vous vous concentrez sur vos cours, nous nous chargeons du reste. Nous suivons votre progression ainsi que l'évolution des procédures de l'ambassade afin de lancer votre demande au moment le plus opportun et d'optimiser les délais.",
+          "Formation complète en allemand, du niveau A1 au B2.",
+          "Frais d'inscription inclus.",
+          "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL ou TestDaF).",
+          "Traduction de vos diplômes et documents académiques en allemand par des traducteurs certifiés.",
+          "Assistance complète dans les démarches de candidature auprès des universités et établissements d'enseignement supérieur en Allemagne.",
+          "Garantie d'obtention de préinscriptions dans des universités allemandes ou d'une admission directe pour les candidats disposant d'au moins un niveau B2, quelle que soit leur moyenne au baccalauréat.",
+          "Assistance à la rédaction d'un CV professionnel conforme aux standards allemands.",
+          "Assistance à la rédaction de deux lettres de motivation personnalisées en allemand : l'une destinée aux universités et l'autre à la demande de visa.",
+          "Assistance pour la prise de rendez-vous et les formalités préalables à la demande de visa.",
+          "Assistance pour l'ouverture de votre compte bloqué en Allemagne (le financement du compte reste à votre charge).",
+          "Conseils et assistance dans le choix de votre assurance maladie, ainsi que des informations sur les vaccins obligatoires après l'obtention de votre visa, avec orientation vers les centres de vaccination agréés.",
+          "Constitution complète du dossier de demande de visa.",
+          "Suivi personnalisé de votre demande de visa jusqu'à la décision finale.",
+          "Accueil, accompagnement et orientation à votre arrivée en Allemagne."
+        ],
+        "badge": null,
+        "hasGuarantee": false
       },
       {
-        "titre": "Pack Sérénité – Candidat externe", "prix": "600 000 FCFA",
-        "inclus": ["Tout le Pack Standard externe", "Remboursement 50% si refus visa (sous conditions)"]
+        "titre": "Pack Étudiant Sérénité",
+        "desc": "Tout le contenu du Pack Standard, avec en plus une garantie de remboursement partiel en cas de refus de visa sous conditions strictes.",
+        "prixSemaine": "1 000 000 FCFA",
+        "prixSemaineEUR": "1 524 €",
+        "prixWeekend": "1 100 000 FCFA",
+        "prixWeekendEUR": "1 677 €",
+        "inclus": [
+          "Moins de stress et un gain de temps : vous vous concentrez sur vos cours, nous nous chargeons du reste. Nous suivons votre progression ainsi que l'évolution des procédures de l'ambassade afin de lancer votre demande au moment le plus opportun et d'optimiser les délais.",
+          "Formation complète en allemand, du niveau A1 au B2.",
+          "Frais d'inscription inclus.",
+          "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL ou TestDaF).",
+          "Traduction de vos diplômes et documents académiques en allemand par des traducteurs certifiés.",
+          "Assistance complète dans les démarches de candidature auprès des universités et établissements d'enseignement supérieur en Allemagne.",
+          "Garantie d'obtention de préinscriptions dans des universités allemandes ou d'une admission directe pour les candidats disposant d'au moins un niveau B2, quelle que soit leur moyenne au baccalauréat.",
+          "Assistance à la rédaction d'un CV professionnel conforme aux standards allemands.",
+          "Assistance à la rédaction de deux lettres de motivation personnalisées en allemand : l'une destinée aux universités et l'autre à la demande de visa.",
+          "Assistance pour la prise de rendez-vous et les formalités préalables à la demande de visa.",
+          "Assistance pour l'ouverture de votre compte bloqué en Allemagne (le financement du compte reste à votre charge).",
+          "Conseils et assistance dans le choix de votre assurance maladie, ainsi que des informations sur les vaccins obligatoires après l'obtention de votre visa, avec orientation vers les centres de vaccination agréés.",
+          "Constitution complète du dossier de demande de visa.",
+          "Suivi personnalisé de votre demande de visa jusqu'à la décision finale.",
+          "Accueil, accompagnement et orientation à votre arrivée en Allemagne.",
+          "Remboursement de 50% du montant en cas de refus de visa (sous conditions)."
+        ],
+        "badge": "Recommandé",
+        "hasGuarantee": true
+      }
+    ],
+    "external": [
+      {
+        "titre": "Pack Standard – Candidat externe",
+        "prix": "450 000 FCFA",
+        "prixEUR": "686 €",
+        "inclus": [
+          "Constitution complète du dossier de visa.",
+          "Pré-inscription universitaire.",
+          "CV professionnel et lettres de motivation en allemand.",
+          "Préparation aux entretiens.",
+          "Accompagnement dans les candidatures.",
+          "Accueil en Allemagne."
+        ]
+      },
+      {
+        "titre": "Pack Sérénité – Candidat externe",
+        "prix": "450 000 FCFA",
+        "prixEUR": "686 €",
+        "inclus": [
+          "Tous les services du Pack Standard externe.",
+          "Remboursement de 50% du montant en cas de refus de visa (sous conditions)."
+        ]
       }
     ]
   },

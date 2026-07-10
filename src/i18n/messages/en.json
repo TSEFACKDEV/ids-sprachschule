@@ -30,9 +30,9 @@
     "text3": "Since its founding, the Institute has been committed to providing quality education delivered by qualified teachers, innovative teaching methods, and personalized support at every stage of its learners' journey. From mastering the German language to gaining university admission, from preparing the visa file to integrating into Germany, IDS supports its students with professionalism, rigor and commitment.",
     "text4": "Today, the Institut für die Deutsche Sprache (IDS)'s mission is to train competent, independent candidates who are fully prepared to succeed in their academic or professional project in Germany.",
     "learnMore": "Learn more",
-    "points": ["Qualified, certified and experienced teachers", "Modern teaching methods adapted to official exams", "Courses in the daytime, evening, every Saturday and Sunday, as well as online or in person, to fit the schedules of students, employees and professionals", "Comprehensive support, from A1 level to your settling in Germany", "Personalized follow-up throughout your journey"],
+    "points": ["Qualified, certified and experienced teachers.", "Modern teaching methods adapted to official exams.", "Courses in the daytime, evening, every Saturday and Sunday, as well as online or in person, to fit the schedules of students, employees and professionals.", "Comprehensive support, from A1 level to your settling in Germany.", "Personalized follow-up throughout your journey."],
     "ctaTitle": "Ready to start your journey?", "ctaDesc": "Register online in a few minutes. Our team reviews your file and contacts you within 24 hours to guide you through the next steps of your study project in Germany.",
-    "ctaPoints": ["100% online registration", "Response within 24 hours", "Payment possible on-site or remotely", "New intake every month", "Courses available online or in person"],
+    "ctaPoints": ["100% online registration.", "Response within 24 hours.", "Payment possible on-site or remotely.", "New intake every month.", "Courses available online or in person."],
     "ctaBtn": "Register now", "valuesTitle": "Our values",
     "values": [
       { "title": "Excellence", "desc": "Superior quality education with modern and proven teaching methods." },
@@ -57,7 +57,8 @@
     "register": "Register", "registerLevel": "Register for this level",
     "learnMore": "Learn more", "viewAll": "View all programs",
     "duration": "Duration", "months": "months", "price": "Starting from",
-    "whatYouLearn": "What you will learn", "formatsAvailable": "Available formats",
+    "whatYouLearn": "What you will learn", "includedInTraining": "What's included",
+    "formatsAvailable": "Available formats",
     "filters": { "all": "All levels", "format": "Format" },
     "prepExamIncluded": "Free exam preparation included",
     "pageTitle": "Our Programs", "pageSubtitle": "Courses adapted to every level and goal",
@@ -69,16 +70,22 @@
       { "key": "intensifs", "titre": "Intensive Courses", "duree": "Flexible", "desc": "Accelerated program to progress quickly. Morning, evening, weekend or online according to your availability.", "href": "/nos-cours" }
     ],
     "levels": [
-      { "id": "a1", "niveau": "A1", "titre": "German A1", "description": "Absolute beginner level. You will learn the German alphabet, greetings, self-introduction, numbers, colors and basic expressions of daily life.", "duree": "2 months", "prepGratuite": false, "competences": ["Understand and use familiar expressions", "Introduce yourself and others", "Communicate in a simple way", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Certified teachers"] },
-      { "id": "a2", "niveau": "A2", "titre": "German A2", "description": "Elementary level. You will be able to communicate on familiar topics and understand isolated sentences about your immediate environment.", "duree": "2 months", "prepGratuite": false, "competences": ["Understand sentences on very common topics", "Communicate in simple tasks", "Describe your training, your environment", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Certified teachers"] },
-      { "id": "b1", "niveau": "B1", "titre": "German B1", "description": "Intermediate level. You will understand the key points of clear communication on familiar topics at work, school and leisure.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand the key points of clear language", "Get by in most situations", "Express yourself simply and coherently", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] },
-      { "id": "b2", "niveau": "B2", "titre": "German B2", "description": "Advanced level. You will be able to understand the essential content of complex topics and express yourself spontaneously and fluently with a native speaker.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand complex and abstract texts", "Express yourself spontaneously and fluently", "Present a point of view on a current topic", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] },
-      { "id": "c1", "niveau": "C1", "titre": "German C1", "description": "Mastery level. You will understand a wide range of long and demanding texts and express yourself spontaneously and fluently without searching for words.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand long and demanding texts", "Express yourself spontaneously and fluently", "Use language effectively for social, academic and professional purposes", "Books and teaching materials provided free", "Weekly assessments", "Free WiFi access", "Free official exam preparation included"] }
+      { "id": "a1", "niveau": "A1", "titre": "German A1", "description": "Beginner level, no prior knowledge required. This level lets you acquire the basics of the German language. You will learn the alphabet, greetings, introductions, numbers, colors, and common expressions used in everyday situations.", "duree": "2 months", "prepGratuite": false, "competences": ["Understand and use familiar everyday expressions", "Introduce yourself and someone else", "Ask and answer simple questions", "Communicate simply in everyday situations"], "inclus": ["Books and teaching materials provided free of charge", "Weekly assessments to track your progress", "Free Wi-Fi access", "Training delivered by certified teachers"] },
+      { "id": "a2", "niveau": "A2", "titre": "German A2", "description": "Elementary level. At this level, you will develop your ability to communicate in everyday situations and understand sentences and expressions frequently used in relation to your daily life, work or studies.", "duree": "2 months", "prepGratuite": false, "competences": ["Understand sentences and expressions on familiar, frequent topics", "Communicate in simple tasks requiring an exchange of information", "Describe your background, environment, needs and experiences simply", "Take part in everyday conversations with more ease"], "inclus": ["Books and teaching materials provided free of charge", "Weekly assessments to track your progress", "Free Wi-Fi access", "Training delivered by certified teachers"] },
+      { "id": "b1", "niveau": "B1", "titre": "German B1", "description": "Intermediate level. At this level, you will be able to understand the key points of clear communication on everyday topics related to work, studies, leisure and daily life. You will develop your autonomy in speaking and writing and gain more fluency in your exchanges.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand the key points of clear speech on familiar topics", "Express yourself simply, clearly and coherently in speech and writing", "Handle most situations encountered while traveling or in daily life", "Recount experiences, express opinions and explain plans"], "inclus": ["Books and teaching materials provided free of charge", "Weekly assessments to track your progress", "Free Wi-Fi access", "Free official exam preparation included"] },
+      { "id": "b2", "niveau": "B2", "titre": "German B2", "description": "Advanced level. At this level, you will be able to understand the essential content of texts and conversations on complex topics. You will develop fluent, precise and spontaneous oral and written expression, allowing you to communicate comfortably with native speakers.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand complex texts and speech, including on abstract or specialized topics", "Express yourself spontaneously, fluently and precisely in varied situations", "Defend and argue your point of view on current or social topics", "Write clear, detailed and well-structured texts"], "inclus": ["Books and teaching materials provided free of charge", "Weekly assessments to track your progress", "Free Wi-Fi access", "Free official exam preparation included"] },
+      { "id": "c1", "niveau": "C1", "titre": "German C1", "description": "Upper advanced level. At this level, you will master German with fluency and precision. You will be able to understand a wide range of long and complex texts, express yourself spontaneously and fluently, and use the language effectively in social, academic and professional contexts.", "duree": "2 months + 1 month free preparation", "prepGratuite": true, "competences": ["Understand long, demanding and implicit texts", "Express yourself spontaneously, fluently and precisely, without searching for words", "Use German effectively in social, academic and professional contexts", "Produce clear, well-structured speech and writing suited to different audiences"], "inclus": ["Books and teaching materials provided free of charge", "Weekly assessments to track your progress", "Free Wi-Fi access", "Free official exam preparation included"] }
     ],
+    "supportTitle": "Your journey, supported at every step",
+    "visaSupport": "Visa support: advice and orientation, help preparing your visa documents and submitting your application.",
+    "flexibleCourses": "Flexible courses: daytime, evening and weekend classes, available online or in person.",
+    "studentSpaceTitle": "Student space",
+    "studentSpaceDesc": "Access your personal space to track your progress, documents and next steps.",
+    "studentSpaceBtn": "Student space",
   "formats": [
   { "label": "Weekday course" },
   { "label": "Evening course" },
-  { "label": "Weekend course (Sat+Sun)" }
+  { "label": "Weekend course (Saturday + Sunday)" }
 ],
     "allLevels": "All levels"
   },
@@ -168,22 +175,25 @@
     "titre": "Standard Student Package",
     "desc": "The complete solution for your study or work project in Germany. Everything included, from language training to your arrival.",
     "prixSemaine": "900,000 FCFA",
+    "prixSemaineEUR": "1,372 €",
     "prixWeekend": "1,000,000 FCFA",
+    "prixWeekendEUR": "1,524 €",
     "inclus": [
-      "Complete German training from A1 to B2 level",
-      "Registration fees included",
-      "Preparation for official exams (Goethe, telc, ÖSD, ECL, TestDaF)",
-      "Certified translation of your diplomas and academic documents into German",
-      "Full assistance with university applications in Germany",
-      "Guaranteed pre-enrollment or direct admission for B2 candidates",
-      "Assistance with writing a professional CV according to German standards",
-      "Two personalized motivation letters in German",
-      "Assistance with appointment booking and visa formalities",
-      "Assistance with opening your blocked account (funding not included)",
-      "Advice on health insurance and vaccination requirements",
-      "Complete visa application file preparation",
-      "Personalized follow-up of your visa application until final decision",
-      "Welcome, accompaniment and orientation upon arrival in Germany"
+      "Less stress and time saved: you focus on your courses, we take care of the rest. We track your progress as well as changes in embassy procedures to launch your application at the most opportune moment and optimize processing times.",
+      "Complete German training, from A1 to B2 level.",
+      "Registration fees included.",
+      "Preparation for official exams (Goethe, telc, ÖSD, ECL or TestDaF).",
+      "Certified translation of your diplomas and academic documents into German.",
+      "Full assistance with applications to universities and higher education institutions in Germany.",
+      "Guaranteed pre-enrollment at German universities or direct admission for candidates with at least B2 level, regardless of their high school grade average.",
+      "Assistance with writing a professional CV according to German standards.",
+      "Assistance with writing two personalized motivation letters in German: one for universities and one for the visa application.",
+      "Assistance with appointment booking and preliminary visa formalities.",
+      "Assistance with opening your blocked account in Germany (account funding remains your responsibility).",
+      "Advice and assistance choosing your health insurance, plus information on mandatory vaccinations after obtaining your visa, with guidance to approved vaccination centers.",
+      "Complete visa application file preparation.",
+      "Personalized follow-up of your visa application until the final decision.",
+      "Welcome, accompaniment and orientation upon arrival in Germany."
     ],
     "badge": null,
     "hasGuarantee": false
@@ -192,23 +202,26 @@
     "titre": "Serenity Student Package",
     "desc": "All the Standard Package content, plus a partial refund guarantee in case of visa refusal under strict conditions.",
     "prixSemaine": "1,000,000 FCFA",
+    "prixSemaineEUR": "1,524 €",
     "prixWeekend": "1,100,000 FCFA",
+    "prixWeekendEUR": "1,677 €",
     "inclus": [
-      "Complete German training from A1 to B2 level",
-      "Registration fees included",
-      "Preparation for official exams (Goethe, telc, ÖSD, ECL, TestDaF)",
-      "Certified translation of your diplomas and academic documents into German",
-      "Full assistance with university applications in Germany",
-      "Guaranteed pre-enrollment or direct admission for B2 candidates",
-      "Assistance with writing a professional CV according to German standards",
-      "Two personalized motivation letters in German",
-      "Assistance with appointment booking and visa formalities",
-      "Assistance with opening your blocked account (funding not included)",
-      "Advice on health insurance and vaccination requirements",
-      "Complete visa application file preparation",
-      "Personalized follow-up of your visa application until final decision",
-      "Welcome, accompaniment and orientation upon arrival in Germany",
-      "50% refund in case of visa refusal (conditions apply)"
+      "Less stress and time saved: you focus on your courses, we take care of the rest. We track your progress as well as changes in embassy procedures to launch your application at the most opportune moment and optimize processing times.",
+      "Complete German training, from A1 to B2 level.",
+      "Registration fees included.",
+      "Preparation for official exams (Goethe, telc, ÖSD, ECL or TestDaF).",
+      "Certified translation of your diplomas and academic documents into German.",
+      "Full assistance with applications to universities and higher education institutions in Germany.",
+      "Guaranteed pre-enrollment at German universities or direct admission for candidates with at least B2 level, regardless of their high school grade average.",
+      "Assistance with writing a professional CV according to German standards.",
+      "Assistance with writing two personalized motivation letters in German: one for universities and one for the visa application.",
+      "Assistance with appointment booking and preliminary visa formalities.",
+      "Assistance with opening your blocked account in Germany (account funding remains your responsibility).",
+      "Advice and assistance choosing your health insurance, plus information on mandatory vaccinations after obtaining your visa, with guidance to approved vaccination centers.",
+      "Complete visa application file preparation.",
+      "Personalized follow-up of your visa application until the final decision.",
+      "Welcome, accompaniment and orientation upon arrival in Germany.",
+      "50% refund of the amount paid in case of visa refusal (conditions apply)."
     ],
     "badge": "Recommended",
     "hasGuarantee": true
@@ -218,28 +231,26 @@
   {
     "titre": "Standard Package – External candidate",
     "prix": "450,000 FCFA",
+    "prixEUR": "686 €",
     "inclus": [
-      "Complete visa file preparation",
-      "University pre-enrollment",
-      "Professional CV and motivation letters in German",
-      "Interview preparation",
-      "Application support",
-      "Welcome in Germany"
+      "Complete visa file preparation.",
+      "University pre-enrollment.",
+      "Professional CV and motivation letters in German.",
+      "Interview preparation.",
+      "Application support.",
+      "Welcome in Germany."
     ]
   },
   {
     "titre": "Serenity Package – External candidate",
     "prix": "450,000 FCFA",
+    "prixEUR": "686 €",
     "inclus": [
-      "All services of the Standard external package",
-      "50% refund if visa refused (conditions apply)"
+      "All services of the Standard external package.",
+      "50% refund of the amount paid in case of visa refusal (conditions apply)."
     ]
   }
-],
-    "external": [
-      { "titre": "Standard Package – External candidate", "prix": "500,000 FCFA", "inclus": ["Complete visa file", "University pre-enrollment", "German CV and motivation letter", "Interview preparation", "Application support", "Welcome in Germany"] },
-      { "titre": "Serenity Package – External candidate", "prix": "600,000 FCFA", "inclus": ["All Standard external package", "50% refund if visa refused (conditions apply)"] }
-    ]
+]
   },
   "contact": {
     "title": "Contact us", "subtitle": "Our team is here to answer you",

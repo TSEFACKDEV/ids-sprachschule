@@ -46,7 +46,7 @@ export default function CoursPageContent() {
 
   const levels = t.raw("levels") as {
     id: string; niveau: string; titre: string; description: string;
-    duree: string; prepGratuite: boolean; competences: string[];
+    duree: string; prepGratuite: boolean; competences: string[]; inclus: string[];
   }[];
   const formats = t.raw("formats") as { label: string }[];
   const niveauxFilter: { value: Niveau; label: string }[] = [
@@ -60,6 +60,31 @@ export default function CoursPageContent() {
   return (
     <section className="section-padding bg-ids-gray">
       <div className="container-ids">
+        <div className="mb-10 rounded-2xl bg-ids-black p-6 sm:p-8 text-white shadow-sm">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-ids-gold mb-3">{t("supportTitle")}</p>
+              <div className="space-y-3 text-sm text-gray-300">
+                <div className="flex items-start gap-2">
+                  <FaCheckCircle className="text-ids-red mt-0.5 flex-shrink-0" size={14} />
+                  <span>{t("visaSupport")}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <FaCheckCircle className="text-ids-red mt-0.5 flex-shrink-0" size={14} />
+                  <span>{t("flexibleCourses")}</span>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-5">
+              <h3 className="font-display text-xl font-bold text-white mb-2">{t("studentSpaceTitle")}</h3>
+              <p className="text-sm text-gray-300 mb-4">{t("studentSpaceDesc")}</p>
+              <Link href={`/${locale}/connexion`} className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 bg-ids-red text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-sm">
+                {t("studentSpaceBtn")} <FaArrowRight size={13} />
+              </Link>
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-wrap gap-2 justify-center mb-10">
           {niveauxFilter.map((n) => (
             <button key={n.value} onClick={() => setFilter(n.value)}
@@ -97,6 +122,17 @@ export default function CoursPageContent() {
                           <li key={comp} className="flex items-start gap-2 text-xs text-gray-600">
                             <FaCheckCircle className="text-ids-red flex-shrink-0 mt-0.5" size={12} />
                             {comp}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mb-5">
+                      <p className="text-xs font-bold text-ids-black uppercase tracking-widest mb-3">{t("includedInTraining")}</p>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {cours.inclus.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
+                            <FaCheckCircle className="text-ids-red flex-shrink-0 mt-0.5" size={12} />
+                            {item}
                           </li>
                         ))}
                       </ul>

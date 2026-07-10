@@ -8,10 +8,10 @@ export default function OffresSpecialesPage() {
   const t = useTranslations("offers");
   const locale = useLocale();
   const packs = t.raw("packs") as {
-    titre: string; desc: string; prixSemaine: string; prixWeekend: string;
+    titre: string; desc: string; prixSemaine: string; prixSemaineEUR: string; prixWeekend: string; prixWeekendEUR: string;
     inclus: string[]; badge: string | null; hasGuarantee: boolean;
   }[];
-  const external = t.raw("external") as { titre: string; prix: string; inclus: string[] }[];
+  const external = t.raw("external") as { titre: string; prix: string; prixEUR: string; inclus: string[] }[];
 
   return (
     <div>
@@ -37,12 +37,13 @@ export default function OffresSpecialesPage() {
                 <div className="p-6">
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {[
-                      { label: t("perWeek"), prix: pack.prixSemaine },
-                      { label: t("perWeekend"), prix: pack.prixWeekend },
+                      { label: t("perWeek"), prix: pack.prixSemaine, prixEUR: pack.prixSemaineEUR },
+                      { label: t("perWeekend"), prix: pack.prixWeekend, prixEUR: pack.prixWeekendEUR },
                     ].map((p) => (
                       <div key={p.label} className="bg-ids-gray rounded-xl p-4 text-center">
                         <p className="text-xs text-gray-500 mb-1">{p.label}</p>
                         <p className="font-display font-bold text-ids-black text-lg leading-tight">{p.prix}</p>
+                        <p className="text-xs text-gray-400">{p.prixEUR}</p>
                       </div>
                     ))}
                   </div>
@@ -80,7 +81,8 @@ export default function OffresSpecialesPage() {
                 <div key={pack.titre} className="bg-white rounded-2xl p-6 shadow-sm">
                   <h3 className="font-display text-xl font-bold text-ids-black mb-1">{pack.titre}</h3>
                   <p className="text-ids-red text-sm font-semibold mb-4">{t("externalB2")}</p>
-                  <p className="font-display text-3xl font-bold text-ids-black mb-5">{pack.prix}</p>
+                  <p className="font-display text-3xl font-bold text-ids-black mb-1">{pack.prix}</p>
+                  <p className="text-sm text-gray-400 mb-5">{pack.prixEUR}</p>
                   <ul className="space-y-2 mb-6">
                     {pack.inclus.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-gray-700">

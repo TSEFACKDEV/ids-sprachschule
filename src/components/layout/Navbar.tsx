@@ -180,7 +180,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href={`/${locale}/connexion`}
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-ids-black text-white text-sm font-semibold rounded-lg hover:bg-ids-red transition-colors duration-200"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-ids-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200"
             >
               {t("nav.studentSpace")}
             </Link>
@@ -223,7 +223,7 @@ export default function Navbar() {
                 ))}
                 <Link
                   href={`/${locale}/connexion`}
-                  className="mt-2 px-4 py-3 bg-ids-black text-white text-sm font-semibold rounded-lg text-center hover:bg-ids-red transition-colors"
+                  className="mt-2 px-4 py-3 bg-ids-red text-white text-sm font-semibold rounded-lg text-center hover:bg-red-700 transition-colors"
                 >
                   {t("nav.studentSpace")}
                 </Link>

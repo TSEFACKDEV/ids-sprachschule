@@ -30,9 +30,9 @@
     "text3": "Seit seiner Gründung setzt sich das Institut für eine qualitativ hochwertige Ausbildung durch qualifizierte Lehrkräfte, innovative Lehrmethoden und eine persönliche Betreuung in jeder Phase des Lernwegs seiner Studierenden ein. Von der Beherrschung der deutschen Sprache über die Zulassung an einer Universität bis hin zur Vorbereitung der Visumakte und der Integration in Deutschland begleitet IDS seine Studierenden mit Professionalität, Sorgfalt und Engagement.",
     "text4": "Heute hat sich das Institut für die Deutsche Sprache (IDS) zum Ziel gesetzt, kompetente, selbstständige Kandidaten auszubilden, die bestens darauf vorbereitet sind, ihr akademisches oder berufliches Projekt in Deutschland erfolgreich umzusetzen.",
     "learnMore": "Mehr erfahren",
-    "points": ["Qualifizierte, zertifizierte und erfahrene Lehrkräfte", "Moderne, an offizielle Prüfungen angepasste Lehrmethoden", "Kurse tagsüber, abends, jeden Samstag und Sonntag sowie online oder vor Ort, um sich an die Bedürfnisse von Studierenden, Angestellten und Berufstätigen anzupassen", "Umfassende Begleitung vom Niveau A1 bis zu Ihrer Ankunft in Deutschland", "Persönliche Betreuung während Ihres gesamten Weges"],
+    "points": ["Qualifizierte, zertifizierte und erfahrene Lehrkräfte.", "Moderne, an offizielle Prüfungen angepasste Lehrmethoden.", "Kurse tagsüber, abends, jeden Samstag und Sonntag sowie online oder vor Ort, um sich an die Bedürfnisse von Studierenden, Angestellten und Berufstätigen anzupassen.", "Umfassende Begleitung vom Niveau A1 bis zu Ihrer Ankunft in Deutschland.", "Persönliche Betreuung während Ihres gesamten Weges."],
     "ctaTitle": "Bereit, Ihre Reise zu beginnen?", "ctaDesc": "Melden Sie sich in wenigen Minuten online an. Unser Team prüft Ihre Akte und kontaktiert Sie innerhalb von 24 Stunden, um Sie bei den nächsten Schritten Ihres Studienprojekts in Deutschland zu begleiten.",
-    "ctaPoints": ["100 % Online-Anmeldung", "Antwort innerhalb von 24 Stunden", "Zahlung vor Ort oder aus der Ferne möglich", "Jeden Monat ein neuer Kursstart", "Kurse online oder vor Ort verfügbar"],
+    "ctaPoints": ["100 % Online-Anmeldung.", "Antwort innerhalb von 24 Stunden.", "Zahlung vor Ort oder aus der Ferne möglich.", "Jeden Monat ein neuer Kursstart.", "Kurse online oder vor Ort verfügbar."],
     "ctaBtn": "Jetzt anmelden", "valuesTitle": "Unsere Werte",
     "values": [
       { "title": "Exzellenz", "desc": "Hochwertige Bildung mit modernen und bewährten Lehrmethoden." },
@@ -57,7 +57,8 @@
     "register": "Anmelden", "registerLevel": "Für dieses Niveau anmelden",
     "learnMore": "Mehr erfahren", "viewAll": "Alle Programme anzeigen",
     "duration": "Dauer", "months": "Monate", "price": "Ab",
-    "whatYouLearn": "Was Sie lernen werden", "formatsAvailable": "Verfügbare Formate",
+    "whatYouLearn": "Was Sie lernen werden", "includedInTraining": "In der Ausbildung enthalten",
+    "formatsAvailable": "Verfügbare Formate",
     "filters": { "all": "Alle Niveaus", "format": "Format" },
     "prepExamIncluded": "Kostenlose Prüfungsvorbereitung inklusive",
     "pageTitle": "Unsere Programme", "pageSubtitle": "Kurse für jedes Niveau und jedes Ziel",
@@ -69,16 +70,22 @@
       { "key": "intensifs", "titre": "Intensivkurse", "duree": "Flexibel", "desc": "Beschleunigtes Programm für schnelle Fortschritte. Morgen, Abend, Wochenende oder online je nach Verfügbarkeit.", "href": "/nos-cours" }
     ],
     "levels": [
-      { "id": "a1", "niveau": "A1", "titre": "Deutsch A1", "description": "Absolutes Anfängerniveau. Sie lernen das deutsche Alphabet, Begrüßungen, Vorstellung, Zahlen, Farben und grundlegende Alltagsausdrücke.", "duree": "2 Monate", "prepGratuite": false, "competences": ["Vertraute Ausdrücke verstehen und verwenden", "Sich und andere vorstellen", "Einfach kommunizieren", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Zertifizierte Lehrer"] },
-      { "id": "a2", "niveau": "A2", "titre": "Deutsch A2", "description": "Elementarniveau. Sie können über vertraute Themen kommunizieren und isolierte Sätze über Ihre unmittelbare Umgebung verstehen.", "duree": "2 Monate", "prepGratuite": false, "competences": ["Sätze zu sehr häufigen Themen verstehen", "Bei einfachen Aufgaben kommunizieren", "Ausbildung und Umgebung beschreiben", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Zertifizierte Lehrer"] },
-      { "id": "b1", "niveau": "B1", "titre": "Deutsch B1", "description": "Mittleres Niveau. Sie verstehen die Kernpunkte klarer Kommunikation zu vertrauten Themen bei der Arbeit, in der Schule und in der Freizeit.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Kernpunkte klarer Sprache verstehen", "In den meisten Situationen zurechtkommen", "Sich einfach und zusammenhängend ausdrücken", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
-      { "id": "b2", "niveau": "B2", "titre": "Deutsch B2", "description": "Fortgeschrittenes Niveau. Sie können den wesentlichen Inhalt komplexer Themen verstehen und sich spontan und fließend mit einem Muttersprachler unterhalten.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Komplexe und abstrakte Texte verstehen", "Spontan und fließend kommunizieren", "Einen Standpunkt zu einem aktuellen Thema vertreten", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
-      { "id": "c1", "niveau": "C1", "titre": "Deutsch C1", "description": "Beherrschungsniveau. Sie verstehen ein breites Spektrum langer und anspruchsvoller Texte und drücken sich spontan und fließend aus, ohne nach Worten suchen zu müssen.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Lange und anspruchsvolle Texte verstehen", "Spontan und fließend kommunizieren", "Sprache effektiv für soziale, akademische und berufliche Zwecke einsetzen", "Bücher und Lehrmaterialien kostenlos", "Wöchentliche Bewertungen", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] }
+      { "id": "a1", "niveau": "A1", "titre": "Deutsch A1", "description": "Anfängerniveau, keine Vorkenntnisse erforderlich. Auf diesem Niveau erwerben Sie die Grundlagen der deutschen Sprache. Sie lernen das Alphabet, Begrüßungen, Vorstellungen, Zahlen, Farben sowie gängige Ausdrücke des Alltags.", "duree": "2 Monate", "prepGratuite": false, "competences": ["Vertraute Alltagsausdrücke verstehen und verwenden", "Sich selbst und eine andere Person vorstellen", "Einfache Fragen stellen und beantworten", "Einfach in Alltagssituationen kommunizieren"], "inclus": ["Bücher und Lehrmaterialien kostenlos bereitgestellt", "Wöchentliche Bewertungen zur Verfolgung Ihres Fortschritts", "Kostenloser WLAN-Zugang", "Unterricht durch zertifizierte Lehrkräfte"] },
+      { "id": "a2", "niveau": "A2", "titre": "Deutsch A2", "description": "Elementarniveau. Auf diesem Niveau entwickeln Sie Ihre Fähigkeit, in alltäglichen Situationen zu kommunizieren und Sätze sowie Ausdrücke zu verstehen, die häufig im Zusammenhang mit Ihrem Alltag, Ihrer Arbeit oder Ihrem Studium verwendet werden.", "duree": "2 Monate", "prepGratuite": false, "competences": ["Sätze und Ausdrücke zu vertrauten, häufigen Themen verstehen", "Bei einfachen Aufgaben kommunizieren, die einen Informationsaustausch erfordern", "Ihren Werdegang, Ihre Umgebung, Ihre Bedürfnisse und Erfahrungen einfach beschreiben", "Mit mehr Sicherheit an alltäglichen Gesprächen teilnehmen"], "inclus": ["Bücher und Lehrmaterialien kostenlos bereitgestellt", "Wöchentliche Bewertungen zur Verfolgung Ihres Fortschritts", "Kostenloser WLAN-Zugang", "Unterricht durch zertifizierte Lehrkräfte"] },
+      { "id": "b1", "niveau": "B1", "titre": "Deutsch B1", "description": "Mittleres Niveau. Auf diesem Niveau können Sie die Kernpunkte klarer Kommunikation zu vertrauten Themen bei der Arbeit, im Studium, in der Freizeit und im Alltag verstehen. Sie entwickeln Ihre Selbstständigkeit in Wort und Schrift und gewinnen mehr Sicherheit in Ihren Gesprächen.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Die Kernpunkte klarer Sprache zu vertrauten Themen verstehen", "Sich einfach, klar und zusammenhängend mündlich und schriftlich ausdrücken", "Die meisten Situationen auf Reisen oder im Alltag bewältigen", "Erfahrungen erzählen, Meinungen äußern und Pläne erklären"], "inclus": ["Bücher und Lehrmaterialien kostenlos bereitgestellt", "Wöchentliche Bewertungen zur Verfolgung Ihres Fortschritts", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
+      { "id": "b2", "niveau": "B2", "titre": "Deutsch B2", "description": "Fortgeschrittenes Niveau. Auf diesem Niveau können Sie den wesentlichen Inhalt von Texten und Gesprächen zu komplexen Themen verstehen. Sie entwickeln einen fließenden, präzisen und spontanen mündlichen und schriftlichen Ausdruck, der es Ihnen ermöglicht, mit Muttersprachlern mühelos zu kommunizieren.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Komplexe Texte und Gespräche verstehen, auch zu abstrakten oder spezialisierten Themen", "Sich spontan, flüssig und präzise in verschiedenen Situationen ausdrücken", "Ihren Standpunkt zu aktuellen oder gesellschaftlichen Themen vertreten und begründen", "Klare, detaillierte und gut strukturierte Texte verfassen"], "inclus": ["Bücher und Lehrmaterialien kostenlos bereitgestellt", "Wöchentliche Bewertungen zur Verfolgung Ihres Fortschritts", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] },
+      { "id": "c1", "niveau": "C1", "titre": "Deutsch C1", "description": "Gehobenes fortgeschrittenes Niveau. Auf diesem Niveau beherrschen Sie Deutsch mit Leichtigkeit und Präzision. Sie können eine große Bandbreite langer und komplexer Texte verstehen, sich spontan und flüssig ausdrücken und die Sprache in sozialen, akademischen und beruflichen Kontexten effektiv einsetzen.", "duree": "2 Monate + 1 Monat kostenlose Vorbereitung", "prepGratuite": true, "competences": ["Lange, anspruchsvolle und implizite Texte verstehen", "Sich spontan, flüssig und präzise ausdrücken, ohne nach Worten zu suchen", "Deutsch in sozialen, akademischen und beruflichen Kontexten effektiv einsetzen", "Klare, gut strukturierte Reden und Texte für unterschiedliche Zielgruppen verfassen"], "inclus": ["Bücher und Lehrmaterialien kostenlos bereitgestellt", "Wöchentliche Bewertungen zur Verfolgung Ihres Fortschritts", "Kostenloser WLAN-Zugang", "Kostenlose offizielle Prüfungsvorbereitung inklusive"] }
     ],
+    "supportTitle": "Ihre Reise, an jedem Schritt begleitet",
+    "visaSupport": "Visumbegleitung: Beratung und Orientierung, Unterstützung bei der Erstellung des Visumantrags und dessen Einreichung.",
+    "flexibleCourses": "Flexible Kurse: Tages-, Abend- und Wochenendkurse, online oder vor Ort verfügbar.",
+    "studentSpaceTitle": "Studentenbereich",
+    "studentSpaceDesc": "Zugriff auf Ihren persönlichen Bereich, um Ihren Fortschritt, Ihre Unterlagen und Ihre nächsten Schritte zu verfolgen.",
+    "studentSpaceBtn": "Studentenbereich",
    "formats": [
   { "label": "Tageskurs" },
   { "label": "Abendkurs" },
-  { "label": "Wochenendkurs (Sa+So)" }
+  { "label": "Wochenendkurs (Samstag + Sonntag)" }
 ],
     "allLevels": "Alle Niveaus"
   },
@@ -168,22 +175,25 @@
     "titre": "Standard-Studentenpaket",
     "desc": "Die komplette Lösung für Ihr Studien- oder Arbeitsprojekt in Deutschland. Alles inklusive, von der Sprachausbildung bis zu Ihrer Ankunft.",
     "prixSemaine": "900.000 FCFA",
+    "prixSemaineEUR": "1.372 €",
     "prixWeekend": "1.000.000 FCFA",
+    "prixWeekendEUR": "1.524 €",
     "inclus": [
-      "Vollständige Deutschausbildung von A1 bis B2",
-      "Anmeldegebühren inklusive",
-      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL, TestDaF)",
-      "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche",
-      "Vollständige Unterstützung bei Universitätsbewerbungen in Deutschland",
-      "Garantierte Vorbewerbung oder direkte Zulassung für B2-Kandidaten",
-      "Unterstützung bei der Erstellung eines professionellen Lebenslaufs nach deutschen Standards",
-      "Zwei personalisierte Motivationsschreiben auf Deutsch",
-      "Unterstützung bei der Terminvereinbarung und Visaformalitäten",
-      "Unterstützung bei der Eröffnung Ihres Sperrkontos (Finanzierung nicht enthalten)",
-      "Beratung zu Krankenversicherung und Impfungen",
-      "Vollständige Zusammenstellung der Visumantragsunterlagen",
-      "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung",
-      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland"
+      "Weniger Stress und Zeitersparnis: Sie konzentrieren sich auf Ihren Unterricht, wir kümmern uns um den Rest. Wir verfolgen Ihren Fortschritt sowie die Entwicklung der Botschaftsverfahren, um Ihren Antrag zum optimalen Zeitpunkt zu stellen und die Bearbeitungszeit zu optimieren.",
+      "Vollständige Deutschausbildung, vom Niveau A1 bis B2.",
+      "Anmeldegebühren inklusive.",
+      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL oder TestDaF).",
+      "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche.",
+      "Vollständige Unterstützung bei Bewerbungen an Universitäten und Hochschulen in Deutschland.",
+      "Garantierte Vorbewerbung an deutschen Universitäten oder direkte Zulassung für Kandidaten mit mindestens Niveau B2, unabhängig vom Abiturdurchschnitt.",
+      "Unterstützung bei der Erstellung eines professionellen Lebenslaufs nach deutschen Standards.",
+      "Unterstützung bei der Erstellung von zwei personalisierten Motivationsschreiben auf Deutsch: eines für die Universitäten und eines für den Visumantrag.",
+      "Unterstützung bei der Terminvereinbarung und den vorbereitenden Visaformalitäten.",
+      "Unterstützung bei der Eröffnung Ihres Sperrkontos in Deutschland (die Finanzierung des Kontos bleibt Ihre Aufgabe).",
+      "Beratung und Unterstützung bei der Wahl Ihrer Krankenversicherung sowie Informationen zu Pflichtimpfungen nach Erhalt Ihres Visums, mit Verweis auf zugelassene Impfzentren.",
+      "Vollständige Zusammenstellung der Visumantragsunterlagen.",
+      "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung.",
+      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland."
     ],
     "badge": null,
     "hasGuarantee": false
@@ -192,23 +202,26 @@
     "titre": "Sérénité-Studentenpaket",
     "desc": "Alle Inhalte des Standard-Pakets, plus eine Teilerstattungsgarantie bei Visumverweigerung unter strengen Bedingungen.",
     "prixSemaine": "1.000.000 FCFA",
+    "prixSemaineEUR": "1.524 €",
     "prixWeekend": "1.100.000 FCFA",
+    "prixWeekendEUR": "1.677 €",
     "inclus": [
-      "Vollständige Deutschausbildung von A1 bis B2",
-      "Anmeldegebühren inklusive",
-      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL, TestDaF)",
-      "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche",
-      "Vollständige Unterstützung bei Universitätsbewerbungen in Deutschland",
-      "Garantierte Vorbewerbung oder direkte Zulassung für B2-Kandidaten",
-      "Unterstützung bei der Erstellung eines professionellen Lebenslaufs nach deutschen Standards",
-      "Zwei personalisierte Motivationsschreiben auf Deutsch",
-      "Unterstützung bei der Terminvereinbarung und Visaformalitäten",
-      "Unterstützung bei der Eröffnung Ihres Sperrkontos (Finanzierung nicht enthalten)",
-      "Beratung zu Krankenversicherung und Impfungen",
-      "Vollständige Zusammenstellung der Visumantragsunterlagen",
-      "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung",
-      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland",
-      "50% Erstattung bei Visumverweigerung (Bedingungen)"
+      "Weniger Stress und Zeitersparnis: Sie konzentrieren sich auf Ihren Unterricht, wir kümmern uns um den Rest. Wir verfolgen Ihren Fortschritt sowie die Entwicklung der Botschaftsverfahren, um Ihren Antrag zum optimalen Zeitpunkt zu stellen und die Bearbeitungszeit zu optimieren.",
+      "Vollständige Deutschausbildung, vom Niveau A1 bis B2.",
+      "Anmeldegebühren inklusive.",
+      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL oder TestDaF).",
+      "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche.",
+      "Vollständige Unterstützung bei Bewerbungen an Universitäten und Hochschulen in Deutschland.",
+      "Garantierte Vorbewerbung an deutschen Universitäten oder direkte Zulassung für Kandidaten mit mindestens Niveau B2, unabhängig vom Abiturdurchschnitt.",
+      "Unterstützung bei der Erstellung eines professionellen Lebenslaufs nach deutschen Standards.",
+      "Unterstützung bei der Erstellung von zwei personalisierten Motivationsschreiben auf Deutsch: eines für die Universitäten und eines für den Visumantrag.",
+      "Unterstützung bei der Terminvereinbarung und den vorbereitenden Visaformalitäten.",
+      "Unterstützung bei der Eröffnung Ihres Sperrkontos in Deutschland (die Finanzierung des Kontos bleibt Ihre Aufgabe).",
+      "Beratung und Unterstützung bei der Wahl Ihrer Krankenversicherung sowie Informationen zu Pflichtimpfungen nach Erhalt Ihres Visums, mit Verweis auf zugelassene Impfzentren.",
+      "Vollständige Zusammenstellung der Visumantragsunterlagen.",
+      "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung.",
+      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland.",
+      "50% Erstattung des gezahlten Betrags bei Visumverweigerung (Bedingungen)."
     ],
     "badge": "Empfohlen",
     "hasGuarantee": true
@@ -218,28 +231,26 @@
   {
     "titre": "Standard-Paket – Externer Kandidat",
     "prix": "450.000 FCFA",
+    "prixEUR": "686 €",
     "inclus": [
-      "Vollständige Visumantragsmappe",
-      "Universitätsvorbewerbung",
-      "Professioneller Lebenslauf und Motivationsschreiben auf Deutsch",
-      "Interviewvorbereitung",
-      "Bewerbungsunterstützung",
-      "Empfang in Deutschland"
+      "Vollständige Zusammenstellung der Visumantragsmappe.",
+      "Universitätsvorbewerbung.",
+      "Professioneller Lebenslauf und Motivationsschreiben auf Deutsch.",
+      "Interviewvorbereitung.",
+      "Bewerbungsunterstützung.",
+      "Empfang in Deutschland."
     ]
   },
   {
     "titre": "Sérénité-Paket – Externer Kandidat",
     "prix": "450.000 FCFA",
+    "prixEUR": "686 €",
     "inclus": [
-      "Alle Leistungen des Standard-Pakets für externe Kandidaten",
-      "50% Erstattung bei Visumverweigerung (Bedingungen)"
+      "Alle Leistungen des Standard-Pakets für externe Kandidaten.",
+      "50% Erstattung des gezahlten Betrags bei Visumverweigerung (Bedingungen)."
     ]
   }
-],
-    "external": [
-      { "titre": "Standard-Paket – Externer Kandidat", "prix": "500.000 FCFA", "inclus": ["Vollständige Visumakte", "Universitätsvorbewerbung", "Deutscher Lebenslauf und Motivationsschreiben", "Interviewvorbereitung", "Bewerbungsunterstützung", "Empfang in Deutschland"] },
-      { "titre": "Sérénité-Paket – Externer Kandidat", "prix": "600.000 FCFA", "inclus": ["Gesamtes externes Standard-Paket", "50% Erstattung bei Visumverweigerung (Bedingungen)"] }
-    ]
+]
   },
   "contact": {
     "title": "Kontaktieren Sie uns", "subtitle": "Unser Team ist für Sie da",
