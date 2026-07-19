@@ -47,7 +47,7 @@ const OBJECTIF_LABELS: Record<string, string> = {
   AUTRE: "Autre",
 };
 
-export default function EtudiantsClient() {
+export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
   const [etudiants, setEtudiants] = useState<Etudiant[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -274,7 +274,7 @@ export default function EtudiantsClient() {
                         >
                           <FaEye size={13} />
                         </button>
-                        {e.statut === "EN_ATTENTE" && (
+                        {isAdmin && e.statut === "EN_ATTENTE" && (
                           <>
                             <button
                               onClick={() => handleAction("valider", e.id)}
@@ -292,7 +292,7 @@ export default function EtudiantsClient() {
                             </button>
                           </>
                         )}
-                        {e.statut === "VALIDE" && (
+                        {isAdmin && e.statut === "VALIDE" && (
                           <button
                             onClick={() => handleAction("reset-password", e.id)}
                             title="Régénérer mot de passe"
@@ -301,13 +301,15 @@ export default function EtudiantsClient() {
                             <FaKey size={12} />
                           </button>
                         )}
-                        <button
-                          onClick={() => { setSelectedEtudiant(e); setModalType("delete"); }}
-                          title="Supprimer"
-                          className="w-8 h-8 rounded-lg flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors"
-                        >
-                          <FaTrash size={12} />
-                        </button>
+                        {isAdmin && (
+                          <button
+                            onClick={() => { setSelectedEtudiant(e); setModalType("delete"); }}
+                            title="Supprimer"
+                            className="w-8 h-8 rounded-lg flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors"
+                          >
+                            <FaTrash size={12} />
+                          </button>
+                        )}
                       </div>
                     </td>
                   </motion.tr>
@@ -387,7 +389,7 @@ export default function EtudiantsClient() {
                 </div>
               ))}
             </div>
-            {selectedEtudiant.statut === "EN_ATTENTE" && (
+            {isAdmin && selectedEtudiant.statut === "EN_ATTENTE" && (
               <div className="flex gap-3 pt-2">
                 <Button
                   onClick={() => handleAction("valider", selectedEtudiant.id)}

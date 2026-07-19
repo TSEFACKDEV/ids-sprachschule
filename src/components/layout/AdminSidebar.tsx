@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   FaTachometerAlt, FaUsers, FaLayerGroup, FaGraduationCap,
@@ -19,13 +19,21 @@ export default function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((res) => res.json())
+      .then((data) => { if (data.success) setRole(data.data.authUser.role); })
+      .catch(() => {});
+  }, []);
 
   const navItems = [
     { href: `/${locale}/admin`, label: t("dashboard"), icon: FaTachometerAlt },
     { href: `/${locale}/admin/etudiants`, label: t("students"), icon: FaUsers },
     { href: `/${locale}/admin/groupes`, label: t("groups"), icon: FaLayerGroup },
     { href: `/${locale}/admin/examens`, label: t("exams"), icon: FaGraduationCap },
-    { href: `/${locale}/admin/factures`, label: t("invoices"), icon: FaFileInvoiceDollar },
+    ...(role !== "SECRETAIRE" ? [{ href: `/${locale}/admin/factures`, label: t("invoices"), icon: FaFileInvoiceDollar }] : []),
     { href: `/${locale}/admin/messagerie`, label: t("messages"), icon: FaEnvelope },
   ];
 
@@ -62,6 +70,11 @@ export default function AdminSidebar() {
               </p>
             </div>
           </Link>
+        {role === "SECRETAIRE" && (
+          <span className="mt-3 inline-block bg-ids-gold/20 text-ids-gold text-xs font-bold px-2.5 py-1 rounded-lg">
+            {t("roleSecretaire")}
+          </span>
+        )}
       </div>
       <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
         {navItems.map((item) => {

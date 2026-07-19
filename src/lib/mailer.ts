@@ -41,7 +41,7 @@ function baseTemplate(content: string): string {
             <td style="background:#0a0a0a;padding:20px 32px;text-align:center;">
               <p style="color:#888;font-size:12px;margin:0;">
                 Institut für die Deutsche Sprache – Biyem-Assi, Yaoundé, Cameroun<br/>
-                Email : info@ids-sprachschule.com | WhatsApp : +49 1573 2878223
+                Email : info@ids-sprachschule.com | WhatsApp : +49 1573 0323154
               </p>
             </td>
           </tr>
@@ -56,31 +56,68 @@ function baseTemplate(content: string): string {
 export async function sendInscriptionConfirmation(
   to: string,
   prenom: string,
-  numeroInscription: string
+  nom: string,
+  numeroInscription: string,
+  niveauAllemand: string,
+  tarif: { prixFCFA: string; prixEUR: string } | null
 ): Promise<void> {
+  const ligneFrais = tarif
+    ? `aux <strong>frais de formation du niveau ${niveauAllemand}</strong> choisi : <strong>${tarif.prixFCFA} / ${tarif.prixEUR}</strong> ;`
+    : `aux <strong>frais de formation du niveau ${niveauAllemand}</strong> choisi ;`;
+
   const content = `
-    <p style="color:#333;font-size:16px;">Bonjour <strong>${prenom}</strong>,</p>
+    <p style="color:#333;font-size:16px;">Bonjour <strong>${prenom} ${nom}</strong>,</p>
     <p style="color:#555;font-size:15px;line-height:1.7;margin-top:16px;">
-      Votre dossier d'inscription à l'Institut für die Deutsche Sprache a bien été reçu.
+      Nous vous remercions pour votre inscription à <strong>IDS-Sprachschule</strong>.
     </p>
     <div style="background:#f5f5f5;border-left:4px solid #CC0000;padding:16px 20px;margin:24px 0;border-radius:4px;">
       <p style="margin:0;color:#333;font-size:15px;">
-        Votre numéro de dossier : <strong style="color:#CC0000;">${numeroInscription}</strong>
+        Votre <strong>numéro d'inscription</strong> est : <strong style="color:#CC0000;">${numeroInscription}</strong>
       </p>
     </div>
     <p style="color:#555;font-size:15px;line-height:1.7;">
-      Nous examinerons votre dossier dans les meilleurs délais et vous recevrez vos
-      identifiants de connexion dès validation.
+      Pour confirmer votre inscription, veuillez effectuer votre paiement en utilisant l'un des moyens suivants :
+    </p>
+    <ul style="color:#555;font-size:15px;line-height:1.9;padding-left:20px;">
+      <li><strong>Orange Money :</strong> 695191134</li>
+      <li><strong>MTN Mobile Money :</strong> 681067657</li>
+      <li><strong>PayPal :</strong> paypal@ids-sprachschule.com</li>
+    </ul>
+    <p style="color:#333;font-size:15px;font-weight:bold;margin-top:20px;">Montant à payer :</p>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Le montant total à régler correspond :
+    </p>
+    <ul style="color:#555;font-size:15px;line-height:1.9;padding-left:20px;">
+      <li>${ligneFrais}</li>
+      <li>plus <strong>10 000 FCFA de frais d'inscription</strong>, si vous êtes un <strong>nouvel étudiant</strong>.</li>
+    </ul>
+    <div style="background:#fff3cd;border:1px solid #ffc107;padding:12px 16px;border-radius:4px;margin:20px 0;">
+      <p style="margin:0;color:#856404;font-size:14px;line-height:1.7;">
+        <strong>Important :</strong> les <strong>frais d'inscription de 10 000 FCFA</strong> sont <strong>payables une seule fois</strong>
+        et <strong>uniquement par les nouveaux étudiants</strong>. Une fois réglés, ils restent valables pour l'ensemble de votre
+        parcours à IDS-Sprachschule, quel que soit le nombre de niveaux que vous suivrez.
+      </p>
+    </div>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Vous avez également la possibilité d'effectuer votre paiement <strong>en espèces</strong> directement dans notre centre,
+      situé à <strong>Biyem-Assi, Carrefour Scalom</strong>. Notre centre est <strong>ouvert du lundi au samedi</strong>.
+    </p>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Dès réception de votre paiement, votre inscription sera confirmée et vous recevrez toutes les informations
+      relatives au début de votre formation.
+    </p>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Pour toute question ou information complémentaire, n'hésitez pas à nous contacter.
     </p>
     <p style="color:#555;font-size:15px;margin-top:24px;">Cordialement,</p>
     <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">
-      L'équipe IDS
+      L'équipe IDS-Sprachschule
     </p>`;
 
   await transporter.sendMail({
     from: process.env.EMAIL_FROM!,
     to,
-    subject: "Inscription reçue – IDS",
+    subject: "Inscription reçue – IDS-Sprachschule",
     html: baseTemplate(content),
   });
 }

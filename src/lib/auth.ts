@@ -35,6 +35,19 @@ export async function getAuthUser(): Promise<JWTPayload | null> {
   return verifyToken(token);
 }
 
+// Rôles autorisés à accéder au dashboard (staff).
+// SECRETAIRE a un accès restreint : pas de facturation, pas de validation/refus/suppression
+// de dossiers ni de réinitialisation de mot de passe (actions sensibles réservées à ADMIN).
+const STAFF_ROLES = ["ADMIN", "SECRETAIRE"] as const;
+
+export function isStaff(role: string | undefined): boolean {
+  return !!role && (STAFF_ROLES as readonly string[]).includes(role);
+}
+
+export function isAdmin(role: string | undefined): boolean {
+  return role === "ADMIN";
+}
+
 export function generateTempPassword(): string {
   const upper = "ABCDEFGHJKLMNPQRSTUVWXYZ";
   const lower = "abcdefghjkmnpqrstuvwxyz";

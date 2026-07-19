@@ -1,4 +1,4 @@
-import { getAuthUser } from "@/lib/auth";
+import { getAuthUser, isStaff } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
@@ -7,7 +7,7 @@ import AdminDashboardClient from "./AdminDashboardClient";
 export default async function AdminPage() {
   const locale = await getLocale();
   const authUser = await getAuthUser();
-  if (!authUser || authUser.role !== "ADMIN") redirect(`/${locale}/connexion`);
+  if (!authUser || !isStaff(authUser.role)) redirect(`/${locale}/connexion`);
 
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);

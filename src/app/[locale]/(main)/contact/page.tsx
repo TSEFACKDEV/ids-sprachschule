@@ -9,7 +9,7 @@ export default async function ContactPage() {
   const infos = [
     { icon: FaMapMarkerAlt, label: t("addressLabel"), value: "Carrefour Scalom, Immeuble Africa Finance, Biyem-Assi, Yaoundé", href: null },
     { icon: FaPhone, label: t("phoneLabel"), value: "+49 1573 2878223", href: "tel:+4915732878223" },
-    { icon: FaWhatsapp, label: t("whatsappLabel"), value: "+49 1573 2878223", href: "https://wa.me/4915732878223" },
+    { icon: FaWhatsapp, label: t("whatsappLabel"), value: "+49 1573 0323154", href: "https://wa.me/4915730323154" },
     { icon: FaEnvelope, label: t("emailLabel"), value: "info@ids-sprachschule.com", href: "mailto:info@ids-sprachschule.com" },
     { icon: FaClock, label: t("hoursLabel"), value: "Lun – Sam : 8h00 – 20h00", href: null },
   ];
@@ -43,6 +43,23 @@ export default async function ContactPage() {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <h2 className="font-display font-bold text-ids-black text-lg mb-4">{t("paymentTitle")}</h2>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between gap-2">
+                    <span className="text-gray-400">{t("paymentOrange")}</span>
+                    <span className="font-semibold text-ids-black">695 191 134</span>
+                  </div>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-gray-400">{t("paymentMtn")}</span>
+                    <span className="font-semibold text-ids-black">681 067 657</span>
+                  </div>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-gray-400">{t("paymentPaypal")}</span>
+                    <span className="font-semibold text-ids-black">paypal@ids-sprachschule.com</span>
+                  </div>
                 </div>
               </div>
             </div>

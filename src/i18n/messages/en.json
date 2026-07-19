@@ -18,11 +18,11 @@
       { "title": "Qualified teachers", "desc": "Certified and experienced instructors" },
       { "title": "Exam preparation", "desc": "Goethe, ÖSD, telc, ECL, TestDaF" },
       { "title": "Visa support", "desc": "File, embassy appointment, guidance" },
-      { "title": "Flexible courses", "desc": "Morning, evening, weekend, online" },
+      { "title": "Flexible courses", "desc": "Morning, evening, weekend, online or in person" },
       { "title": "Personal coaching", "desc": "Tailored support for each student" }
     ]
   },
-  "stats": { "students": "Students trained", "success": "Success rate", "teachers": "Qualified teachers", "nationalities": "Nationalities" },
+  "stats": { "students": "Students trained", "success": "Success rate", "teachers": "Qualified teachers" },
   "about": {
     "title": "About IDS", "sectionLabel": "Our story", "heading": "An ambition dedicated to your future",
     "text": "The Institut für die Deutsche Sprache (IDS) was born from a simple ambition: to offer Cameroon an excellent, modern German language training oriented toward the concrete needs of students and professionals.",
@@ -109,17 +109,23 @@
   "footer": { "slogan": "Lernen. Verstehen. Erfolgreich sein.", "quickLinks": "Quick links", "ourCourses": "Our courses", "contact": "Contact", "copyright": "© 2025 Institut für die Deutsche Sprache (IDS) Cameroon. All rights reserved.", "legal": "Legal notice", "privacy": "Privacy policy", "desc": "German language training center based in Yaoundé, Cameroon. From A1 to Germany, we guide you." },
   "auth": { "login": "Login", "loginTitle": "Student Space", "inscriptionNumber": "Enrollment number", "inscriptionPlaceholder": "IDS-2025-00001", "password": "Password", "forgotPassword": "Forgot password?", "loginBtn": "Log in", "logging": "Logging in...", "changePasswordTitle": "Set your password", "changePasswordInfo": "For your security, please set a personal password before accessing your space.", "newPassword": "New password", "confirmPassword": "Confirm password", "changeBtn": "Update", "changing": "Updating...", "logout": "Logout", "noAccount": "Not registered yet?", "submitFile": "Submit my registration file", "problem": "Login problem?", "contact":"Contact" },
 "inscription": {
-    "title": "Registration form", "subtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed within 48h.",
+    "title": "Registration form", "subtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed as soon as possible.",
     "step1": "Personal information", "step2": "Training & availability", "step3": "Academic & commitment",
     "next": "Next", "previous": "Previous", "submit": "Submit my registration", "submitting": "Submitting...",
     "successTitle": "Registration received!", "successText": "Your file has been registered. Your file number is:",
-    "successNote": "Keep this number. You will also receive it by email. Our team will review your file within 48h and send your login credentials upon validation.",
+    "successNote": "You will receive this number by email, along with all the information needed to make your payment. If you prefer, you can also come directly to our center located in Biyem-Assi, at Carrefour Scalom, where our team welcomes you Monday to Saturday.",
     "recap": "Registration summary", "reglementText": "I have read and accept the internal regulations of the Institut für die Deutsche Sprache.",
-    "pageTitle": "Registration form", "pageSubtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed within 48h.",
-    "fields": { "nom": "Last name", "prenom": "First name", "dateNaissance": "Date of birth", "sexe": "Gender", "homme": "Male", "femme": "Female", "nationalite": "Nationality", "adresse": "Address", "ville": "City", "codePostal": "Postal code", "telephone": "Phone / WhatsApp", "email": "Email", "photo": "ID photo", "niveau": "German level", "typeCours": "Course type", "objectif": "Goal", "disponibilites": "Availability", "jours": "Preferred days", "niveauEtudes": "Education level", "profession": "Profession / Field of study", "reglement": "I have read and accept the internal regulations", "photoClick": "Click to add your photo", "photoFormats": "JPG, PNG – max 5MB", "photoUploaded": "Photo uploaded" },
+    "pageTitle": "Registration form", "pageSubtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed as soon as possible.",
+    "paymentTitle": "Our payment methods",
+    "paymentOrange": "Orange Money",
+    "paymentMtn": "MTN Mobile Money",
+    "paymentPaypal": "PayPal",
+    "fields": { "nom": "Last name", "prenom": "First name", "dateNaissance": "Date of birth", "sexe": "Gender", "homme": "Male", "femme": "Female", "nationalite": "Nationality", "adresse": "Address", "ville": "City", "codePostal": "Postal code", "telephone": "Phone / WhatsApp", "email": "Email", "photo": "ID photo", "niveau": "I would like to take the following level", "typeCours": "Course type", "modalites": "Course format", "objectif": "Goal", "disponibilites": "Availability", "jours": "Preferred days", "niveauEtudes": "Education level", "profession": "Profession / Field of study", "reglement": "I have read and accept the internal regulations", "photoClick": "Click to add your photo", "photoFormats": "JPG, PNG – max 5MB", "photoUploaded": "Photo uploaded" },
     "typeCours": [
       { "value": "SEMAINE_MATIN", "label": "Weekday – Morning" }, { "value": "SEMAINE_SOIR", "label": "Weekday – Evening" },
-      { "value": "WEEKEND_SAT_DIM", "label": "Weekend Saturday + Sunday" }, { "value": "WEEKEND_SAT_MER_DIM", "label": "Weekend Sat + Wed + Sun" },
+      { "value": "WEEKEND_SAT_DIM", "label": "Weekend Saturday + Sunday" }
+    ],
+    "modalites": [
       { "value": "EN_LIGNE", "label": "Online" }, { "value": "PRESENTIEL", "label": "In person" }
     ],
     "objectifs": [
@@ -131,7 +137,7 @@
       { "key": "soir", "label": "Evening 4pm – 8pm" }, { "key": "weekend", "label": "Weekend" }
     ],
     "jours": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "niveauEtudes": ["High school", "University", "Professional", "Other"]
+    "niveauEtudes": ["High school diploma", "Bachelor's degree", "Master's degree", "Other"]
   },
   "services": {
     "pageTitle": "Our Services", "pageSubtitle": "Comprehensive support, from learning German to your integration in Germany.",
@@ -152,13 +158,13 @@
     "includedTitle": "What is included in each preparation",
     "included": ["Simulation of official exams", "Detailed correction and personalized feedback", "Listening and reading comprehension training", "Oral and written expression preparation", "Authentic documents and past exam topics", "Access to IDS resource library"],
     "perMonth": "per month", "freeForIDS": "Free for IDS students",
-    "levels": "level", "levelsPlural": "levels", "ctaBtn": "Register for preparation",
+    "levels": "level", "levelsPlural": "levels",
     "examItems": [
-      { "type": "ÖSD", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": true, "desc": "ÖSD B1 certifies an intermediate level recognized in Austria, Germany and Switzerland." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": true, "desc": "ÖSD B2 is required for access to many vocational and university programs." }] },
-      { "type": "ECL", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "ECL B1 is a European exam recognized in several countries." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "ECL B2 validates an advanced level according to the Common European Framework." }] },
-      { "type": "telc", "niveaux": [{ "niveau": "B1", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Digital format on computer with German keyboard. Exam recognized in Germany and Europe." }, { "niveau": "B2", "tarif": "45 000 FCFA", "gratuit": false, "desc": "telc Deutsch B2 is widely accepted by German universities and employers." }] },
-      { "type": "Goethe", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "Goethe certification is the most internationally recognized for the German language." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Goethe B2 is required for access to many university programs in Germany." }] },
-      { "type": "TestDaF", "niveaux": [{ "niveau": "C1", "tarif": "50 000 FCFA", "gratuit": false, "desc": "TestDaF is the reference exam for admission to German universities. Minimum TDN 4 level generally required." }] }
+      { "type": "ÖSD", "niveaux": [{ "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "ÖSD B1 certifies an intermediate level recognized in Austria, Germany and Switzerland." }, { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "ÖSD B2 is required for access to many vocational and university programs." }] },
+      { "type": "ECL", "niveaux": [{ "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "ECL B1 is a European exam recognized in several countries." }, { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "ECL B2 validates an advanced level according to the Common European Framework." }] },
+      { "type": "telc", "niveaux": [{ "niveau": "B1", "tarif": "45 000 FCFA", "tarifEUR": "70 €", "gratuit": true, "desc": "Digital format on computer with German keyboard. Exam recognized in Germany and Europe." }, { "niveau": "B2", "tarif": "45 000 FCFA", "tarifEUR": "70 €", "gratuit": true, "desc": "telc Deutsch B2 is widely accepted by German universities and employers." }] },
+      { "type": "Goethe", "niveaux": [{ "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "Goethe certification is the most internationally recognized for the German language." }, { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "Goethe B2 is required for access to many university programs in Germany." }] },
+      { "type": "TestDaF", "niveaux": [{ "niveau": "C1", "tarif": "50 000 FCFA", "tarifEUR": "76 €", "gratuit": true, "desc": "TestDaF is the reference exam for admission to German universities. Minimum TDN 4 level generally required." }] }
     ]
   },
   "offers": {
@@ -169,11 +175,11 @@
     "externalTitle": "External candidates", "externalDesc": "You already have B2 level obtained elsewhere? Benefit from our support services at a reduced rate.",
     "externalB2": "You already have B2 level",
     "legalNote": "The final visa decision belongs solely to the German consular authorities. IDS cannot guarantee visa approval. Partial refund of the Serenity Pack is subject to strict eligibility conditions defined in the training contract.",
-    "guarantee": "Serenity Guarantee", "guaranteeText": "In case of visa refusal by consular authorities, IDS commits to refunding 50% of the amount paid, provided all eligibility conditions are met (complete file, course attendance, official exam passed).",
+    "guarantee": "Serenity Guarantee", "guaranteeText": "In case of visa refusal by consular authorities, IDS commits to refunding 50% of the amount paid.",
    "packs": [
   {
     "titre": "Standard Student Package",
-    "desc": "The complete solution for your study or work project in Germany. Everything included, from language training to your arrival.",
+    "desc": "The complete solution for your study project in Germany. Everything included, from language training to your arrival.",
     "prixSemaine": "900,000 FCFA",
     "prixSemaineEUR": "1,372 €",
     "prixWeekend": "1,000,000 FCFA",
@@ -200,16 +206,25 @@
   },
   {
     "titre": "Serenity Student Package",
-    "desc": "All the Standard Package content, plus a partial refund guarantee in case of visa refusal under strict conditions.",
+    "desc": "",
     "prixSemaine": "1,000,000 FCFA",
     "prixSemaineEUR": "1,524 €",
     "prixWeekend": "1,100,000 FCFA",
     "prixWeekendEUR": "1,677 €",
     "inclus": [
-      "Less stress and time saved: you focus on your courses, we take care of the rest. We track your progress as well as changes in embassy procedures to launch your application at the most opportune moment and optimize processing times.",
-      "Complete German training, from A1 to B2 level.",
-      "Registration fees included.",
-      "Preparation for official exams (Goethe, telc, ÖSD, ECL or TestDaF).",
+      "All the content of the Standard Student Package",
+      "50% refund of the amount paid in case of visa refusal"
+    ],
+    "badge": "Recommended",
+    "hasGuarantee": true
+  }
+],
+"external": [
+  {
+    "titre": "Standard Package – External candidate",
+    "prix": "500,000 FCFA",
+    "prixEUR": "758 €",
+    "inclus": [
       "Certified translation of your diplomas and academic documents into German.",
       "Full assistance with applications to universities and higher education institutions in Germany.",
       "Guaranteed pre-enrollment at German universities or direct admission for candidates with at least B2 level, regardless of their high school grade average.",
@@ -220,34 +235,16 @@
       "Advice and assistance choosing your health insurance, plus information on mandatory vaccinations after obtaining your visa, with guidance to approved vaccination centers.",
       "Complete visa application file preparation.",
       "Personalized follow-up of your visa application until the final decision.",
-      "Welcome, accompaniment and orientation upon arrival in Germany.",
-      "50% refund of the amount paid in case of visa refusal (conditions apply)."
-    ],
-    "badge": "Recommended",
-    "hasGuarantee": true
-  }
-],
-"external": [
-  {
-    "titre": "Standard Package – External candidate",
-    "prix": "450,000 FCFA",
-    "prixEUR": "686 €",
-    "inclus": [
-      "Complete visa file preparation.",
-      "University pre-enrollment.",
-      "Professional CV and motivation letters in German.",
-      "Interview preparation.",
-      "Application support.",
-      "Welcome in Germany."
+      "Welcome, accompaniment and orientation upon arrival in Germany."
     ]
   },
   {
     "titre": "Serenity Package – External candidate",
-    "prix": "450,000 FCFA",
-    "prixEUR": "686 €",
+    "prix": "550,000 FCFA",
+    "prixEUR": "834 €",
     "inclus": [
       "All services of the Standard external package.",
-      "50% refund of the amount paid in case of visa refusal (conditions apply)."
+      "50% refund of the amount paid in case of visa refusal."
     ]
   }
 ]
@@ -261,9 +258,13 @@
     "subjects": ["Course information", "Registration", "Official exams", "Germany visa", "Special offers", "Other"],
     "selectSubject": "Select a subject", "messagePlaceholder": "Your message...",
     "pageTitle": "Contact us", "pageSubtitle": "Our team is available to answer all your questions.",
-    "formTitle": "Send us a message"
+    "formTitle": "Send us a message",
+    "paymentTitle": "Our payment methods",
+    "paymentOrange": "Orange Money",
+    "paymentMtn": "MTN Mobile Money",
+    "paymentPaypal": "PayPal"
   },
-  "admin": { "dashboard": "Dashboard", "students": "Students", "groups": "Groups", "exams": "Exams", "invoices": "Invoicing", "messages": "Messaging", "totalStudents": "Total students", "newThisWeek": "New enrollments (7d)", "pending": "Pending", "totalRevenue": "Total revenue", "validate": "Validate", "refuse": "Refuse", "delete": "Delete", "details": "Details", "regeneratePwd": "Reset password", "search": "Search...", "export": "Export CSV", "statuts": { "EN_ATTENTE": "Pending", "VALIDE": "Validated", "REFUSE": "Refused" } },
+  "admin": { "dashboard": "Dashboard", "students": "Students", "groups": "Groups", "exams": "Exams", "invoices": "Invoicing", "messages": "Messaging", "totalStudents": "Total students", "newThisWeek": "New enrollments (7d)", "pending": "Pending", "totalRevenue": "Total revenue", "validate": "Validate", "refuse": "Refuse", "delete": "Delete", "details": "Details", "regeneratePwd": "Reset password", "search": "Search...", "export": "Export CSV", "statuts": { "EN_ATTENTE": "Pending", "VALIDE": "Validated", "REFUSE": "Refused" }, "roleSecretaire": "Front desk – restricted access" },
   "studentSpace": { "title": "My Student Space", "myGroup": "My group", "myDocuments": "My documents", "downloadCard": "Download my registration card", "downloadReceipts": "Download my receipts", "nextEvals": "Upcoming evaluations", "noGroup": "You have not been assigned to a group yet.", "notValidated": "Assignment occurs after your file is validated.", "welcomeMsg": "Welcome,", "statusLabel": "File status", "levelLabel": "Level", "infoTitle": "My information", "receiptsTitle": "Payment receipts", "noReceipts": "No receipts available yet." },
   "errors": { "required": "This field is required", "invalidEmail": "Invalid email", "invalidPhone": "Invalid phone number", "passwordMin": "Minimum 8 characters", "passwordStrength": "Password must contain at least 1 uppercase, 1 number and 1 symbol", "passwordMatch": "Passwords do not match", "loginFailed": "Incorrect enrollment number or password", "serverError": "A server error occurred" }
 }

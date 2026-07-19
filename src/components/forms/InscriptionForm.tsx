@@ -24,7 +24,7 @@ const STEP_ICONS = [FaUser, FaBook, FaGraduationCap];
 const INITIAL_VALUES: InscriptionFormData = {
   nom: "", prenom: "", dateNaissance: "", sexe: "", nationalite: "",
   adresse: "", ville: "", codePostal: "", telephone: "", email: "",
-  photoUrl: "", niveauAllemand: "", typeCours: "", objectif: "",
+  photoUrl: "", niveauAllemand: "", typeCours: "", modalites: [], objectif: "",
   disponibilites: { matin: false, apresMidi: false, soir: false, weekend: false },
   joursPreferees: [], niveauEtudes: "", profession: "", accepteReglement: false,
 };
@@ -35,6 +35,7 @@ export default function InscriptionForm() {
   const te = useTranslations("errors");
 
   const typeCoursList = t.raw("typeCours") as { value: string; label: string }[];
+  const modalitesList = t.raw("modalites") as { value: string; label: string }[];
   const objectifsList = t.raw("objectifs") as { value: string; label: string }[];
   const disposList = t.raw("dispos") as { key: string; label: string }[];
   const joursList = t.raw("jours") as string[];
@@ -55,6 +56,7 @@ export default function InscriptionForm() {
   const step2Schema = Yup.object({
     niveauAllemand: Yup.string().required(te("required")),
     typeCours: Yup.string().required(te("required")),
+    modalites: Yup.array().min(1, te("required")),
     objectif: Yup.string().required(te("required")),
     joursPreferees: Yup.array().min(1, te("required")),
   });
@@ -88,7 +90,24 @@ export default function InscriptionForm() {
         <div className="inline-block bg-ids-black text-ids-gold font-display font-bold text-2xl px-8 py-4 rounded-xl mb-6">
           {numeroInscription}
         </div>
-        <p className="text-gray-400 text-xs max-w-sm mx-auto">{t("successNote")}</p>
+        <p className="text-gray-400 text-xs max-w-sm mx-auto mb-6">{t("successNote")}</p>
+        <div className="bg-ids-gray rounded-xl p-5 max-w-sm mx-auto text-left">
+          <p className="font-bold text-ids-black text-xs uppercase tracking-widest mb-3">{t("paymentTitle")}</p>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between gap-2">
+              <span className="text-gray-500">{t("paymentOrange")}</span>
+              <span className="font-semibold text-ids-black">695 191 134</span>
+            </div>
+            <div className="flex justify-between gap-2">
+              <span className="text-gray-500">{t("paymentMtn")}</span>
+              <span className="font-semibold text-ids-black">681 067 657</span>
+            </div>
+            <div className="flex justify-between gap-2">
+              <span className="text-gray-500">{t("paymentPaypal")}</span>
+              <span className="font-semibold text-ids-black">paypal@ids-sprachschule.com</span>
+            </div>
+          </div>
+        </div>
       </motion.div>
     );
   }
@@ -278,6 +297,23 @@ export default function InscriptionForm() {
                       <ErrorMessage name="typeCours" component="p" className={ERROR_CLASS} />
                     </div>
                     <div>
+                      <label className={LABEL_CLASS}>{tf("modalites")} *</label>
+                      <div className="grid grid-cols-2 gap-2 mt-2">
+                        {modalitesList.map((m) => {
+                          const selected = values.modalites.includes(m.value);
+                          return (
+                            <label key={m.value} className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-colors ${selected ? "border-ids-red bg-red-50" : "border-gray-200 hover:border-gray-300"}`}>
+                              <input type="checkbox" checked={selected}
+                                onChange={() => setFieldValue("modalites", selected ? values.modalites.filter((v) => v !== m.value) : [...values.modalites, m.value])}
+                                className="accent-ids-red w-4 h-4" />
+                              <span className="text-sm text-gray-700">{m.label}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                      {errors.modalites && touched.modalites && <p className={ERROR_CLASS}>{errors.modalites as string}</p>}
+                    </div>
+                    <div>
                       <label className={LABEL_CLASS}>{tf("objectif")} *</label>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                         {objectifsList.map((o) => (
@@ -351,6 +387,7 @@ export default function InscriptionForm() {
                         [tf("telephone"), values.telephone],
                         [tf("niveau"), values.niveauAllemand || "—"],
                         [tf("typeCours"), typeCoursList.find((tc) => tc.value === values.typeCours)?.label || "—"],
+                        [tf("modalites"), modalitesList.filter((m) => values.modalites.includes(m.value)).map((m) => m.label).join(", ") || "—"],
                         [tf("objectif"), objectifsList.find((o) => o.value === values.objectif)?.label || "—"],
                       ].map(([label, value]) => (
                         <div key={label} className="flex justify-between gap-2">

@@ -4,10 +4,31 @@ import {
   sendInscriptionConfirmation,
   sendAdminNewInscription,
 } from "@/lib/mailer";
+import { getTarifCours } from "@/lib/tarifs";
+
+// Les premiers dossiers réels commencent au numéro 150.
+const NUMERO_INSCRIPTION_OFFSET = 149;
 
 function generateNumeroInscription(count: number): string {
   const year = new Date().getFullYear();
-  return `IDS-${year}-${String(count).padStart(5, "0")}`;
+  return `IDS-${year}-${String(count + NUMERO_INSCRIPTION_OFFSET).padStart(5, "0")}`;
+}
+
+const TYPE_COURS_LABELS: Record<string, string> = {
+  SEMAINE_MATIN: "Cours en semaine – Matin",
+  SEMAINE_SOIR: "Cours en semaine – Soir",
+  WEEKEND_SAT_DIM: "Week-end Samedi + Dimanche",
+};
+
+const MODALITE_LABELS: Record<string, string> = {
+  EN_LIGNE: "En ligne",
+  PRESENTIEL: "En présentiel",
+};
+
+function formatTypeCours(typeCours: string, modalites: string[]): string {
+  const base = TYPE_COURS_LABELS[typeCours] ?? typeCours;
+  const modLabels = (modalites ?? []).map((m) => MODALITE_LABELS[m] ?? m);
+  return modLabels.length > 0 ? `${base} (${modLabels.join(", ")})` : base;
 }
 
 export async function POST(request: Request) {
@@ -28,6 +49,7 @@ export async function POST(request: Request) {
       photoUrl,
       niveauAllemand,
       typeCours,
+      modalites,
       objectif,
       disponibilites,
       joursPreferees,
@@ -79,6 +101,9 @@ export async function POST(request: Request) {
     const count = await prisma.etudiant.count();
     const numeroInscription = generateNumeroInscription(count + 1);
 
+    // Tarif du niveau/format choisi, pour l'email de confirmation
+    const tarif = getTarifCours(niveauAllemand, typeCours);
+
     // Créer l'étudiant
     const etudiant = await prisma.etudiant.create({
       data: {
@@ -95,7 +120,7 @@ export async function POST(request: Request) {
         email: email.trim().toLowerCase(),
         photoUrl: photoUrl || null,
         niveauAllemand,
-        typeCours,
+        typeCours: formatTypeCours(typeCours, modalites),
         objectif,
         disponibilites: disponibilites ?? {},
         joursPreferees: joursPreferees ?? [],
@@ -110,7 +135,10 @@ export async function POST(request: Request) {
       sendInscriptionConfirmation(
         etudiant.email,
         etudiant.prenom,
-        etudiant.numeroInscription
+        etudiant.nom,
+        etudiant.numeroInscription,
+        etudiant.niveauAllemand,
+        tarif
       ),
       sendAdminNewInscription(
         etudiant.prenom,

@@ -6,36 +6,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
 import SafeImage from "@/components/ui/SafeImage";
+import { PRIX_COURS } from "@/lib/tarifs";
 
 type Niveau = "tous" | "A1" | "A2" | "B1" | "B2" | "C1";
-
-const PRIX: Record<string, { prixFCFA: string; prixEUR: string }[]> = {
-  A1: [
-    { prixFCFA: "110 000 FCFA", prixEUR: "170 €" },
-    { prixFCFA: "110 000 FCFA", prixEUR: "170 €" },
-    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" }
-  ],
-  A2: [
-    { prixFCFA: "120 000 FCFA", prixEUR: "185 €" },
-    { prixFCFA: "120 000 FCFA", prixEUR: "185 €" },
-    { prixFCFA: "150 000 FCFA", prixEUR: "230 €" }
-  ],
-  B1: [
-    { prixFCFA: "130 000 FCFA", prixEUR: "200 €" },
-    { prixFCFA: "130 000 FCFA", prixEUR: "200 €" },
-    { prixFCFA: "160 000 FCFA", prixEUR: "245 €" }
-  ],
-  B2: [
-    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
-    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
-    { prixFCFA: "170 000 FCFA", prixEUR: "260 €" }
-  ],
-  C1: [
-    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
-    { prixFCFA: "140 000 FCFA", prixEUR: "215 €" },
-    { prixFCFA: "170 000 FCFA", prixEUR: "260 €" }
-  ]
-};
 
 const IMAGES: Record<string, string> = { a1: "/images/cours/a1.jpg", a2: "/images/cours/a2.jpg", b1: "/images/cours/b1.jpg", b2: "/images/cours/b2.jpg", c1: "/images/cours/c1.jpg" };
 
@@ -96,7 +69,7 @@ export default function CoursPageContent() {
 
         <div className="space-y-10">
           {filtered.map((cours, i) => {
-            const prixList = PRIX[cours.niveau] ?? PRIX.A1;
+            const prixList = PRIX_COURS[cours.niveau] ?? PRIX_COURS.A1;
             return (
               <motion.div key={cours.id} id={cours.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-white rounded-2xl overflow-hidden shadow-sm">
                 <div className="grid grid-cols-1 lg:grid-cols-2">

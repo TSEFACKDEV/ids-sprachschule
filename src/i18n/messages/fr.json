@@ -36,15 +36,14 @@
       { "title": "Professeurs qualifiés", "desc": "Enseignants certifiés et expérimentés" },
       { "title": "Préparation examens", "desc": "Goethe, ÖSD, telc, ECL, TestDaF" },
       { "title": "Accompagnement visa", "desc": "Dossier, RDV ambassade, orientation" },
-      { "title": "Cours flexibles", "desc": "Matin, soir, week-end, en ligne" },
+      { "title": "Cours flexibles", "desc": "Matin, soir, week-end, en ligne ou en présentiel" },
       { "title": "Suivi personnalisé", "desc": "Un encadrement adapté à chaque étudiant" }
     ]
   },
   "stats": {
     "students": "Étudiants formés",
     "success": "Taux de réussite",
-    "teachers": "Enseignants qualifiés",
-    "nationalities": "Nationalités"
+    "teachers": "Enseignants qualifiés"
   },
   "about": {
     "title": "À propos de IDS",
@@ -302,7 +301,7 @@
   },
   "inscription": {
     "title": "Formulaire d'inscription",
-    "subtitle": "Rejoignez l'Institut für die Deutsche Sprache. Complétez les 3 étapes ci-dessous. Votre dossier sera examiné sous 48h.",
+    "subtitle": "Rejoignez l'Institut für die Deutsche Sprache. Complétez les 3 étapes ci-dessous. Votre dossier sera examiné le plus tôt possible.",
     "step1": "Informations personnelles",
     "step2": "Formation & disponibilités",
     "step3": "Académique & engagement",
@@ -312,18 +311,23 @@
     "submitting": "Envoi en cours...",
     "successTitle": "Inscription reçue !",
     "successText": "Votre dossier a bien été enregistré. Votre numéro de dossier est :",
-    "successNote": "Conservez ce numéro. Vous le recevrez également par email. Notre équipe examinera votre dossier sous 48h et vous enverra vos identifiants de connexion dès validation.",
+    "successNote": "Vous recevrez ce numéro par e-mail, ainsi que toutes les informations nécessaires pour effectuer le paiement. Si vous le préférez, vous pouvez également vous rendre directement dans notre centre situé à Biyem-Assi, au carrefour Scalom, où notre équipe vous accueille du lundi au samedi.",
     "recap": "Récapitulatif de votre inscription",
     "reglementText": "J'ai lu et j'accepte le règlement intérieur de l'Institut für die Deutsche Sprache.",
     "pageTitle": "Formulaire d'inscription",
-    "pageSubtitle": "Rejoignez l'Institut für die Deutsche Sprache. Complétez les 3 étapes ci-dessous. Votre dossier sera examiné sous 48h.",
+    "pageSubtitle": "Rejoignez l'Institut für die Deutsche Sprache. Complétez les 3 étapes ci-dessous. Votre dossier sera examiné le plus tôt possible.",
+    "paymentTitle": "Nos moyens de paiement",
+    "paymentOrange": "Orange Money",
+    "paymentMtn": "MTN Mobile Money",
+    "paymentPaypal": "PayPal",
     "fields": {
       "nom": "Nom", "prenom": "Prénom", "dateNaissance": "Date de naissance",
       "sexe": "Sexe", "homme": "Homme", "femme": "Femme",
       "nationalite": "Nationalité", "adresse": "Adresse", "ville": "Ville",
       "codePostal": "Code postal", "telephone": "Téléphone / WhatsApp",
       "email": "Email", "photo": "Photo d'identité",
-      "niveau": "Niveau d'allemand", "typeCours": "Type de cours",
+      "niveau": "Je souhaite faire le niveau suivant", "typeCours": "Type de cours",
+      "modalites": "Modalité de cours",
       "objectif": "Objectif", "disponibilites": "Disponibilités",
       "jours": "Jours préférés", "niveauEtudes": "Niveau d'études",
       "profession": "Profession / Domaine d'études",
@@ -335,8 +339,9 @@
     "typeCours": [
       { "value": "SEMAINE_MATIN", "label": "Cours en semaine – Matin" },
       { "value": "SEMAINE_SOIR", "label": "Cours en semaine – Soir" },
-      { "value": "WEEKEND_SAT_DIM", "label": "Week-end Samedi + Dimanche" },
-      { "value": "WEEKEND_SAT_MER_DIM", "label": "Week-end Sam + Mer + Dim" },
+      { "value": "WEEKEND_SAT_DIM", "label": "Week-end Samedi + Dimanche" }
+    ],
+    "modalites": [
       { "value": "EN_LIGNE", "label": "En ligne" },
       { "value": "PRESENTIEL", "label": "En présentiel" }
     ],
@@ -354,7 +359,7 @@
       { "key": "weekend", "label": "Week-end" }
     ],
     "jours": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
-    "niveauEtudes": ["Lycée", "Université", "Professionnel", "Autre"]
+    "niveauEtudes": ["Baccalauréat", "Licence", "Master", "Autre"]
   },
   "services": {
     "pageTitle": "Nos Services",
@@ -415,40 +420,39 @@
     "freeForIDS": "Gratuit pour les élèves IDS",
     "levels": "niveau",
     "levelsPlural": "niveaux",
-    "ctaBtn": "S'inscrire à une préparation",
     "examItems": [
       {
         "type": "ÖSD",
         "niveaux": [
-          { "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": true, "desc": "L'ÖSD B1 atteste d'un niveau intermédiaire reconnu en Autriche, Allemagne et Suisse." },
-          { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": true, "desc": "L'ÖSD B2 est requis pour l'accès à de nombreuses formations professionnelles et universitaires." }
+          { "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "L'ÖSD B1 atteste d'un niveau intermédiaire reconnu en Autriche, Allemagne et Suisse." },
+          { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "L'ÖSD B2 est requis pour l'accès à de nombreuses formations professionnelles et universitaires." }
         ]
       },
       {
         "type": "ECL",
         "niveaux": [
-          { "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "L'ECL B1 est un examen européen reconnu dans plusieurs pays." },
-          { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "L'ECL B2 valide un niveau avancé selon le Cadre européen commun de référence." }
+          { "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "L'ECL B1 est un examen européen reconnu dans plusieurs pays." },
+          { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "L'ECL B2 valide un niveau avancé selon le Cadre européen commun de référence." }
         ]
       },
       {
         "type": "telc",
         "niveaux": [
-          { "niveau": "B1", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Format digital sur ordinateur avec clavier allemand. Examen reconnu en Allemagne et en Europe." },
-          { "niveau": "B2", "tarif": "45 000 FCFA", "gratuit": false, "desc": "Le telc Deutsch B2 est largement accepté par les universités et employeurs allemands." }
+          { "niveau": "B1", "tarif": "45 000 FCFA", "tarifEUR": "70 €", "gratuit": true, "desc": "Format digital sur ordinateur avec clavier allemand. Examen reconnu en Allemagne et en Europe." },
+          { "niveau": "B2", "tarif": "45 000 FCFA", "tarifEUR": "70 €", "gratuit": true, "desc": "Le telc Deutsch B2 est largement accepté par les universités et employeurs allemands." }
         ]
       },
       {
         "type": "Goethe",
         "niveaux": [
-          { "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "La certification Goethe est la plus reconnue internationalement pour la langue allemande." },
-          { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Le Goethe B2 est exigé pour l'accès à de nombreuses filières universitaires en Allemagne." }
+          { "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "La certification Goethe est la plus reconnue internationalement pour la langue allemande." },
+          { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "Le Goethe B2 est exigé pour l'accès à de nombreuses filières universitaires en Allemagne." }
         ]
       },
       {
         "type": "TestDaF",
         "niveaux": [
-          { "niveau": "C1", "tarif": "50 000 FCFA", "gratuit": false, "desc": "Le TestDaF est l'examen de référence pour l'admission dans les universités allemandes. Niveau minimum TDN 4 généralement requis." }
+          { "niveau": "C1", "tarif": "50 000 FCFA", "tarifEUR": "76 €", "gratuit": true, "desc": "Le TestDaF est l'examen de référence pour l'admission dans les universités allemandes. Niveau minimum TDN 4 généralement requis." }
         ]
       }
     ]
@@ -467,11 +471,11 @@
     "externalB2": "Vous avez déjà le niveau B2",
     "legalNote": "Important : la décision finale d'accorder ou de refuser un visa relève exclusivement des autorités consulaires allemandes. Notre rôle est de vous accompagner à chaque étape, de vous préparer efficacement et de constituer un dossier solide afin de maximiser vos chances de succès.",
     "guarantee": "Garantie Sérénité",
-    "guaranteeText": "En cas de refus de visa par les autorités consulaires, IDS s'engage à rembourser 50% du montant versé, sous réserve que toutes les conditions d'éligibilité soient remplies (dossier complet, assiduité aux cours, examen officiel obtenu).",
+    "guaranteeText": "En cas de refus de visa par les autorités consulaires, IDS s'engage à rembourser 50% du montant versé.",
     "packs": [
       {
         "titre": "Pack Étudiant Standard",
-        "desc": "La solution complète pour votre projet d'études ou de travail en Allemagne. Tout est inclus, de la formation linguistique jusqu'à votre arrivée.",
+        "desc": "La solution complète pour votre projet d'études en Allemagne. Tout est inclus, de la formation linguistique jusqu'à votre arrivée.",
         "prixSemaine": "900 000 FCFA",
         "prixSemaineEUR": "1 372 €",
         "prixWeekend": "1 000 000 FCFA",
@@ -498,16 +502,25 @@
       },
       {
         "titre": "Pack Étudiant Sérénité",
-        "desc": "Tout le contenu du Pack Standard, avec en plus une garantie de remboursement partiel en cas de refus de visa sous conditions strictes.",
+        "desc": "",
         "prixSemaine": "1 000 000 FCFA",
         "prixSemaineEUR": "1 524 €",
         "prixWeekend": "1 100 000 FCFA",
         "prixWeekendEUR": "1 677 €",
         "inclus": [
-          "Moins de stress et un gain de temps : vous vous concentrez sur vos cours, nous nous chargeons du reste. Nous suivons votre progression ainsi que l'évolution des procédures de l'ambassade afin de lancer votre demande au moment le plus opportun et d'optimiser les délais.",
-          "Formation complète en allemand, du niveau A1 au B2.",
-          "Frais d'inscription inclus.",
-          "Préparation aux examens officiels (Goethe, telc, ÖSD, ECL ou TestDaF).",
+          "Tout le contenu du pack étudiant Standard",
+          "Remboursement de 50% du montant en cas de refus de visa"
+        ],
+        "badge": "Recommandé",
+        "hasGuarantee": true
+      }
+    ],
+    "external": [
+      {
+        "titre": "Pack Standard – Candidat externe",
+        "prix": "500 000 FCFA",
+        "prixEUR": "758 €",
+        "inclus": [
           "Traduction de vos diplômes et documents académiques en allemand par des traducteurs certifiés.",
           "Assistance complète dans les démarches de candidature auprès des universités et établissements d'enseignement supérieur en Allemagne.",
           "Garantie d'obtention de préinscriptions dans des universités allemandes ou d'une admission directe pour les candidats disposant d'au moins un niveau B2, quelle que soit leur moyenne au baccalauréat.",
@@ -518,34 +531,16 @@
           "Conseils et assistance dans le choix de votre assurance maladie, ainsi que des informations sur les vaccins obligatoires après l'obtention de votre visa, avec orientation vers les centres de vaccination agréés.",
           "Constitution complète du dossier de demande de visa.",
           "Suivi personnalisé de votre demande de visa jusqu'à la décision finale.",
-          "Accueil, accompagnement et orientation à votre arrivée en Allemagne.",
-          "Remboursement de 50% du montant en cas de refus de visa (sous conditions)."
-        ],
-        "badge": "Recommandé",
-        "hasGuarantee": true
-      }
-    ],
-    "external": [
-      {
-        "titre": "Pack Standard – Candidat externe",
-        "prix": "450 000 FCFA",
-        "prixEUR": "686 €",
-        "inclus": [
-          "Constitution complète du dossier de visa.",
-          "Pré-inscription universitaire.",
-          "CV professionnel et lettres de motivation en allemand.",
-          "Préparation aux entretiens.",
-          "Accompagnement dans les candidatures.",
-          "Accueil en Allemagne."
+          "Accueil, accompagnement et orientation à votre arrivée en Allemagne."
         ]
       },
       {
         "titre": "Pack Sérénité – Candidat externe",
-        "prix": "450 000 FCFA",
-        "prixEUR": "686 €",
+        "prix": "550 000 FCFA",
+        "prixEUR": "834 €",
         "inclus": [
           "Tous les services du Pack Standard externe.",
-          "Remboursement de 50% du montant en cas de refus de visa (sous conditions)."
+          "Remboursement de 50% du montant en cas de refus de visa."
         ]
       }
     ]
@@ -566,7 +561,11 @@
     "messagePlaceholder": "Votre message...",
     "pageTitle": "Contactez-nous",
     "pageSubtitle": "Notre équipe est disponible pour répondre à toutes vos questions.",
-    "formTitle": "Envoyez-nous un message"
+    "formTitle": "Envoyez-nous un message",
+    "paymentTitle": "Nos moyens de paiement",
+    "paymentOrange": "Orange Money",
+    "paymentMtn": "MTN Mobile Money",
+    "paymentPaypal": "PayPal"
   },
   "admin": {
     "dashboard": "Tableau de bord", "students": "Étudiants", "groups": "Groupes",
@@ -576,7 +575,8 @@
     "validate": "Valider", "refuse": "Refuser", "delete": "Supprimer",
     "details": "Détails", "regeneratePwd": "Régénérer mot de passe",
     "search": "Rechercher...", "export": "Exporter CSV",
-    "statuts": { "EN_ATTENTE": "En attente", "VALIDE": "Validé", "REFUSE": "Refusé" }
+    "statuts": { "EN_ATTENTE": "En attente", "VALIDE": "Validé", "REFUSE": "Refusé" },
+    "roleSecretaire": "Secrétariat – accès restreint"
   },
   "studentSpace": {
     "title": "Mon Espace Étudiant", "myGroup": "Mon groupe",

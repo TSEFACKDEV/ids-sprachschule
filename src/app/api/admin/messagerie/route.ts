@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { getAuthUser } from "@/lib/auth";
+import { getAuthUser, isStaff } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendBulkMessage } from "@/lib/mailer";
 
 export async function GET() {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || authUser.role !== "ADMIN") {
+    if (!authUser || !isStaff(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
@@ -24,7 +24,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || authUser.role !== "ADMIN") {
+    if (!authUser || !isStaff(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 

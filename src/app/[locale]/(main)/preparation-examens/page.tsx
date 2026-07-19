@@ -1,15 +1,13 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { FaCheckCircle, FaArrowRight, FaInfoCircle } from "react-icons/fa";
+import { useTranslations } from "next-intl";
+import { FaCheckCircle, FaInfoCircle } from "react-icons/fa";
 
 export default function PreparationExamensPage() {
   const t = useTranslations("exams");
-  const locale = useLocale();
   const examItems = t.raw("examItems") as {
     type: string;
-    niveaux: { niveau: string; tarif: string; gratuit: boolean; desc: string }[];
+    niveaux: { niveau: string; tarif: string; tarifEUR: string; gratuit: boolean; desc: string }[];
   }[];
   const included = t.raw("included") as string[];
 
@@ -72,6 +70,7 @@ export default function PreparationExamensPage() {
                         </div>
                         <div className="text-right">
                           <p className="font-display text-2xl font-bold text-ids-black">{n.tarif}</p>
+                          <p className="text-gray-400 text-xs">{n.tarifEUR}</p>
                           <p className="text-gray-400 text-xs">{t("perMonth")}</p>
                         </div>
                       </div>
@@ -81,12 +80,6 @@ export default function PreparationExamensPage() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-14">
-            <Link href={`/${locale}/inscription`} className="inline-flex items-center gap-2 px-10 py-4 bg-ids-red text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-base">
-              {t("ctaBtn")} <FaArrowRight size={15} />
-            </Link>
           </div>
         </div>
       </section>

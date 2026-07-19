@@ -32,7 +32,7 @@ export default function OffresSpecialesPage() {
                 )}
                 <div className="bg-ids-black p-6">
                   <h2 className="font-display text-2xl font-bold text-white mb-2">{pack.titre}</h2>
-                  <p className="text-gray-400 text-sm">{pack.desc}</p>
+                  {pack.desc && <p className="text-gray-400 text-sm">{pack.desc}</p>}
                 </div>
                 <div className="p-6">
                   <div className="grid grid-cols-2 gap-3 mb-6">
@@ -65,7 +65,7 @@ export default function OffresSpecialesPage() {
                       </div>
                     </div>
                   )}
-                  <Link href={`/${locale}/inscription`} className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-ids-red text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-sm">
+                  <Link href={`/${locale}/contact`} className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-ids-red text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-sm">
                     {t("chooseBtn")} <FaArrowRight size={13} />
                   </Link>
                 </div>

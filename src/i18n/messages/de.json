@@ -3,7 +3,7 @@
   "topBar": { "address": "Biyem-Assi, Yaoundé – Kamerun", "hours": "Mo – Sa: 8:00 – 20:00 Uhr", "phone": "+49 1573 2878223", "email": "info@ids-sprachschule.com" },
   "hero": {
     "tagline": "Von A1 bis Deutschland begleiten wir Sie den ganzen Weg.",
-    "registerBtn": "Jetzt anmelden", "coursesBtn": "Unsere Kurse",  "testLevel": "Mein Deutschlevel testen",
+    "registerBtn": "Jetzt anmelden", "coursesBtn": "Unsere Kurse",  "testLevel": "Mein Sprachniveau",
     "slides": [
       { "title": "Deutsch lernen.", "subtitle": "Studieren, arbeiten und erfolgreich sein in Deutschland." },
       { "title": "Offizielle Prüfungen bestehen.", "subtitle": "Goethe, ÖSD, telc, ECL, TestDaF" },
@@ -18,11 +18,11 @@
       { "title": "Qualifizierte Lehrer", "desc": "Zertifizierte und erfahrene Lehrkräfte" },
       { "title": "Prüfungsvorbereitung", "desc": "Goethe, ÖSD, telc, ECL, TestDaF" },
       { "title": "Visumbegleitung", "desc": "Akte, Botschaftstermin, Orientierung" },
-      { "title": "Flexible Kurse", "desc": "Morgen, Abend, Wochenende, online" },
+      { "title": "Flexible Kurse", "desc": "Morgens, abends, am Wochenende, online oder vor Ort" },
       { "title": "Persönliche Betreuung", "desc": "Individuelle Unterstützung für jeden Studenten" }
     ]
   },
-  "stats": { "students": "Ausgebildete Studenten", "success": "Erfolgsquote", "teachers": "Qualifizierte Lehrer", "nationalities": "Nationalitäten" },
+  "stats": { "students": "Ausgebildete Studenten", "success": "Erfolgsquote", "teachers": "Qualifizierte Lehrer" },
   "about": {
     "title": "Über IDS", "sectionLabel": "Unsere Geschichte", "heading": "Ein Ziel im Dienst Ihrer Zukunft",
     "text": "Das Institut für die Deutsche Sprache (IDS) wurde mit einem einfachen Ziel gegründet: Kamerun eine exzellente, moderne Deutschausbildung zu bieten, die sich an den konkreten Bedürfnissen von Studierenden und Fachleuten orientiert.",
@@ -109,17 +109,23 @@
   "footer": { "slogan": "Lernen. Verstehen. Erfolgreich sein.", "quickLinks": "Schnelllinks", "ourCourses": "Unsere Kurse", "contact": "Kontakt", "copyright": "© 2025 Institut für die Deutsche Sprache (IDS) Kamerun. Alle Rechte vorbehalten.", "legal": "Impressum", "privacy": "Datenschutzerklärung", "desc": "Deutschsprachiges Ausbildungszentrum in Yaoundé, Kamerun. Von A1 bis Deutschland begleiten wir Sie." },
   "auth": { "login": "Anmelden", "loginTitle": "Studentenbereich", "inscriptionNumber": "Einschreibungsnummer", "inscriptionPlaceholder": "IDS-2025-00001", "password": "Passwort", "forgotPassword": "Passwort vergessen?", "loginBtn": "Einloggen", "logging": "Einloggen...", "changePasswordTitle": "Passwort festlegen", "changePasswordInfo": "Bitte legen Sie zu Ihrer Sicherheit ein persönliches Passwort fest, bevor Sie auf Ihren Bereich zugreifen.", "newPassword": "Neues Passwort", "confirmPassword": "Passwort bestätigen", "changeBtn": "Aktualisieren", "changing": "Aktualisierung...", "logout": "Abmelden", "noAccount": "Noch nicht angemeldet?", "submitFile": "Meine Anmeldedatei einreichen", "problem": "Anmeldeproblem?", "contact":"Contakt" },
   "inscription": {
-    "title": "Anmeldeformular", "subtitle": "Treten Sie dem Institut für die Deutsche Sprache bei. Füllen Sie die 3 Schritte aus. Ihre Akte wird innerhalb von 48h geprüft.",
+    "title": "Anmeldeformular", "subtitle": "Treten Sie dem Institut für die Deutsche Sprache bei. Füllen Sie die 3 Schritte aus. Ihre Akte wird schnellstmöglich geprüft.",
     "step1": "Persönliche Informationen", "step2": "Ausbildung & Verfügbarkeit", "step3": "Akademisch & Verpflichtung",
     "next": "Weiter", "previous": "Zurück", "submit": "Meine Anmeldung einreichen", "submitting": "Wird gesendet...",
     "successTitle": "Anmeldung erhalten!", "successText": "Ihre Akte wurde erfasst. Ihre Aktennummer lautet:",
-    "successNote": "Bewahren Sie diese Nummer auf. Sie erhalten sie auch per E-Mail. Unser Team prüft Ihre Akte innerhalb von 48h und sendet Ihre Zugangsdaten nach der Validierung.",
+    "successNote": "Sie erhalten diese Nummer per E-Mail, zusammen mit allen Informationen, die Sie für die Zahlung benötigen. Alternativ können Sie auch direkt in unser Zentrum in Biyem-Assi, Carrefour Scalom, kommen, wo unser Team Sie von Montag bis Samstag empfängt.",
     "recap": "Zusammenfassung Ihrer Anmeldung", "reglementText": "Ich habe die Hausordnung des Instituts für die Deutsche Sprache gelesen und akzeptiere sie.",
-    "pageTitle": "Anmeldeformular", "pageSubtitle": "Treten Sie dem Institut für die Deutsche Sprache bei. Füllen Sie die 3 Schritte aus.",
-    "fields": { "nom": "Nachname", "prenom": "Vorname", "dateNaissance": "Geburtsdatum", "sexe": "Geschlecht", "homme": "Männlich", "femme": "Weiblich", "nationalite": "Nationalität", "adresse": "Adresse", "ville": "Stadt", "codePostal": "Postleitzahl", "telephone": "Telefon / WhatsApp", "email": "E-Mail", "photo": "Ausweis-Foto", "niveau": "Deutschniveau", "typeCours": "Kurstyp", "objectif": "Ziel", "disponibilites": "Verfügbarkeit", "jours": "Bevorzugte Tage", "niveauEtudes": "Bildungsniveau", "profession": "Beruf / Studienfeld", "reglement": "Ich habe die Hausordnung gelesen und akzeptiere sie", "photoClick": "Klicken Sie, um Ihr Foto hinzuzufügen", "photoFormats": "JPG, PNG – max 5MB", "photoUploaded": "Foto hochgeladen" },
+    "pageTitle": "Anmeldeformular", "pageSubtitle": "Treten Sie dem Institut für die Deutsche Sprache bei. Füllen Sie die 3 Schritte aus. Ihre Akte wird schnellstmöglich geprüft.",
+    "paymentTitle": "Unsere Zahlungsmethoden",
+    "paymentOrange": "Orange Money",
+    "paymentMtn": "MTN Mobile Money",
+    "paymentPaypal": "PayPal",
+    "fields": { "nom": "Nachname", "prenom": "Vorname", "dateNaissance": "Geburtsdatum", "sexe": "Geschlecht", "homme": "Männlich", "femme": "Weiblich", "nationalite": "Nationalität", "adresse": "Adresse", "ville": "Stadt", "codePostal": "Postleitzahl", "telephone": "Telefon / WhatsApp", "email": "E-Mail", "photo": "Ausweis-Foto", "niveau": "Ich möchte folgendes Niveau belegen", "typeCours": "Kurstyp", "modalites": "Kursformat", "objectif": "Ziel", "disponibilites": "Verfügbarkeit", "jours": "Bevorzugte Tage", "niveauEtudes": "Bildungsniveau", "profession": "Beruf / Studienfeld", "reglement": "Ich habe die Hausordnung gelesen und akzeptiere sie", "photoClick": "Klicken Sie, um Ihr Foto hinzuzufügen", "photoFormats": "JPG, PNG – max 5MB", "photoUploaded": "Foto hochgeladen" },
     "typeCours": [
       { "value": "SEMAINE_MATIN", "label": "Wochentag – Morgen" }, { "value": "SEMAINE_SOIR", "label": "Wochentag – Abend" },
-      { "value": "WEEKEND_SAT_DIM", "label": "Wochenende Samstag + Sonntag" }, { "value": "WEEKEND_SAT_MER_DIM", "label": "Wochenende Sa + Mi + So" },
+      { "value": "WEEKEND_SAT_DIM", "label": "Wochenende Samstag + Sonntag" }
+    ],
+    "modalites": [
       { "value": "EN_LIGNE", "label": "Online" }, { "value": "PRESENTIEL", "label": "Präsenz" }
     ],
     "objectifs": [
@@ -131,7 +137,7 @@
       { "key": "soir", "label": "Abend 16:00 – 20:00 Uhr" }, { "key": "weekend", "label": "Wochenende" }
     ],
     "jours": ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
-    "niveauEtudes": ["Gymnasium", "Universität", "Beruflich", "Sonstiges"]
+    "niveauEtudes": ["Abitur", "Bachelor", "Master", "Sonstiges"]
   },
   "services": {
     "pageTitle": "Unsere Leistungen", "pageSubtitle": "Umfassende Unterstützung, vom Deutschlernen bis zu Ihrer Integration in Deutschland.",
@@ -152,13 +158,13 @@
     "includedTitle": "Was in jeder Vorbereitung enthalten ist",
     "included": ["Simulation offizieller Prüfungen", "Detaillierte Korrektur und persönliches Feedback", "Hör- und Leseverständnistraining", "Mündliche und schriftliche Ausdrucksvorbereitung", "Authentische Dokumente und vergangene Prüfungsthemen", "Zugang zur IDS-Ressourcenbibliothek"],
     "perMonth": "pro Monat", "freeForIDS": "Kostenlos für IDS-Schüler",
-    "levels": "Niveau", "levelsPlural": "Niveaus", "ctaBtn": "Für Vorbereitung anmelden",
+    "levels": "Niveau", "levelsPlural": "Niveaus",
     "examItems": [
-      { "type": "ÖSD", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": true, "desc": "ÖSD B1 bestätigt ein in Österreich, Deutschland und der Schweiz anerkanntes Mittelniveau." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": true, "desc": "ÖSD B2 ist für den Zugang zu vielen Berufs- und Studiengängen erforderlich." }] },
-      { "type": "ECL", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "ECL B1 ist eine in mehreren Ländern anerkannte europäische Prüfung." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "ECL B2 bestätigt ein fortgeschrittenes Niveau gemäß dem Gemeinsamen Europäischen Referenzrahmen." }] },
-      { "type": "telc", "niveaux": [{ "niveau": "B1", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Digitales Format am Computer mit deutscher Tastatur. In Deutschland und Europa anerkannte Prüfung." }, { "niveau": "B2", "tarif": "45 000 FCFA", "gratuit": false, "desc": "telc Deutsch B2 wird von deutschen Universitäten und Arbeitgebern weitgehend akzeptiert." }] },
-      { "type": "Goethe", "niveaux": [{ "niveau": "B1", "tarif": "35 000 FCFA", "gratuit": false, "desc": "Das Goethe-Zertifikat ist das international anerkannteste für die deutsche Sprache." }, { "niveau": "B2", "tarif": "40 000 FCFA", "gratuit": false, "desc": "Goethe B2 ist für den Zugang zu vielen Studiengängen in Deutschland erforderlich." }] },
-      { "type": "TestDaF", "niveaux": [{ "niveau": "C1", "tarif": "50 000 FCFA", "gratuit": false, "desc": "TestDaF ist die Referenzprüfung für die Zulassung an deutschen Universitäten. Mindest-TDN 4 in der Regel erforderlich." }] }
+      { "type": "ÖSD", "niveaux": [{ "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "ÖSD B1 bestätigt ein in Österreich, Deutschland und der Schweiz anerkanntes Mittelniveau." }, { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "ÖSD B2 ist für den Zugang zu vielen Berufs- und Studiengängen erforderlich." }] },
+      { "type": "ECL", "niveaux": [{ "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "ECL B1 ist eine in mehreren Ländern anerkannte europäische Prüfung." }, { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "ECL B2 bestätigt ein fortgeschrittenes Niveau gemäß dem Gemeinsamen Europäischen Referenzrahmen." }] },
+      { "type": "telc", "niveaux": [{ "niveau": "B1", "tarif": "45 000 FCFA", "tarifEUR": "70 €", "gratuit": true, "desc": "Digitales Format am Computer mit deutscher Tastatur. In Deutschland und Europa anerkannte Prüfung." }, { "niveau": "B2", "tarif": "45 000 FCFA", "tarifEUR": "70 €", "gratuit": true, "desc": "telc Deutsch B2 wird von deutschen Universitäten und Arbeitgebern weitgehend akzeptiert." }] },
+      { "type": "Goethe", "niveaux": [{ "niveau": "B1", "tarif": "30 000 FCFA", "tarifEUR": "46 €", "gratuit": true, "desc": "Das Goethe-Zertifikat ist das international anerkannteste für die deutsche Sprache." }, { "niveau": "B2", "tarif": "35 000 FCFA", "tarifEUR": "55 €", "gratuit": true, "desc": "Goethe B2 ist für den Zugang zu vielen Studiengängen in Deutschland erforderlich." }] },
+      { "type": "TestDaF", "niveaux": [{ "niveau": "C1", "tarif": "50 000 FCFA", "tarifEUR": "76 €", "gratuit": true, "desc": "TestDaF ist die Referenzprüfung für die Zulassung an deutschen Universitäten. Mindest-TDN 4 in der Regel erforderlich." }] }
     ]
   },
   "offers": {
@@ -169,11 +175,11 @@
     "externalTitle": "Externe Kandidaten", "externalDesc": "Sie haben bereits B2-Niveau anderswo erworben? Profitieren Sie von unseren Begleitservices zu einem reduzierten Preis.",
     "externalB2": "Sie haben bereits B2-Niveau",
     "legalNote": "Die endgültige Visuimentscheidung obliegt ausschließlich den deutschen Konsularbehörden. IDS kann die Visumgenehmigung nicht garantieren. Die Teilerstattung des Sérénité-Pakets unterliegt strengen Anspruchsvoraussetzungen im Ausbildungsvertrag.",
-    "guarantee": "Sérénité-Garantie", "guaranteeText": "Bei Visumverweigerung durch die Konsularbehörden verpflichtet sich IDS, 50% des gezahlten Betrags zu erstatten, sofern alle Anspruchsvoraussetzungen erfüllt sind (vollständige Akte, Kursanwesenheit, offizielle Prüfung bestanden).",
+    "guarantee": "Sérénité-Garantie", "guaranteeText": "Bei Visumverweigerung durch die Konsularbehörden verpflichtet sich IDS, 50% des gezahlten Betrags zu erstatten.",
    "packs": [
   {
     "titre": "Standard-Studentenpaket",
-    "desc": "Die komplette Lösung für Ihr Studien- oder Arbeitsprojekt in Deutschland. Alles inklusive, von der Sprachausbildung bis zu Ihrer Ankunft.",
+    "desc": "Die komplette Lösung für Ihr Studienprojekt in Deutschland. Alles inklusive, von der Sprachausbildung bis zu Ihrer Ankunft.",
     "prixSemaine": "900.000 FCFA",
     "prixSemaineEUR": "1.372 €",
     "prixWeekend": "1.000.000 FCFA",
@@ -200,16 +206,25 @@
   },
   {
     "titre": "Sérénité-Studentenpaket",
-    "desc": "Alle Inhalte des Standard-Pakets, plus eine Teilerstattungsgarantie bei Visumverweigerung unter strengen Bedingungen.",
+    "desc": "",
     "prixSemaine": "1.000.000 FCFA",
     "prixSemaineEUR": "1.524 €",
     "prixWeekend": "1.100.000 FCFA",
     "prixWeekendEUR": "1.677 €",
     "inclus": [
-      "Weniger Stress und Zeitersparnis: Sie konzentrieren sich auf Ihren Unterricht, wir kümmern uns um den Rest. Wir verfolgen Ihren Fortschritt sowie die Entwicklung der Botschaftsverfahren, um Ihren Antrag zum optimalen Zeitpunkt zu stellen und die Bearbeitungszeit zu optimieren.",
-      "Vollständige Deutschausbildung, vom Niveau A1 bis B2.",
-      "Anmeldegebühren inklusive.",
-      "Vorbereitung auf offizielle Prüfungen (Goethe, telc, ÖSD, ECL oder TestDaF).",
+      "Alle Inhalte des Standard-Studentenpakets",
+      "50% Erstattung des gezahlten Betrags bei Visumverweigerung"
+    ],
+    "badge": "Empfohlen",
+    "hasGuarantee": true
+  }
+],
+"external": [
+  {
+    "titre": "Standard-Paket – Externer Kandidat",
+    "prix": "500.000 FCFA",
+    "prixEUR": "758 €",
+    "inclus": [
       "Beglaubigte Übersetzung Ihrer Diplome und akademischen Dokumente ins Deutsche.",
       "Vollständige Unterstützung bei Bewerbungen an Universitäten und Hochschulen in Deutschland.",
       "Garantierte Vorbewerbung an deutschen Universitäten oder direkte Zulassung für Kandidaten mit mindestens Niveau B2, unabhängig vom Abiturdurchschnitt.",
@@ -220,34 +235,16 @@
       "Beratung und Unterstützung bei der Wahl Ihrer Krankenversicherung sowie Informationen zu Pflichtimpfungen nach Erhalt Ihres Visums, mit Verweis auf zugelassene Impfzentren.",
       "Vollständige Zusammenstellung der Visumantragsunterlagen.",
       "Persönliche Begleitung Ihres Visumantrags bis zur endgültigen Entscheidung.",
-      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland.",
-      "50% Erstattung des gezahlten Betrags bei Visumverweigerung (Bedingungen)."
-    ],
-    "badge": "Empfohlen",
-    "hasGuarantee": true
-  }
-],
-"external": [
-  {
-    "titre": "Standard-Paket – Externer Kandidat",
-    "prix": "450.000 FCFA",
-    "prixEUR": "686 €",
-    "inclus": [
-      "Vollständige Zusammenstellung der Visumantragsmappe.",
-      "Universitätsvorbewerbung.",
-      "Professioneller Lebenslauf und Motivationsschreiben auf Deutsch.",
-      "Interviewvorbereitung.",
-      "Bewerbungsunterstützung.",
-      "Empfang in Deutschland."
+      "Empfang, Begleitung und Orientierung bei Ihrer Ankunft in Deutschland."
     ]
   },
   {
     "titre": "Sérénité-Paket – Externer Kandidat",
-    "prix": "450.000 FCFA",
-    "prixEUR": "686 €",
+    "prix": "550.000 FCFA",
+    "prixEUR": "834 €",
     "inclus": [
       "Alle Leistungen des Standard-Pakets für externe Kandidaten.",
-      "50% Erstattung des gezahlten Betrags bei Visumverweigerung (Bedingungen)."
+      "50% Erstattung des gezahlten Betrags bei Visumverweigerung."
     ]
   }
 ]
@@ -261,9 +258,13 @@
     "subjects": ["Kursinformationen", "Anmeldung", "Offizielle Prüfungen", "Deutschland-Visum", "Sonderangebote", "Sonstiges"],
     "selectSubject": "Betreff auswählen", "messagePlaceholder": "Ihre Nachricht...",
     "pageTitle": "Kontaktieren Sie uns", "pageSubtitle": "Unser Team ist für alle Ihre Fragen erreichbar.",
-    "formTitle": "Schreiben Sie uns"
+    "formTitle": "Schreiben Sie uns",
+    "paymentTitle": "Unsere Zahlungsmethoden",
+    "paymentOrange": "Orange Money",
+    "paymentMtn": "MTN Mobile Money",
+    "paymentPaypal": "PayPal"
   },
-  "admin": { "dashboard": "Übersicht", "students": "Studenten", "groups": "Gruppen", "exams": "Prüfungen", "invoices": "Abrechnung", "messages": "Nachrichten", "totalStudents": "Studenten gesamt", "newThisWeek": "Neue Anmeldungen (7T)", "pending": "Ausstehend", "totalRevenue": "Gesamtumsatz", "validate": "Bestätigen", "refuse": "Ablehnen", "delete": "Löschen", "details": "Details", "regeneratePwd": "Passwort zurücksetzen", "search": "Suchen...", "export": "CSV exportieren", "statuts": { "EN_ATTENTE": "Ausstehend", "VALIDE": "Bestätigt", "REFUSE": "Abgelehnt" } },
+  "admin": { "dashboard": "Übersicht", "students": "Studenten", "groups": "Gruppen", "exams": "Prüfungen", "invoices": "Abrechnung", "messages": "Nachrichten", "totalStudents": "Studenten gesamt", "newThisWeek": "Neue Anmeldungen (7T)", "pending": "Ausstehend", "totalRevenue": "Gesamtumsatz", "validate": "Bestätigen", "refuse": "Ablehnen", "delete": "Löschen", "details": "Details", "regeneratePwd": "Passwort zurücksetzen", "search": "Suchen...", "export": "CSV exportieren", "statuts": { "EN_ATTENTE": "Ausstehend", "VALIDE": "Bestätigt", "REFUSE": "Abgelehnt" }, "roleSecretaire": "Sekretariat – eingeschränkter Zugriff" },
   "studentSpace": { "title": "Mein Studentenbereich", "myGroup": "Meine Gruppe", "myDocuments": "Meine Dokumente", "downloadCard": "Anmeldekarte herunterladen", "downloadReceipts": "Quittungen herunterladen", "nextEvals": "Nächste Bewertungen", "noGroup": "Sie wurden noch keiner Gruppe zugewiesen.", "notValidated": "Die Zuweisung erfolgt nach der Validierung Ihrer Akte.", "welcomeMsg": "Willkommen,", "statusLabel": "Status Ihrer Akte", "levelLabel": "Niveau", "infoTitle": "Meine Informationen", "receiptsTitle": "Zahlungsbelege", "noReceipts": "Noch keine Belege verfügbar." },
   "errors": { "required": "Dieses Feld ist erforderlich", "invalidEmail": "Ungültige E-Mail", "invalidPhone": "Ungültige Telefonnummer", "passwordMin": "Mindestens 8 Zeichen", "passwordStrength": "Das Passwort muss mindestens 1 Großbuchstaben, 1 Zahl und 1 Symbol enthalten", "passwordMatch": "Passwörter stimmen nicht überein", "loginFailed": "Falsche Einschreibungsnummer oder falsches Passwort", "serverError": "Ein Serverfehler ist aufgetreten" }
 }

@@ -1,6 +1,6 @@
 export type Locale = "fr" | "en" | "de";
 
-export type Role = "ADMIN" | "ETUDIANT";
+export type Role = "ADMIN" | "ETUDIANT" | "SECRETAIRE";
 
 export type StatutInscription = "EN_ATTENTE" | "VALIDE" | "REFUSE";
 
@@ -124,6 +124,7 @@ export interface InscriptionFormData {
   photoUrl: string;
   niveauAllemand: NiveauAllemand | "";
   typeCours: string;
+  modalites: string[];
   objectif: Objectif | "";
   disponibilites: {
     matin: boolean;

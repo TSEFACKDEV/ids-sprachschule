@@ -6,10 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 
 const STATS = [
-  { value: 2000, suffix: "+", labelKey: "students" },
+  { value: 100, suffix: "+", labelKey: "students" },
   { value: 95, suffix: "%", labelKey: "success" },
-  { value: 15, suffix: "+", labelKey: "teachers" },
-  { value: 10, suffix: "+", labelKey: "nationalities" },
+  { value: 5, suffix: "+", labelKey: "teachers" },
 ];
 
 function AnimatedNumber({
@@ -52,7 +51,7 @@ export default function StatsSection() {
   return (
     <section className="section-padding bg-ids-black">
       <div className="container-ids">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.labelKey}

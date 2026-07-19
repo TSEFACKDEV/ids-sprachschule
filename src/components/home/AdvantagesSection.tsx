@@ -18,6 +18,14 @@ const ICONS = [
   FaUserCheck,
 ];
 
+const CARD_COLORS = [
+  { bg: "bg-ids-black", icon: "text-ids-gold" },
+  { bg: "bg-ids-red", icon: "text-white" },
+  { bg: "bg-ids-gold", icon: "text-ids-black" },
+  { bg: "bg-ids-black", icon: "text-ids-gold" },
+  { bg: "bg-ids-red", icon: "text-white" },
+];
+
 export default function AdvantagesSection() {
   const t = useTranslations("advantages");
   const items = t.raw("items") as { title: string; desc: string }[];
@@ -38,6 +46,7 @@ export default function AdvantagesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {items.map((item, i) => {
             const Icon = ICONS[i];
+            const color = CARD_COLORS[i % CARD_COLORS.length];
             return (
               <motion.div
                 key={i}
@@ -48,8 +57,8 @@ export default function AdvantagesSection() {
                 whileHover={{ y: -6 }}
                 className="flex flex-col items-center text-center p-6 rounded-2xl bg-ids-gray hover:shadow-lg transition-shadow duration-300 group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-ids-black flex items-center justify-center mb-4 group-hover:bg-ids-red transition-colors duration-300">
-                  <Icon size={28} className="text-ids-gold" />
+                <div className={`w-16 h-16 rounded-2xl ${color.bg} flex items-center justify-center mb-4 transition-colors duration-300`}>
+                  <Icon size={28} className={color.icon} />
                 </div>
                 <h3 className="font-display font-bold text-ids-black text-base mb-2">
                   {item.title}

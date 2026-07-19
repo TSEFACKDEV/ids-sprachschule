@@ -1,4 +1,4 @@
-import { getAuthUser } from "@/lib/auth";
+import { getAuthUser, isStaff } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { FaGraduationCap } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { FaGraduationCap } from "react-icons/fa";
 export default async function AdminExamensPage() {
   const locale = await getLocale();
   const authUser = await getAuthUser();
-  if (!authUser || authUser.role !== "ADMIN") redirect(`/${locale}/connexion`);
+  if (!authUser || !isStaff(authUser.role)) redirect(`/${locale}/connexion`);
 
   return (
     <div className="space-y-6">

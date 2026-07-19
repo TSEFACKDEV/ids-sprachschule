@@ -63,11 +63,11 @@ export async function POST(request: Request) {
     let isAdmin = false;
 
     if (!user) {
-      // Tentative admin par email
+      // Tentative admin / secrétaire par email
       const adminUser = await prisma.user.findUnique({
         where: { email: numeroInscription.trim().toLowerCase() },
       });
-      if (adminUser && adminUser.role === "ADMIN") {
+      if (adminUser && (adminUser.role === "ADMIN" || adminUser.role === "SECRETAIRE")) {
         user = adminUser;
         isAdmin = true;
       }
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
 
     const token = generateToken({
       userId: user.id,
-      role: user.role as "ADMIN" | "ETUDIANT",
+      role: user.role as "ADMIN" | "ETUDIANT" | "SECRETAIRE",
       mustChangePassword: user.mustChangePassword,
       etudiantId: etudiant?.id,
       numeroInscription: etudiant?.numeroInscription,

@@ -44,7 +44,7 @@ export default function FAQPage() {
           <div className="mt-12 bg-ids-black rounded-2xl p-8 text-center">
             <p className="font-display text-xl font-bold text-white mb-3">{t("notFoundTitle")}</p>
             <p className="text-gray-400 text-sm mb-6">{t("notFoundDesc")}</p>
-            <a href="https://wa.me/4915732878223" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3 bg-ids-red text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-sm">
+            <a href="https://wa.me/4915730323154" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3 bg-ids-red text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-sm">
               {t("notFoundBtn")}
             </a>
           </div>
