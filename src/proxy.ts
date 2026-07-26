@@ -47,16 +47,17 @@ export default async function middleware(request: NextRequest) {
   const withoutLocale = pathname.replace(/^\/(fr|en|de)/, "") || "/";
   const locale = pathname.match(/^\/(fr|en|de)/)?.[1] ?? "fr";
 
-  // Protection /admin (ADMIN et SECRETAIRE, accès restreint pour ce dernier)
+  // Protection /admin (ADMIN et SECRETAIRE).
+  // La secrétaire n'a que deux restrictions : pas d'accès au tableau de bord
+  // (page /admin elle-même) et pas de suppression (gérée au niveau des API).
   if (withoutLocale.startsWith("/admin")) {
     if (!payload || (payload.role !== "ADMIN" && payload.role !== "SECRETAIRE")) {
       return NextResponse.redirect(
         new URL(`/${locale}/connexion`, request.url)
       );
     }
-    // La facturation est une zone sensible réservée à ADMIN uniquement.
-    if (withoutLocale.startsWith("/admin/factures") && payload.role !== "ADMIN") {
-      return NextResponse.redirect(new URL(`/${locale}/admin`, request.url));
+    if (withoutLocale === "/admin" && payload.role === "SECRETAIRE") {
+      return NextResponse.redirect(new URL(`/${locale}/admin/etudiants`, request.url));
     }
     return intlResponse ?? NextResponse.next();
   }
@@ -99,8 +100,10 @@ export default async function middleware(request: NextRequest) {
       );
     }
     const dest =
-      payload.role === "ADMIN" || payload.role === "SECRETAIRE"
+      payload.role === "ADMIN"
         ? `/${locale}/admin`
+        : payload.role === "SECRETAIRE"
+        ? `/${locale}/admin/etudiants`
         : `/${locale}/espace-etudiant`;
     return NextResponse.redirect(new URL(dest, request.url));
   }

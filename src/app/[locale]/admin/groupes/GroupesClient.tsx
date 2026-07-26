@@ -9,6 +9,8 @@ import {
   FaEdit,
   FaTrash,
   FaLayerGroup,
+  FaUserPlus,
+  FaTimes,
 } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
@@ -20,6 +22,18 @@ interface EtudiantOption {
   prenom: string;
   numeroInscription: string;
   niveauAllemand: string;
+  typeCours: string;
+}
+
+interface Manuel {
+  nom: string;
+  prenom: string;
+}
+
+interface Membre {
+  etudiant: EtudiantOption | null;
+  nomManuel?: string | null;
+  prenomManuel?: string | null;
 }
 
 interface Groupe {
@@ -31,7 +45,9 @@ interface Groupe {
   heureFin: string;
   salle: string;
   enseignant: string;
-  etudiants: { etudiant: EtudiantOption }[];
+  dateDebut: string | null;
+  dateFin: string | null;
+  etudiants: Membre[];
 }
 
 const NIVEAUX = ["A1", "A2", "B1", "B2", "C1"];
@@ -47,37 +63,39 @@ const TYPE_OPTIONS = [
 const EMPTY_FORM = {
   nom: "",
   niveau: "A1",
+  niveauAutre: "",
   type: "SEMAINE_MATIN",
   heureDebut: "08:00",
   heureFin: "10:00",
   salle: "",
   enseignant: "",
+  dateDebut: "",
+  dateFin: "",
   etudiantIds: [] as string[],
+  manuels: [] as Manuel[],
 };
 
 const INPUT_CLASS =
   "w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-ids-red";
 
-export default function GroupesClient() {
+export default function GroupesClient({ isAdmin }: { isAdmin: boolean }) {
   const [groupes, setGroupes] = useState<Groupe[]>([]);
   const [etudiants, setEtudiants] = useState<EtudiantOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState<Groupe | null>(null);
   const [form, setForm] = useState(EMPTY_FORM);
+  const [manuelNom, setManuelNom] = useState("");
+  const [manuelPrenom, setManuelPrenom] = useState("");
   const [saving, setSaving] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
 
-  const fetchData = useCallback(async () => {
+  const fetchGroupes = useCallback(async () => {
     setLoading(true);
     try {
-      const [groupesRes, etudiantsRes] = await Promise.all([
-        fetch("/api/admin/groupes"),
-        fetch("/api/admin/etudiants/valides"),
-      ]);
-      const [gd, ed] = await Promise.all([groupesRes.json(), etudiantsRes.json()]);
-      if (gd.success) setGroupes(gd.data);
-      if (ed.success) setEtudiants(ed.data);
+      const res = await fetch("/api/admin/groupes");
+      const data = await res.json();
+      if (data.success) setGroupes(data.data);
     } catch {
       toast.error("Erreur chargement.");
     } finally {
@@ -85,27 +103,64 @@ export default function GroupesClient() {
     }
   }, []);
 
-  useEffect(() => { fetchData(); }, [fetchData]);
+  useEffect(() => { fetchGroupes(); }, [fetchGroupes]);
+
+  // Charge les étudiants validés éligibles à la sélection : ceux sans groupe,
+  // plus (en édition) ceux déjà membres du groupe en cours d'édition.
+  const fetchEtudiants = useCallback(async (groupeId?: string) => {
+    try {
+      const params = groupeId ? `?groupeId=${groupeId}` : "";
+      const res = await fetch(`/api/admin/etudiants/valides${params}`);
+      const data = await res.json();
+      if (data.success) setEtudiants(data.data);
+    } catch {
+      toast.error("Erreur chargement des étudiants.");
+    }
+  }, []);
 
   const openCreate = () => {
     setEditing(null);
     setForm(EMPTY_FORM);
+    setManuelNom("");
+    setManuelPrenom("");
+    fetchEtudiants();
     setShowModal(true);
   };
 
   const openEdit = (groupe: Groupe) => {
     setEditing(groupe);
+    const niveauConnu = NIVEAUX.includes(groupe.niveau);
     setForm({
       nom: groupe.nom,
-      niveau: groupe.niveau,
+      niveau: niveauConnu ? groupe.niveau : "AUTRE",
+      niveauAutre: niveauConnu ? "" : groupe.niveau,
       type: groupe.type,
       heureDebut: groupe.heureDebut,
       heureFin: groupe.heureFin,
       salle: groupe.salle,
       enseignant: groupe.enseignant,
-      etudiantIds: groupe.etudiants.map((e) => e.etudiant.id),
+      dateDebut: groupe.dateDebut ? groupe.dateDebut.split("T")[0] : "",
+      dateFin: groupe.dateFin ? groupe.dateFin.split("T")[0] : "",
+      etudiantIds: groupe.etudiants.filter((m) => m.etudiant).map((m) => m.etudiant!.id),
+      manuels: groupe.etudiants
+        .filter((m) => !m.etudiant)
+        .map((m) => ({ nom: m.nomManuel ?? "", prenom: m.prenomManuel ?? "" })),
     });
+    setManuelNom("");
+    setManuelPrenom("");
+    fetchEtudiants(groupe.id);
     setShowModal(true);
+  };
+
+  const addManuel = () => {
+    if (!manuelNom.trim() || !manuelPrenom.trim()) return;
+    setForm({ ...form, manuels: [...form.manuels, { nom: manuelNom.trim(), prenom: manuelPrenom.trim() }] });
+    setManuelNom("");
+    setManuelPrenom("");
+  };
+
+  const removeManuel = (index: number) => {
+    setForm({ ...form, manuels: form.manuels.filter((_, i) => i !== index) });
   };
 
   const handleSave = async () => {
@@ -113,22 +168,25 @@ export default function GroupesClient() {
       toast.error("Remplissez tous les champs obligatoires.");
       return;
     }
+    if (form.niveau === "AUTRE" && !form.niveauAutre.trim()) {
+      toast.error("Précisez le niveau (ex : Préparation Goethe B2).");
+      return;
+    }
     setSaving(true);
     try {
-      const url = editing
-        ? `/api/admin/groupes/${editing.id}`
-        : "/api/admin/groupes";
+      const niveauFinal = form.niveau === "AUTRE" ? form.niveauAutre.trim() : form.niveau;
+      const url = editing ? `/api/admin/groupes/${editing.id}` : "/api/admin/groupes";
       const method = editing ? "PUT" : "POST";
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, niveau: niveauFinal }),
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
       toast.success(editing ? "Groupe mis à jour !" : "Groupe créé !");
       setShowModal(false);
-      fetchData();
+      fetchGroupes();
     } catch (e: unknown) {
       toast.error(e instanceof Error ? e.message : "Erreur.");
     } finally {
@@ -143,15 +201,14 @@ export default function GroupesClient() {
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
       toast.success("Groupe supprimé.");
-      fetchData();
+      fetchGroupes();
     } catch (e: unknown) {
       toast.error(e instanceof Error ? e.message : "Erreur.");
     }
   };
 
-  const filteredEtudiants = etudiants.filter(
-    (e) => !form.niveau || e.niveauAllemand === form.niveau
-  );
+  const filteredEtudiants =
+    form.niveau === "AUTRE" ? etudiants : etudiants.filter((e) => e.niveauAllemand === form.niveau);
 
   return (
     <div className="space-y-6">
@@ -186,8 +243,8 @@ export default function GroupesClient() {
             >
               <div className="flex items-center justify-between p-5">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-ids-black flex items-center justify-center">
-                    <span className="text-ids-gold font-bold text-sm">
+                  <div className="w-10 h-10 rounded-xl bg-ids-black flex items-center justify-center flex-shrink-0">
+                    <span className="text-ids-gold font-bold text-[10px] text-center leading-tight px-1">
                       {groupe.niveau}
                     </span>
                   </div>
@@ -201,7 +258,7 @@ export default function GroupesClient() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="bg-ids-gray text-gray-600 text-xs font-semibold px-2.5 py-1 rounded-full">
-                    {groupe.etudiants.length} étudiant(s)
+                    {groupe.etudiants.length} membre(s)
                   </span>
                   <button
                     onClick={() => openEdit(groupe)}
@@ -209,12 +266,14 @@ export default function GroupesClient() {
                   >
                     <FaEdit size={13} />
                   </button>
-                  <button
-                    onClick={() => handleDelete(groupe.id)}
-                    className="w-8 h-8 rounded-lg flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors"
-                  >
-                    <FaTrash size={12} />
-                  </button>
+                  {isAdmin && (
+                    <button
+                      onClick={() => handleDelete(groupe.id)}
+                      className="w-8 h-8 rounded-lg flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors"
+                    >
+                      <FaTrash size={12} />
+                    </button>
+                  )}
                   <button
                     onClick={() => setExpanded(expanded === groupe.id ? null : groupe.id)}
                     className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 transition-colors"
@@ -240,6 +299,8 @@ export default function GroupesClient() {
                           ["Enseignant", groupe.enseignant],
                           ["Salle", groupe.salle],
                           ["Horaire", `${groupe.heureDebut} – ${groupe.heureFin}`],
+                          ["Début", groupe.dateDebut ? new Date(groupe.dateDebut).toLocaleDateString("fr-FR") : "—"],
+                          ["Fin", groupe.dateFin ? new Date(groupe.dateFin).toLocaleDateString("fr-FR") : "—"],
                         ].map(([label, value]) => (
                           <div key={label} className="bg-ids-gray rounded-xl p-3">
                             <p className="text-gray-400 text-xs">{label}</p>
@@ -253,22 +314,22 @@ export default function GroupesClient() {
                             Membres
                           </p>
                           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            {groupe.etudiants.map(({ etudiant }) => (
+                            {groupe.etudiants.map((m, idx) => (
                               <div
-                                key={etudiant.id}
+                                key={m.etudiant?.id ?? `manuel-${idx}`}
                                 className="flex items-center gap-2 p-2 bg-ids-gray rounded-lg"
                               >
                                 <div className="w-6 h-6 rounded-full bg-ids-red flex items-center justify-center flex-shrink-0">
                                   <span className="text-white text-xs font-bold">
-                                    {etudiant.prenom[0]}
+                                    {(m.etudiant?.prenom ?? m.prenomManuel ?? "?")[0]}
                                   </span>
                                 </div>
                                 <div>
                                   <p className="text-xs font-semibold text-ids-black leading-tight">
-                                    {etudiant.prenom} {etudiant.nom}
+                                    {m.etudiant ? `${m.etudiant.prenom} ${m.etudiant.nom}` : `${m.prenomManuel} ${m.nomManuel}`}
                                   </p>
                                   <p className="text-gray-400 text-xs">
-                                    {etudiant.numeroInscription}
+                                    {m.etudiant ? m.etudiant.numeroInscription : "Ajouté manuellement"}
                                   </p>
                                 </div>
                               </div>
@@ -319,9 +380,24 @@ export default function GroupesClient() {
                 {NIVEAUX.map((n) => (
                   <option key={n} value={n}>{n}</option>
                 ))}
+                <option value="AUTRE">Autre (préparation examens, etc.)</option>
               </select>
             </div>
           </div>
+
+          {form.niveau === "AUTRE" && (
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">
+                Précisez le niveau / l&apos;intitulé *
+              </label>
+              <input
+                value={form.niveauAutre}
+                onChange={(e) => setForm({ ...form, niveauAutre: e.target.value })}
+                placeholder="Ex : Préparation Goethe B2"
+                className={INPUT_CLASS}
+              />
+            </div>
+          )}
 
           <div className="grid grid-cols-2 gap-3">
             <div>
@@ -387,9 +463,34 @@ export default function GroupesClient() {
             </div>
           </div>
 
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">
+                Date de début du niveau
+              </label>
+              <input
+                type="date"
+                value={form.dateDebut}
+                onChange={(e) => setForm({ ...form, dateDebut: e.target.value })}
+                className={INPUT_CLASS}
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">
+                Date de fin du niveau
+              </label>
+              <input
+                type="date"
+                value={form.dateFin}
+                onChange={(e) => setForm({ ...form, dateFin: e.target.value })}
+                className={INPUT_CLASS}
+              />
+            </div>
+          </div>
+
           <div>
             <label className="block text-xs font-bold text-gray-600 mb-2 uppercase">
-              Étudiants (niveau {form.niveau} validés)
+              Étudiants inscrits {form.niveau !== "AUTRE" && `(niveau ${form.niveau}, validés, non affectés)`}
             </label>
             <div className="max-h-48 overflow-y-auto space-y-2 border border-gray-200 rounded-xl p-3">
               {filteredEtudiants.length === 0 ? (
@@ -418,7 +519,7 @@ export default function GroupesClient() {
                     <span className="text-sm text-ids-black">
                       {e.prenom} {e.nom}
                       <span className="text-gray-400 ml-2 text-xs">
-                        {e.numeroInscription}
+                        {e.numeroInscription} — {e.typeCours}
                       </span>
                     </span>
                   </label>
@@ -428,6 +529,46 @@ export default function GroupesClient() {
             <p className="text-xs text-gray-400 mt-1">
               {form.etudiantIds.length} étudiant(s) sélectionné(s)
             </p>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-gray-600 mb-2 uppercase">
+              Ajouter un participant manuellement (non inscrit sur le site)
+            </label>
+            <div className="flex gap-2">
+              <input
+                value={manuelPrenom}
+                onChange={(e) => setManuelPrenom(e.target.value)}
+                placeholder="Prénom"
+                className={INPUT_CLASS}
+              />
+              <input
+                value={manuelNom}
+                onChange={(e) => setManuelNom(e.target.value)}
+                placeholder="Nom"
+                className={INPUT_CLASS}
+              />
+              <button
+                type="button"
+                onClick={addManuel}
+                className="flex-shrink-0 w-11 h-11 rounded-xl bg-ids-black text-white flex items-center justify-center hover:bg-ids-red transition-colors"
+                title="Ajouter"
+              >
+                <FaUserPlus size={14} />
+              </button>
+            </div>
+            {form.manuels.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {form.manuels.map((m, idx) => (
+                  <span key={idx} className="inline-flex items-center gap-2 bg-ids-gray text-ids-black text-xs font-semibold px-3 py-1.5 rounded-full">
+                    {m.prenom} {m.nom}
+                    <button type="button" onClick={() => removeManuel(idx)} className="text-gray-400 hover:text-red-500">
+                      <FaTimes size={10} />
+                    </button>
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           <Button onClick={handleSave} loading={saving} fullWidth size="lg">

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { FaFilePdf, FaPlus, FaTimes } from "react-icons/fa";
+import { FaFilePdf, FaPlus, FaTimes, FaTrash } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import Spinner from "@/components/ui/Spinner";
 import Modal from "@/components/ui/Modal";
@@ -52,12 +52,14 @@ const schema = Yup.object({
 const INPUT_CLASS =
   "w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-ids-red";
 
-export default function FacturesClient() {
+export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
   const [factures, setFactures] = useState<Facture[]>([]);
   const [etudiants, setEtudiants] = useState<EtudiantOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [lastCreated, setLastCreated] = useState<string | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<Facture | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -91,6 +93,23 @@ export default function FacturesClient() {
       URL.revokeObjectURL(url);
     } catch {
       toast.error("Erreur lors du téléchargement PDF.");
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!deleteTarget) return;
+    setDeleting(true);
+    try {
+      const res = await fetch(`/api/admin/factures/${deleteTarget.id}`, { method: "DELETE" });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
+      toast.success("Reçu supprimé.");
+      setDeleteTarget(null);
+      fetchData();
+    } catch (e: unknown) {
+      toast.error(e instanceof Error ? e.message : "Erreur.");
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -337,13 +356,24 @@ export default function FacturesClient() {
                       {new Date(f.date).toLocaleDateString("fr-FR")}
                     </td>
                     <td className="px-4 py-3">
-                      <button
-                        onClick={() => handleDownloadPDF(f.id, f.numeroRecu)}
-                        className="flex items-center gap-1 text-ids-red hover:text-red-700 text-xs font-semibold transition-colors"
-                      >
-                        <FaFilePdf size={13} />
-                        PDF
-                      </button>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => handleDownloadPDF(f.id, f.numeroRecu)}
+                          className="flex items-center gap-1 text-ids-red hover:text-red-700 text-xs font-semibold transition-colors"
+                        >
+                          <FaFilePdf size={13} />
+                          PDF
+                        </button>
+                        {isAdmin && (
+                          <button
+                            onClick={() => setDeleteTarget(f)}
+                            title="Supprimer"
+                            className="text-gray-400 hover:text-red-500 transition-colors"
+                          >
+                            <FaTrash size={12} />
+                          </button>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -352,6 +382,23 @@ export default function FacturesClient() {
           </div>
         )}
       </div>
+
+      <Modal isOpen={!!deleteTarget} onClose={() => setDeleteTarget(null)} title="Confirmer la suppression" size="sm">
+        <div className="space-y-4">
+          <p className="text-gray-600 text-sm">
+            Voulez-vous vraiment supprimer le reçu <strong>{deleteTarget?.numeroRecu}</strong> ?
+            Cette action est irréversible.
+          </p>
+          <div className="flex gap-3">
+            <Button onClick={handleDelete} loading={deleting} variant="danger" fullWidth>
+              Supprimer
+            </Button>
+            <Button onClick={() => setDeleteTarget(null)} variant="outline" fullWidth>
+              Annuler
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

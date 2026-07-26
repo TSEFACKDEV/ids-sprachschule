@@ -19,7 +19,7 @@ import type { StatutInscription, NiveauAllemand } from "@/types";
 interface Groupe {
   id: string;
   nom: string;
-  niveau: NiveauAllemand;
+  niveau: string;
   type: string;
   heureDebut: string;
   heureFin: string;

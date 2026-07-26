@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthUser, generateTempPassword } from "@/lib/auth";
+import { getAuthUser, generateTempPassword, isStaff } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendPasswordResetEmail } from "@/lib/mailer";
 import bcrypt from "bcryptjs";
@@ -10,7 +10,7 @@ export async function POST(
 ) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || authUser.role !== "ADMIN") {
+    if (!authUser || !isStaff(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 

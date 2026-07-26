@@ -7,5 +7,5 @@ export default async function AdminGroupesPage() {
   const locale = await getLocale();
   const authUser = await getAuthUser();
   if (!authUser || !isStaff(authUser.role)) redirect(`/${locale}/connexion`);
-  return <GroupesClient />;
+  return <GroupesClient isAdmin={authUser.role === "ADMIN"} />;
 }

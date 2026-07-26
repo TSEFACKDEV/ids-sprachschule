@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   FaTachometerAlt, FaUsers, FaLayerGroup, FaGraduationCap,
-  FaFileInvoiceDollar, FaEnvelope, FaSignOutAlt, FaBars, FaTimes,
+  FaFileInvoiceDollar, FaFileContract, FaEnvelope, FaSignOutAlt, FaBars, FaTimes,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -29,11 +29,13 @@ export default function AdminSidebar() {
   }, []);
 
   const navItems = [
-    { href: `/${locale}/admin`, label: t("dashboard"), icon: FaTachometerAlt },
+    // Le tableau de bord est réservé à ADMIN.
+    ...(role !== "SECRETAIRE" ? [{ href: `/${locale}/admin`, label: t("dashboard"), icon: FaTachometerAlt }] : []),
     { href: `/${locale}/admin/etudiants`, label: t("students"), icon: FaUsers },
     { href: `/${locale}/admin/groupes`, label: t("groups"), icon: FaLayerGroup },
     { href: `/${locale}/admin/examens`, label: t("exams"), icon: FaGraduationCap },
-    ...(role !== "SECRETAIRE" ? [{ href: `/${locale}/admin/factures`, label: t("invoices"), icon: FaFileInvoiceDollar }] : []),
+    { href: `/${locale}/admin/factures`, label: t("invoices"), icon: FaFileInvoiceDollar },
+    { href: `/${locale}/admin/contrats`, label: t("contracts"), icon: FaFileContract },
     { href: `/${locale}/admin/messagerie`, label: t("messages"), icon: FaEnvelope },
   ];
 

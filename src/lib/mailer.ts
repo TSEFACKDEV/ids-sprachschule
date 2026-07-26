@@ -152,37 +152,22 @@ export async function sendValidationEmail(
   prenom: string,
   nom: string,
   numeroInscription: string,
-  motDePasseTemp: string,
+  // motDePasseTemp reste généré et stocké en base (nécessaire pour la connexion
+  // future), mais n'est plus transmis par email.
+  _motDePasseTemp: string,
   pdfBuffer: Buffer
 ): Promise<void> {
-  const appUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
   const content = `
     <p style="color:#333;font-size:16px;">Bonjour <strong>${prenom} ${nom}</strong>,</p>
     <p style="color:#555;font-size:15px;line-height:1.7;margin-top:16px;">
       Félicitations ! Votre inscription à l'Institut für die Deutsche Sprache (IDS)
       a été <strong style="color:#16a34a;">validée</strong>.
     </p>
-    <div style="background:#0a0a0a;color:#fff;padding:20px 24px;margin:24px 0;border-radius:6px;">
-      <p style="margin:0 0 8px 0;font-size:14px;color:#D4AF37;font-weight:bold;">
-        Vos identifiants de connexion
-      </p>
-      <p style="margin:4px 0;font-size:15px;">
-        Identifiant : <strong style="color:#D4AF37;">${numeroInscription}</strong>
-      </p>
-      <p style="margin:4px 0;font-size:15px;">
-        Mot de passe temporaire : <strong style="color:#D4AF37;">${motDePasseTemp}</strong>
-      </p>
-    </div>
-    <p style="color:#555;font-size:15px;">
-      Connectez-vous sur :
-      <a href="${appUrl}/fr/connexion" style="color:#CC0000;">${appUrl}/fr/connexion</a>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Le programme et les horaires de vos cours vous seront communiqués dans les meilleurs délais.
+      En attendant, nous vous invitons à passer dans notre centre afin de récupérer vos manuels
+      de cours, si ce n'est pas déjà fait.
     </p>
-    <div style="background:#fff3cd;border:1px solid #ffc107;padding:12px 16px;border-radius:4px;margin:20px 0;">
-      <p style="margin:0;color:#856404;font-size:14px;">
-        <strong>Important :</strong> vous serez invité à changer votre mot de passe
-        dès votre première connexion.
-      </p>
-    </div>
     <p style="color:#555;font-size:14px;">
       Vous trouverez ci-joint votre fiche d'inscription.
     </p>
@@ -192,7 +177,7 @@ export async function sendValidationEmail(
   await transporter.sendMail({
     from: process.env.EMAIL_FROM!,
     to,
-    subject: "Inscription validée – Vos identifiants IDS",
+    subject: "Inscription validée – IDS",
     html: baseTemplate(content),
     attachments: [
       {

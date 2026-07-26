@@ -576,7 +576,8 @@
     "details": "Détails", "regeneratePwd": "Régénérer mot de passe",
     "search": "Rechercher...", "export": "Exporter CSV",
     "statuts": { "EN_ATTENTE": "En attente", "VALIDE": "Validé", "REFUSE": "Refusé" },
-    "roleSecretaire": "Secrétariat – accès restreint"
+    "roleSecretaire": "Secrétariat – accès restreint",
+    "contracts": "Contrats"
   },
   "studentSpace": {
     "title": "Mon Espace Étudiant", "myGroup": "Mon groupe",

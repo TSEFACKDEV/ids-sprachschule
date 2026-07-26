@@ -274,7 +274,7 @@ export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
                         >
                           <FaEye size={13} />
                         </button>
-                        {isAdmin && e.statut === "EN_ATTENTE" && (
+                        {e.statut === "EN_ATTENTE" && (
                           <>
                             <button
                               onClick={() => handleAction("valider", e.id)}
@@ -292,7 +292,7 @@ export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
                             </button>
                           </>
                         )}
-                        {isAdmin && e.statut === "VALIDE" && (
+                        {e.statut === "VALIDE" && (
                           <button
                             onClick={() => handleAction("reset-password", e.id)}
                             title="Régénérer mot de passe"
@@ -389,7 +389,7 @@ export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
                 </div>
               ))}
             </div>
-            {isAdmin && selectedEtudiant.statut === "EN_ATTENTE" && (
+            {selectedEtudiant.statut === "EN_ATTENTE" && (
               <div className="flex gap-3 pt-2">
                 <Button
                   onClick={() => handleAction("valider", selectedEtudiant.id)}

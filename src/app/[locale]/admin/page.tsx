@@ -1,13 +1,14 @@
-import { getAuthUser, isStaff } from "@/lib/auth";
+import { getAuthUser, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import AdminDashboardClient from "./AdminDashboardClient";
 
+// Le tableau de bord est réservé à ADMIN (restriction spécifique à la secrétaire).
 export default async function AdminPage() {
   const locale = await getLocale();
   const authUser = await getAuthUser();
-  if (!authUser || !isStaff(authUser.role)) redirect(`/${locale}/connexion`);
+  if (!authUser || !isAdmin(authUser.role)) redirect(`/${locale}/admin/etudiants`);
 
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);

@@ -12,7 +12,6 @@ datasource db {
   provider = "postgresql"
 }
 
-
 enum Role {
   ADMIN
   ETUDIANT
@@ -110,6 +109,7 @@ model Etudiant {
   inscriptionCours  InscriptionCours?
   groupes           GroupeEtudiant[]
   factures          Facture[]
+  contrats          Contrat[]
 }
 
 model Cours {
@@ -149,23 +149,32 @@ model InscriptionCours {
 model Groupe {
   id         String           @id @default(cuid())
   nom        String
-  niveau     NiveauAllemand
+  // String libre (et non plus l'enum NiveauAllemand) pour permettre "AUTRE"
+  // (groupes de préparation aux examens, non liés à un niveau A1-C1 strict).
+  niveau     String
   type       TypeCours
   heureDebut String
   heureFin   String
   salle      String
   enseignant String
+  dateDebut  DateTime?
+  dateFin    DateTime?
   etudiants  GroupeEtudiant[]
   createdAt  DateTime         @default(now())
   updatedAt  DateTime         @updatedAt
 }
 
 model GroupeEtudiant {
-  id         String   @id @default(cuid())
-  groupeId   String
-  groupe     Groupe   @relation(fields: [groupeId], references: [id])
-  etudiantId String
-  etudiant   Etudiant @relation(fields: [etudiantId], references: [id])
+  id           String    @id @default(cuid())
+  groupeId     String
+  groupe       Groupe    @relation(fields: [groupeId], references: [id])
+  // etudiantId est optionnel : un membre peut être ajouté manuellement
+  // (nom/prénom libres) sans avoir de dossier d'inscription dans le système,
+  // par exemple pour un groupe de préparation aux examens.
+  etudiantId   String?
+  etudiant     Etudiant? @relation(fields: [etudiantId], references: [id])
+  nomManuel    String?
+  prenomManuel String?
 
   @@unique([groupeId, etudiantId])
 }
@@ -193,6 +202,50 @@ model Facture {
   statut       String        @default("PAYE")
   date         DateTime      @default(now())
   createdAt    DateTime      @default(now())
+}
+
+model Contrat {
+  id            String @id @default(cuid())
+  numeroContrat String @unique
+
+  // Étudiant lié si applicable (facultatif : un contrat peut concerner
+  // un candidat externe sans dossier d'inscription dans le système).
+  etudiantId String?
+  etudiant   Etudiant? @relation(fields: [etudiantId], references: [id])
+
+  // Informations du client
+  nomClient    String
+  cniPasseport String
+  telephone    String
+
+  // Paiement
+  montantVerseFCFA    Float
+  montantVerseLettres String @db.Text
+  montantVerseEUR     Float?
+
+  // Pack concerné
+  packConcerne String
+  packAutre    String?
+
+  // Situation du paiement
+  montantTotalPack  Float
+  montantPayeCeJour Float
+  resteAPayer       Float
+
+  // Mode de paiement
+  modePaiement      String
+  modePaiementAutre String?
+  referencePaiement String?
+
+  // Déclaration du client (attestation) : cochées lors de la génération du contrat
+  declarationRecuExemplaire    Boolean @default(true)
+  declarationClausesExpliquees Boolean @default(true)
+  declarationLuComprisAccepte  Boolean @default(true)
+  declarationMontantConforme   Boolean @default(true)
+
+  nomRepresentant String
+  dateSignature   DateTime @default(now())
+  createdAt       DateTime @default(now())
 }
 
 model Message {

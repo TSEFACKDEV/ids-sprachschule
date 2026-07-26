@@ -20,6 +20,7 @@ export async function GET() {
                 nom: true,
                 prenom: true,
                 numeroInscription: true,
+                typeCours: true,
                 photoUrl: true,
               },
             },
@@ -42,8 +43,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
-    const { nom, niveau, type, heureDebut, heureFin, salle, enseignant, etudiantIds } =
-      await request.json();
+    const {
+      nom, niveau, type, heureDebut, heureFin, salle, enseignant,
+      dateDebut, dateFin, etudiantIds, manuels,
+    } = await request.json();
 
     if (!nom || !niveau || !type || !heureDebut || !heureFin || !salle || !enseignant) {
       return NextResponse.json(
@@ -61,8 +64,16 @@ export async function POST(request: Request) {
         heureFin,
         salle,
         enseignant,
+        dateDebut: dateDebut ? new Date(dateDebut) : null,
+        dateFin: dateFin ? new Date(dateFin) : null,
         etudiants: {
-          create: (etudiantIds ?? []).map((etudiantId: string) => ({ etudiantId })),
+          create: [
+            ...(etudiantIds ?? []).map((etudiantId: string) => ({ etudiantId })),
+            ...(manuels ?? []).map((m: { nom: string; prenom: string }) => ({
+              nomManuel: m.nom,
+              prenomManuel: m.prenom,
+            })),
+          ],
         },
       },
       include: { etudiants: { include: { etudiant: true } } },

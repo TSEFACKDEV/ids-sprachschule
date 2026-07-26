@@ -1,4 +1,4 @@
-import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { PDFDocument, rgb, StandardFonts, type PDFPage } from "pdf-lib";
 import fs from "fs";
 import path from "path";
 import type { FacturePublic, EtudiantPublic } from "@/types";
@@ -241,6 +241,190 @@ export async function generateRecuPDF(
       color: rgb(0.55, 0.55, 0.55),
     }
   );
+
+  const pdfBytes = await pdfDoc.save();
+  return Buffer.from(pdfBytes);
+}
+
+export interface ContratPublic {
+  numeroContrat: string;
+  nomClient: string;
+  cniPasseport: string;
+  telephone: string;
+  montantVerseFCFA: number;
+  montantVerseLettres: string;
+  montantVerseEUR?: number | null;
+  packConcerne: string;
+  packAutre?: string | null;
+  montantTotalPack: number;
+  montantPayeCeJour: number;
+  resteAPayer: number;
+  modePaiement: string;
+  modePaiementAutre?: string | null;
+  referencePaiement?: string | null;
+  declarationRecuExemplaire: boolean;
+  declarationClausesExpliquees: boolean;
+  declarationLuComprisAccepte: boolean;
+  declarationMontantConforme: boolean;
+  nomRepresentant: string;
+  dateSignature: string;
+}
+
+const LABEL_PACK: Record<string, string> = {
+  PACK_STANDARD: "Pack Etudiant Standard",
+  PACK_SERENITE: "Pack Etudiant Serenite",
+  PACK_EXTERNE_STANDARD: "Pack Externe Standard",
+  PACK_EXTERNE_SERENITE: "Pack Externe Serenite",
+  AUTRE: "Autre",
+};
+
+const LABEL_MODE_CONTRAT: Record<string, string> = {
+  ESPECES: "Especes",
+  ORANGE_MONEY: "Orange Money",
+  MTN_MONEY: "MTN Mobile Money",
+  VIREMENT: "Virement bancaire",
+  AUTRE: "Autre",
+};
+
+export async function generateContratPDF(contrat: ContratPublic): Promise<Buffer> {
+  const pdfDoc = await PDFDocument.create();
+  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+  const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const pageSize: [number, number] = [595, 842];
+  const marginX = 40;
+
+  let page: PDFPage = pdfDoc.addPage(pageSize);
+  const { width, height } = page.getSize();
+  let y = height - 40;
+
+  const drawFooter = (p: PDFPage) => {
+    p.drawRectangle({ x: 0, y: 0, width, height: 34, color: IDS_BLACK });
+    p.drawText(
+      sanitize("IDS - Biyem-Assi, Carrefour Scalom, Yaounde | info@ids-sprachschule.com | WhatsApp : +49 1573 0323154"),
+      { x: marginX, y: 12, size: 7.5, font: fontRegular, color: rgb(0.6, 0.6, 0.6) }
+    );
+  };
+
+  const newPage = () => {
+    drawFooter(page);
+    page = pdfDoc.addPage(pageSize);
+    y = height - 40;
+  };
+
+  const ensureSpace = (needed: number) => {
+    if (y - needed < 44) newPage();
+  };
+
+  const sectionTitle = (title: string) => {
+    ensureSpace(26);
+    page.drawRectangle({ x: marginX, y: y - 4, width: width - marginX * 2, height: 18, color: IDS_BLACK });
+    page.drawText(sanitize(title), { x: marginX + 8, y: y, size: 9.5, font: fontBold, color: IDS_GOLD });
+    y -= 26;
+  };
+
+  const row = (label: string, value: string) => {
+    ensureSpace(20);
+    page.drawText(sanitize(label), { x: marginX, y, size: 9, font: fontBold, color: IDS_BLACK });
+    page.drawText(sanitize(value || "-"), { x: marginX + 190, y, size: 9, font: fontRegular, color: IDS_BLACK });
+    y -= 18;
+  };
+
+  const checkbox = (label: string, checked: boolean) => {
+    ensureSpace(16);
+    page.drawText(sanitize(checked ? "[X]" : "[ ]"), { x: marginX, y, size: 9, font: fontBold, color: checked ? IDS_RED : rgb(0.6, 0.6, 0.6) });
+    page.drawText(sanitize(label), { x: marginX + 24, y, size: 9, font: fontRegular, color: IDS_BLACK });
+    y -= 16;
+  };
+
+  // ── Header ──
+  page.drawRectangle({ x: 0, y: height - 90, width, height: 90, color: IDS_BLACK });
+  const logoPath = path.join(process.cwd(), "public", "images", "logo.png");
+  if (fs.existsSync(logoPath)) {
+    try {
+      const logoImage = await pdfDoc.embedPng(fs.readFileSync(logoPath));
+      page.drawImage(logoImage, { x: marginX - 8, y: height - 82, width: 56, height: 56 });
+    } catch {
+      // pas de logo, on continue
+    }
+  }
+  page.drawText("IDS - Institut fur die Deutsche Sprache", {
+    x: marginX + 60, y: height - 40, size: 12, font: fontBold, color: IDS_GOLD,
+  });
+  page.drawText("Recu de paiement et attestation de remise du contrat", {
+    x: marginX + 60, y: height - 56, size: 9.5, font: fontRegular, color: rgb(0.8, 0.8, 0.8),
+  });
+  page.drawText(sanitize(`N ${contrat.numeroContrat}`), {
+    x: marginX + 60, y: height - 72, size: 9, font: fontRegular, color: IDS_RED,
+  });
+
+  y = height - 112;
+
+  const dateSig = new Date(contrat.dateSignature);
+  const dateStr = `${String(dateSig.getDate()).padStart(2, "0")} / ${String(dateSig.getMonth() + 1).padStart(2, "0")} / ${dateSig.getFullYear()}`;
+
+  sectionTitle("INFORMATIONS DU CLIENT");
+  row("Nom et prenom", contrat.nomClient);
+  row("CNI / Passeport", contrat.cniPasseport);
+  row("Telephone", contrat.telephone);
+
+  y -= 6;
+  sectionTitle("PAIEMENT");
+  row("Montant verse (FCFA)", formatMontant(contrat.montantVerseFCFA));
+  row("En lettres", contrat.montantVerseLettres);
+  row("Equivalent (EUR)", contrat.montantVerseEUR != null ? `${contrat.montantVerseEUR} EUR` : "-");
+
+  y -= 6;
+  sectionTitle("PACK CONCERNE");
+  for (const key of ["PACK_STANDARD", "PACK_SERENITE", "PACK_EXTERNE_STANDARD", "PACK_EXTERNE_SERENITE", "AUTRE"]) {
+    const checked = contrat.packConcerne === key;
+    const label = key === "AUTRE" && checked && contrat.packAutre
+      ? `Autre : ${contrat.packAutre}`
+      : LABEL_PACK[key];
+    checkbox(label, checked);
+  }
+
+  y -= 6;
+  sectionTitle("SITUATION DU PAIEMENT");
+  row("Montant total du pack", formatMontant(contrat.montantTotalPack));
+  row("Montant paye ce jour", formatMontant(contrat.montantPayeCeJour));
+  row("Reste a payer", formatMontant(contrat.resteAPayer));
+
+  y -= 6;
+  sectionTitle("MODE DE PAIEMENT");
+  for (const key of ["ESPECES", "ORANGE_MONEY", "MTN_MONEY", "VIREMENT", "AUTRE"]) {
+    const checked = contrat.modePaiement === key;
+    const label = key === "AUTRE" && checked && contrat.modePaiementAutre
+      ? `Autre : ${contrat.modePaiementAutre}`
+      : LABEL_MODE_CONTRAT[key];
+    checkbox(label, checked);
+  }
+  row("Reference du paiement", contrat.referencePaiement ?? "-");
+
+  y -= 6;
+  sectionTitle("DECLARATION DU CLIENT");
+  checkbox("J'ai recu un exemplaire du contrat de prestation de services conclu avec IDS.", contrat.declarationRecuExemplaire);
+  checkbox("Les clauses du contrat m'ont ete expliquees de maniere claire par un representant d'IDS.", contrat.declarationClausesExpliquees);
+  checkbox("Je reconnais avoir lu, compris et accepte l'ensemble des clauses du contrat avant sa signature.", contrat.declarationLuComprisAccepte);
+  checkbox("Je reconnais que le montant indique ci-dessus correspond au paiement effectue ce jour.", contrat.declarationMontantConforme);
+
+  y -= 14;
+  ensureSpace(90);
+  page.drawText(sanitize(`Fait a Yaounde, le ${dateStr}`), { x: marginX, y, size: 9.5, font: fontBold, color: IDS_BLACK });
+  y -= 30;
+
+  const colWidth = (width - marginX * 2) / 2;
+  page.drawText("Le Client", { x: marginX, y, size: 9.5, font: fontBold, color: IDS_RED });
+  page.drawText("Pour IDS", { x: marginX + colWidth, y, size: 9.5, font: fontBold, color: IDS_RED });
+  y -= 18;
+  page.drawText(sanitize("Nom : ________________________________"), { x: marginX, y, size: 9, font: fontRegular, color: IDS_BLACK });
+  page.drawText(sanitize(`Nom : ${contrat.nomRepresentant}`), { x: marginX + colWidth, y, size: 9, font: fontRegular, color: IDS_BLACK });
+  y -= 20;
+  page.drawText(sanitize("Signature : ___________________________"), { x: marginX, y, size: 9, font: fontRegular, color: IDS_BLACK });
+  page.drawText(sanitize("Signature : ___________________________"), { x: marginX + colWidth, y, size: 9, font: fontRegular, color: IDS_BLACK });
+  y -= 26;
+  page.drawText(sanitize("Cachet de l'entreprise :"), { x: marginX, y, size: 9, font: fontRegular, color: rgb(0.5, 0.5, 0.5) });
+
+  drawFooter(page);
 
   const pdfBytes = await pdfDoc.save();
   return Buffer.from(pdfBytes);

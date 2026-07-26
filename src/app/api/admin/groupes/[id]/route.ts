@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthUser, isStaff } from "@/lib/auth";
+import { getAuthUser, isStaff, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 export async function PUT(
@@ -13,8 +13,10 @@ export async function PUT(
     }
 
     const { id } = await params;
-    const { nom, niveau, type, heureDebut, heureFin, salle, enseignant, etudiantIds } =
-      await request.json();
+    const {
+      nom, niveau, type, heureDebut, heureFin, salle, enseignant,
+      dateDebut, dateFin, etudiantIds, manuels,
+    } = await request.json();
 
     // Mettre à jour les membres du groupe
     await prisma.groupeEtudiant.deleteMany({ where: { groupeId: id } });
@@ -29,8 +31,16 @@ export async function PUT(
         heureFin,
         salle,
         enseignant,
+        dateDebut: dateDebut ? new Date(dateDebut) : null,
+        dateFin: dateFin ? new Date(dateFin) : null,
         etudiants: {
-          create: (etudiantIds ?? []).map((etudiantId: string) => ({ etudiantId })),
+          create: [
+            ...(etudiantIds ?? []).map((etudiantId: string) => ({ etudiantId })),
+            ...(manuels ?? []).map((m: { nom: string; prenom: string }) => ({
+              nomManuel: m.nom,
+              prenomManuel: m.prenom,
+            })),
+          ],
         },
       },
       include: { etudiants: { include: { etudiant: true } } },
@@ -43,13 +53,14 @@ export async function PUT(
   }
 }
 
+// Suppression réservée à ADMIN (restriction spécifique à la secrétaire).
 export async function DELETE(
   _request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || !isStaff(authUser.role)) {
+    if (!authUser || !isAdmin(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
