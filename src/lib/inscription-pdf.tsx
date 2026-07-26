@@ -253,7 +253,7 @@ function InscriptionDocument({ etudiant }: { etudiant: EtudiantPublic }) {
         <View style={styles.footer}>
           <Text>
             Institut für die Deutsche Sprache – Biyem-Assi, Yaoundé, Cameroun |
-            info@ids-sprachschule.com | +49 1573 2878223
+            info@ids-sprachschule.com | +237 695 191 134 / 681 067 657
           </Text>
           <Text style={{ marginTop: 4 }}>
             Document généré automatiquement – Ne pas modifier

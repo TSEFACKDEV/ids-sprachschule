@@ -134,12 +134,15 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <FaPhone className="text-ids-gold flex-shrink-0" size={13} />
-                <a
-                  href="tel:+4915732878223"
-                  className="hover:text-ids-gold transition-colors"
-                >
-                  +49 1573 2878223
-                </a>
+                <span>
+                  <a href="tel:+237695191134" className="hover:text-ids-gold transition-colors">
+                    +237 695 191 134
+                  </a>
+                  {" / "}
+                  <a href="tel:+237681067657" className="hover:text-ids-gold transition-colors">
+                    681 067 657
+                  </a>
+                </span>
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <FaWhatsapp className="text-ids-gold flex-shrink-0" size={14} />

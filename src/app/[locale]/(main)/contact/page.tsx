@@ -8,7 +8,8 @@ export default async function ContactPage() {
 
   const infos = [
     { icon: FaMapMarkerAlt, label: t("addressLabel"), value: "Carrefour Scalom, Immeuble Africa Finance, Biyem-Assi, Yaoundé", href: null },
-    { icon: FaPhone, label: t("phoneLabel"), value: "+49 1573 2878223", href: "tel:+4915732878223" },
+    { icon: FaPhone, label: t("phoneLabel"), value: "+237 695 191 134", href: "tel:+237695191134" },
+    { icon: FaPhone, label: t("phoneLabel"), value: "+237 681 067 657", href: "tel:+237681067657" },
     { icon: FaWhatsapp, label: t("whatsappLabel"), value: "+49 1573 0323154", href: "https://wa.me/4915730323154" },
     { icon: FaEnvelope, label: t("emailLabel"), value: "info@ids-sprachschule.com", href: "mailto:info@ids-sprachschule.com" },
     { icon: FaClock, label: t("hoursLabel"), value: "Lun – Sam : 8h00 – 20h00", href: null },
@@ -29,7 +30,7 @@ export default async function ContactPage() {
                 <h2 className="font-display font-bold text-ids-black text-lg mb-6">{t("infoTitle")}</h2>
                 <div className="space-y-5">
                   {infos.map((item) => (
-                    <div key={item.label} className="flex items-start gap-4">
+                    <div key={item.value} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-lg bg-ids-red/10 flex items-center justify-center flex-shrink-0">
                         <item.icon className="text-ids-red" size={15} />
                       </div>
