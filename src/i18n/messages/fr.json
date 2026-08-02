@@ -577,7 +577,7 @@
     "search": "Rechercher...", "export": "Exporter CSV",
     "statuts": { "EN_ATTENTE": "En attente", "VALIDE": "Validé", "REFUSE": "Refusé" },
     "roleSecretaire": "Secrétariat – accès restreint",
-    "contracts": "Contrats"
+    "receipts": "Reçus"
   },
   "studentSpace": {
     "title": "Mon Espace Étudiant", "myGroup": "Mon groupe",

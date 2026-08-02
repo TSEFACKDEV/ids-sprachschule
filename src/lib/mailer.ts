@@ -1,4 +1,6 @@
 import nodemailer from "nodemailer";
+import fs from "fs";
+import path from "path";
 
 const transporter = nodemailer.createTransport({
   service: "Yahoo",
@@ -8,14 +10,30 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+function getLogoBase64(): string | null {
+  try {
+    const logoPath = path.join(process.cwd(), "public", "images", "logo.png");
+    if (!fs.existsSync(logoPath)) return null;
+    const logoBytes = fs.readFileSync(logoPath);
+    return `data:image/png;base64,${logoBytes.toString("base64")}`;
+  } catch {
+    return null;
+  }
+}
+
 function baseTemplate(content: string): string {
+  const logo = getLogoBase64();
+  const headerImg = logo
+    ? `<img src="${logo}" alt="IDS-Sprachschule" style="height:70px;width:auto;display:block;margin:0 auto;" />`
+    : `<p style="color:#D4AF37;font-size:22px;font-weight:bold;margin:0;">IDS-Sprachschule</p>`;
+
   return `
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IDS – Institut für die Deutsche Sprache</title>
+  <title>IDS-Sprachschule</title>
 </head>
 <body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:40px 20px;">
@@ -24,10 +42,8 @@ function baseTemplate(content: string): string {
         <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
           <tr>
             <td style="background:#0a0a0a;padding:24px 32px;text-align:center;">
-              <p style="color:#D4AF37;font-size:22px;font-weight:bold;margin:0;">
-                IDS – Institut für die Deutsche Sprache
-              </p>
-              <p style="color:#CC0000;font-size:13px;margin:6px 0 0 0;">
+              ${headerImg}
+              <p style="color:#CC0000;font-size:13px;margin:8px 0 0 0;">
                 Lernen. Verstehen. Erfolgreich sein.
               </p>
             </td>
@@ -40,7 +56,7 @@ function baseTemplate(content: string): string {
           <tr>
             <td style="background:#0a0a0a;padding:20px 32px;text-align:center;">
               <p style="color:#888;font-size:12px;margin:0;">
-                Institut für die Deutsche Sprache – Biyem-Assi, Yaoundé, Cameroun<br/>
+                IDS-Sprachschule – Biyem-Assi, Yaoundé, Cameroun<br/>
                 Email : info@ids-sprachschule.com | WhatsApp : +49 1573 0323154
               </p>
             </td>
@@ -160,7 +176,7 @@ export async function sendValidationEmail(
   const content = `
     <p style="color:#333;font-size:16px;">Bonjour <strong>${prenom} ${nom}</strong>,</p>
     <p style="color:#555;font-size:15px;line-height:1.7;margin-top:16px;">
-      Félicitations ! Votre inscription à l'Institut für die Deutsche Sprache (IDS)
+      Félicitations ! Votre inscription à <strong>IDS-Sprachschule</strong>
       a été <strong style="color:#16a34a;">validée</strong>.
     </p>
     <p style="color:#555;font-size:15px;line-height:1.7;">
@@ -172,12 +188,12 @@ export async function sendValidationEmail(
       Vous trouverez ci-joint votre fiche d'inscription.
     </p>
     <p style="color:#555;font-size:15px;margin-top:24px;">Cordialement,</p>
-    <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS</p>`;
+    <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS-Sprachschule</p>`;
 
   await transporter.sendMail({
     from: process.env.EMAIL_FROM!,
     to,
-    subject: "Inscription validée – IDS",
+    subject: "Inscription validée – IDS-Sprachschule",
     html: baseTemplate(content),
     attachments: [
       {
@@ -208,12 +224,12 @@ export async function sendRefusEmail(
       une nouvelle candidature.
     </p>
     <p style="color:#555;font-size:15px;margin-top:24px;">Cordialement,</p>
-    <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS</p>`;
+    <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS-Sprachschule</p>`;
 
   await transporter.sendMail({
     from: process.env.EMAIL_FROM!,
     to,
-    subject: "Mise à jour de votre dossier IDS",
+    subject: "Mise à jour de votre dossier IDS-Sprachschule",
     html: baseTemplate(content),
   });
 }
@@ -228,7 +244,7 @@ export async function sendPasswordResetEmail(
   const content = `
     <p style="color:#333;font-size:16px;">Bonjour <strong>${prenom}</strong>,</p>
     <p style="color:#555;font-size:15px;line-height:1.7;margin-top:16px;">
-      Votre mot de passe a été réinitialisé par l'administration IDS.
+      Votre mot de passe a été réinitialisé par l'administration IDS-Sprachschule.
     </p>
     <div style="background:#0a0a0a;color:#fff;padding:20px 24px;margin:24px 0;border-radius:6px;">
       <p style="margin:0 0 8px 0;font-size:14px;color:#D4AF37;font-weight:bold;">
@@ -249,12 +265,12 @@ export async function sendPasswordResetEmail(
       Vous devrez définir un nouveau mot de passe personnel à votre prochaine connexion.
     </p>
     <p style="color:#555;font-size:15px;margin-top:24px;">Cordialement,</p>
-    <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS</p>`;
+    <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS-Sprachschule</p>`;
 
   await transporter.sendMail({
     from: process.env.EMAIL_FROM!,
     to,
-    subject: "Réinitialisation de votre mot de passe – IDS",
+    subject: "Réinitialisation de votre mot de passe – IDS-Sprachschule",
     html: baseTemplate(content),
   });
 }

@@ -109,7 +109,6 @@ model Etudiant {
   inscriptionCours  InscriptionCours?
   groupes           GroupeEtudiant[]
   factures          Facture[]
-  contrats          Contrat[]
 }
 
 model Cours {
@@ -202,50 +201,6 @@ model Facture {
   statut       String        @default("PAYE")
   date         DateTime      @default(now())
   createdAt    DateTime      @default(now())
-}
-
-model Contrat {
-  id            String @id @default(cuid())
-  numeroContrat String @unique
-
-  // Étudiant lié si applicable (facultatif : un contrat peut concerner
-  // un candidat externe sans dossier d'inscription dans le système).
-  etudiantId String?
-  etudiant   Etudiant? @relation(fields: [etudiantId], references: [id])
-
-  // Informations du client
-  nomClient    String
-  cniPasseport String
-  telephone    String
-
-  // Paiement
-  montantVerseFCFA    Float
-  montantVerseLettres String @db.Text
-  montantVerseEUR     Float?
-
-  // Pack concerné
-  packConcerne String
-  packAutre    String?
-
-  // Situation du paiement
-  montantTotalPack  Float
-  montantPayeCeJour Float
-  resteAPayer       Float
-
-  // Mode de paiement
-  modePaiement      String
-  modePaiementAutre String?
-  referencePaiement String?
-
-  // Déclaration du client (attestation) : cochées lors de la génération du contrat
-  declarationRecuExemplaire    Boolean @default(true)
-  declarationClausesExpliquees Boolean @default(true)
-  declarationLuComprisAccepte  Boolean @default(true)
-  declarationMontantConforme   Boolean @default(true)
-
-  nomRepresentant String
-  dateSignature   DateTime @default(now())
-  createdAt       DateTime @default(now())
 }
 
 model Message {
