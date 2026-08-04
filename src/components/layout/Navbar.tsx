@@ -37,7 +37,11 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMenuOpen(false);
+    const timeoutId = window.setTimeout(() => {
+      setMenuOpen(false);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, [pathname]);
 
   const navLinks = [
@@ -53,7 +57,7 @@ export default function Navbar() {
 
   const switchLocale = (newLocale: string) => {
     const withoutLocale = pathname.replace(/^\/(fr|en|de)/, "") || "/";
-    window.location.href = `/${newLocale}${withoutLocale}`;
+    window.location.assign(`/${newLocale}${withoutLocale}`);
     setLangOpen(false);
   };
 

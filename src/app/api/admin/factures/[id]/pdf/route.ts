@@ -26,6 +26,56 @@ export async function GET(
       return NextResponse.json({ success: false, error: "Facture introuvable." }, { status: 404 });
     }
 
+    const etudiantForPdf = facture.etudiant
+      ? {
+          id: facture.etudiant.id,
+          numeroInscription: facture.etudiant.numeroInscription,
+          nom: facture.etudiant.nom,
+          prenom: facture.etudiant.prenom,
+          email: facture.etudiant.email,
+          telephone: facture.etudiant.telephone,
+          dateNaissance: facture.etudiant.dateNaissance.toISOString(),
+          sexe: facture.etudiant.sexe,
+          nationalite: facture.etudiant.nationalite,
+          adresse: facture.etudiant.adresse,
+          ville: facture.etudiant.ville,
+          codePostal: facture.etudiant.codePostal ?? undefined,
+          photoUrl: facture.etudiant.photoUrl ?? undefined,
+          niveauEtudes: facture.etudiant.niveauEtudes,
+          profession: facture.etudiant.profession ?? undefined,
+          objectif: facture.etudiant.objectif as "ETUDES_ALLEMAGNE" | "TRAVAIL" | "EXAMEN" | "VOYAGE" | "AUTRE",
+          disponibilites: facture.etudiant.disponibilites as Record<string, boolean>,
+          joursPreferees: facture.etudiant.joursPreferees as string[],
+          niveauAllemand: facture.etudiant.niveauAllemand as "A1" | "A2" | "B1" | "B2" | "C1",
+          typeCours: facture.etudiant.typeCours,
+          statut: facture.etudiant.statut as "EN_ATTENTE" | "VALIDE" | "REFUSE",
+          dateInscription: facture.etudiant.dateInscription.toISOString(),
+        }
+      : {
+          id: facture.id,
+          numeroInscription: facture.etudiantNumeroInscription ?? "MANUEL",
+          nom: facture.etudiantNom ?? "Étudiant manuel",
+          prenom: facture.etudiantPrenom ?? "Non inscrit",
+          email: facture.etudiantEmail ?? "",
+          telephone: "",
+          dateNaissance: new Date().toISOString(),
+          sexe: "Non précisé",
+          nationalite: "—",
+          adresse: "—",
+          ville: "—",
+          codePostal: undefined,
+          photoUrl: undefined,
+          niveauEtudes: "—",
+          profession: undefined,
+          objectif: "AUTRE" as const,
+          disponibilites: {},
+          joursPreferees: [],
+          niveauAllemand: "A1" as const,
+          typeCours: "PRESENTIEL",
+          statut: "EN_ATTENTE" as const,
+          dateInscription: facture.date.toISOString(),
+        };
+
     const pdfBuffer = await generateRecuPDF(
       {
         id: facture.id,
@@ -44,30 +94,7 @@ export async function GET(
         statut: facture.statut,
         date: facture.date.toISOString(),
       },
-      {
-        id: facture.etudiant.id,
-        numeroInscription: facture.etudiant.numeroInscription,
-        nom: facture.etudiant.nom,
-        prenom: facture.etudiant.prenom,
-        email: facture.etudiant.email,
-        telephone: facture.etudiant.telephone,
-        dateNaissance: facture.etudiant.dateNaissance.toISOString(),
-        sexe: facture.etudiant.sexe,
-        nationalite: facture.etudiant.nationalite,
-        adresse: facture.etudiant.adresse,
-        ville: facture.etudiant.ville,
-        codePostal: facture.etudiant.codePostal ?? undefined,
-        photoUrl: facture.etudiant.photoUrl ?? undefined,
-        niveauEtudes: facture.etudiant.niveauEtudes,
-        profession: facture.etudiant.profession ?? undefined,
-        objectif: facture.etudiant.objectif as "ETUDES_ALLEMAGNE" | "TRAVAIL" | "EXAMEN" | "VOYAGE" | "AUTRE",
-        disponibilites: facture.etudiant.disponibilites as Record<string, boolean>,
-        joursPreferees: facture.etudiant.joursPreferees as string[],
-        niveauAllemand: facture.etudiant.niveauAllemand as "A1" | "A2" | "B1" | "B2" | "C1",
-        typeCours: facture.etudiant.typeCours,
-        statut: facture.etudiant.statut as "EN_ATTENTE" | "VALIDE" | "REFUSE",
-        dateInscription: facture.etudiant.dateInscription.toISOString(),
-      }
+      etudiantForPdf
     );
 
     // --- LA MODIFICATION EST ICI ---

@@ -49,7 +49,13 @@ export default function MessagerieClient() {
     }
   }, []);
 
-  useEffect(() => { fetchMessages(); }, [fetchMessages]);
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      void fetchMessages();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [fetchMessages]);
 
   const toggleDest = (value: string) => {
     if (value === "all") {

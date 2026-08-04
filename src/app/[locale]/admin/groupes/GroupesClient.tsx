@@ -103,7 +103,13 @@ export default function GroupesClient({ isAdmin }: { isAdmin: boolean }) {
     }
   }, []);
 
-  useEffect(() => { fetchGroupes(); }, [fetchGroupes]);
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      void fetchGroupes();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [fetchGroupes]);
 
   // Charge les étudiants validés éligibles à la sélection : ceux sans groupe,
   // plus (en édition) ceux déjà membres du groupe en cours d'édition.

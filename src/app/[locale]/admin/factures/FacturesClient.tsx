@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { FaFilePdf, FaPlus, FaTimes, FaTrash } from "react-icons/fa";
+import { FaFilePdf, FaPlus, FaTrash } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import Spinner from "@/components/ui/Spinner";
 import Modal from "@/components/ui/Modal";
@@ -26,7 +26,10 @@ interface Facture {
   modePaiement: string;
   nature: string;
   date: string;
-  etudiant: { nom: string; prenom: string; numeroInscription: string };
+  etudiantNom?: string | null;
+  etudiantPrenom?: string | null;
+  etudiantNumeroInscription?: string | null;
+  etudiant?: { nom: string; prenom: string; numeroInscription: string } | null;
 }
 
 const MODE_OPTIONS = [
@@ -38,7 +41,11 @@ const MODE_OPTIONS = [
 ];
 
 const schema = Yup.object({
-  etudiantId: Yup.string().required("Sélectionnez un étudiant"),
+  etudiantId: Yup.string().optional(),
+  etudiantNom: Yup.string().optional(),
+  etudiantPrenom: Yup.string().optional(),
+  etudiantNumeroInscription: Yup.string().optional(),
+  etudiantEmail: Yup.string().email("Email invalide").optional(),
   formation: Yup.string().required("Obligatoire"),
   montantTotal: Yup.number().positive("Doit être positif").required("Obligatoire"),
   montantVerse: Yup.number()
@@ -78,7 +85,13 @@ export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
     }
   }, []);
 
-  useEffect(() => { fetchData(); }, [fetchData]);
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      void fetchData();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [fetchData]);
 
   const handleDownloadPDF = async (id: string, numero: string) => {
     try {
@@ -162,6 +175,10 @@ export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
           <Formik
             initialValues={{
               etudiantId: "",
+              etudiantNom: "",
+              etudiantPrenom: "",
+              etudiantNumeroInscription: "",
+              etudiantEmail: "",
               formation: "",
               montantTotal: "",
               montantVerse: "",
@@ -172,6 +189,12 @@ export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
             validationSchema={schema}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
               try {
+                const hasExistingStudent = Boolean(values.etudiantId);
+                const hasManualStudent = Boolean(values.etudiantNom?.trim() && values.etudiantPrenom?.trim());
+                if (!hasExistingStudent && !hasManualStudent) {
+                  throw new Error("Sélectionnez un étudiant existant ou saisissez le nom/prénom de l’étudiant.");
+                }
+
                 const res = await fetch("/api/admin/factures", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
@@ -200,16 +223,37 @@ export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
                 <Form className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">
-                      Étudiant *
+                      Étudiant (si non inscrit)
                     </label>
                     <Field as="select" name="etudiantId" className={INPUT_CLASS}>
-                      <option value="">Sélectionnez un étudiant...</option>
+                      <option value="">Sélectionnez un étudiant déjà inscrit...</option>
                       {etudiants.map((e) => (
                         <option key={e.id} value={e.id}>
                           {e.prenom} {e.nom} — {e.numeroInscription}
                         </option>
                       ))}
                     </Field>
+                    <p className="text-xs text-gray-400 mt-1">
+                      Laissez vide si l’étudiant n’a pas encore de dossier dans l’application.
+                    </p>
+                    <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">Prénom</label>
+                        <Field name="etudiantPrenom" placeholder="Prénom" className={INPUT_CLASS} />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">Nom</label>
+                        <Field name="etudiantNom" placeholder="Nom" className={INPUT_CLASS} />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">N° d’inscription</label>
+                        <Field name="etudiantNumeroInscription" placeholder="Ex. MANUEL-2026" className={INPUT_CLASS} />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase">Email</label>
+                        <Field name="etudiantEmail" type="email" placeholder="email@exemple.com" className={INPUT_CLASS} />
+                      </div>
+                    </div>
                     <ErrorMessage name="etudiantId" component="p" className="text-red-500 text-xs mt-1" />
                   </div>
 
@@ -333,9 +377,11 @@ export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
                     </td>
                     <td className="px-4 py-3 text-sm">
                       <p className="font-semibold text-ids-black">
-                        {f.etudiant.prenom} {f.etudiant.nom}
+                        {f.etudiant ? `${f.etudiant.prenom} ${f.etudiant.nom}` : `${f.etudiantPrenom ?? ""} ${f.etudiantNom ?? ""}`.trim() || "Étudiant manuel"}
                       </p>
-                      <p className="text-gray-400 text-xs">{f.etudiant.numeroInscription}</p>
+                      <p className="text-gray-400 text-xs">
+                        {f.etudiant?.numeroInscription ?? f.etudiantNumeroInscription ?? "Aucun dossier existant"}
+                      </p>
                     </td>
                     <td className="px-4 py-3 text-xs text-gray-600 max-w-32 truncate">
                       {f.formation}

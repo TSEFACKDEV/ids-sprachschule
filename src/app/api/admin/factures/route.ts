@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { getAuthUser, isStaff } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+function buildManualNumber(): string {
+  const random = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `MANUEL-${Date.now()}-${random}`;
+}
+
 function generateNumeroRecu(count: number): string {
   const year = new Date().getFullYear();
   return `IDS-${year}-${String(count).padStart(3, "0")}`;
@@ -73,6 +78,10 @@ export async function POST(request: Request) {
 
     const {
       etudiantId,
+      etudiantNom,
+      etudiantPrenom,
+      etudiantNumeroInscription,
+      etudiantEmail,
       formation,
       montantTotal,
       montantVerse,
@@ -81,9 +90,21 @@ export async function POST(request: Request) {
       date,
     } = await request.json();
 
-    if (!etudiantId || !formation || !montantTotal || !montantVerse || !nature || !modePaiement) {
+    const manualNom = typeof etudiantNom === "string" ? etudiantNom.trim() : "";
+    const manualPrenom = typeof etudiantPrenom === "string" ? etudiantPrenom.trim() : "";
+    const manualNumero = typeof etudiantNumeroInscription === "string" ? etudiantNumeroInscription.trim() : "";
+    const manualEmail = typeof etudiantEmail === "string" ? etudiantEmail.trim() : "";
+
+    if (!formation || !montantTotal || !montantVerse || !nature || !modePaiement) {
       return NextResponse.json(
         { success: false, error: "Champs obligatoires manquants." },
+        { status: 400 }
+      );
+    }
+
+    if (!etudiantId && (!manualNom || !manualPrenom)) {
+      return NextResponse.json(
+        { success: false, error: "Sélectionnez un étudiant existant ou saisissez un nom/prénom manuel." },
         { status: 400 }
       );
     }
@@ -95,7 +116,11 @@ export async function POST(request: Request) {
     const facture = await prisma.facture.create({
       data: {
         numeroRecu,
-        etudiantId,
+        etudiantId: etudiantId || null,
+        etudiantNom: manualNom || null,
+        etudiantPrenom: manualPrenom || null,
+        etudiantNumeroInscription: manualNumero || buildManualNumber(),
+        etudiantEmail: manualEmail || null,
         formation,
         montantTotal: Number(montantTotal),
         montantVerse: Number(montantVerse),

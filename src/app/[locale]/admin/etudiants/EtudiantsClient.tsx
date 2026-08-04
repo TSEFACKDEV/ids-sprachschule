@@ -84,7 +84,13 @@ export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
     }
   }, [page, search, statutFilter, niveauFilter]);
 
-  useEffect(() => { fetchEtudiants(); }, [fetchEtudiants]);
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      void fetchEtudiants();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [fetchEtudiants]);
 
   const handleAction = async (action: string, id: string, body?: object) => {
     setActionLoading(true);
@@ -421,7 +427,7 @@ export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
         <div className="space-y-4">
           <p className="text-gray-500 text-sm">
             Indiquez la raison du refus. Un email sera envoyé automatiquement
-            à l'étudiant.
+            à l&apos;étudiant.
           </p>
           <textarea
             value={motifRefus}
@@ -454,7 +460,7 @@ export default function EtudiantsClient({ isAdmin }: { isAdmin: boolean }) {
       >
         <div className="space-y-4">
           <p className="text-gray-600 text-sm">
-            Voulez-vous vraiment supprimer le dossier de{" "}
+            Voulez-vous vraiment supprimer le dossier de{' '}
             <strong>{selectedEtudiant?.prenom} {selectedEtudiant?.nom}</strong> ?
             Cette action est irréversible.
           </p>

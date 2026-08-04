@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import type { JWTPayload } from "@/types";
-import * as jose from "jose";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const COOKIE_NAME = "ids_token";
@@ -15,13 +14,7 @@ export function verifyToken(token: string): JWTPayload | null {
     // Version synchrone pour middleware Edge (jose)
     // Utilisée UNIQUEMENT dans le middleware
     // Les API routes utilisent jsonwebtoken
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
-    // jose.jwtVerify est async — pour le middleware on utilise jose
-    // Cette fonction reste pour les API routes (côté Node.js)
-    const decoded = require("jsonwebtoken").verify(
-      token,
-      process.env.JWT_SECRET!
-    ) as JWTPayload;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JWTPayload;
     return decoded;
   } catch {
     return null;

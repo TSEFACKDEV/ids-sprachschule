@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Image as PDFImage,
   renderToBuffer,
-  Font,
 } from "@react-pdf/renderer";
 import type { EtudiantPublic } from "@/types";
 
@@ -181,7 +180,7 @@ function InscriptionDocument({ etudiant }: { etudiant: EtudiantPublic }) {
         </View>
 
         {/* Titre */}
-        <Text style={styles.title}>FICHE D'INSCRIPTION</Text>
+        <Text style={styles.title}>FICHE D&apos;INSCRIPTION</Text>
         <Text style={styles.subtitle}>
           Académie de langue allemande – Yaoundé, Cameroun
         </Text>

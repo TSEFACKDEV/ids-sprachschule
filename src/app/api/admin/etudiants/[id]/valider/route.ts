@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { sendValidationEmail } from "@/lib/mailer";
 import bcrypt from "bcryptjs";
 import { generateInscriptionPDF } from "@/lib/inscription-pdf";
+import type { EtudiantPublic } from "@/types";
 
 export async function POST(
   _request: Request,
@@ -60,15 +61,32 @@ export async function POST(
     // Générer PDF fiche d'inscription
     let pdfBuffer: Buffer;
     try {
-      // On convertit l'objet Prisma pour correspondre au type EtudiantPublic
-      const etudiantPourPdf = {
-        ...etudiant,
+      const etudiantPourPdf: EtudiantPublic = {
+        id: etudiant.id,
+        numeroInscription: etudiant.numeroInscription,
+        nom: etudiant.nom,
+        prenom: etudiant.prenom,
+        email: etudiant.email,
+        telephone: etudiant.telephone,
         dateNaissance: etudiant.dateNaissance.toISOString(),
+        sexe: etudiant.sexe,
+        nationalite: etudiant.nationalite,
+        adresse: etudiant.adresse,
+        ville: etudiant.ville,
+        codePostal: etudiant.codePostal ?? undefined,
+        photoUrl: etudiant.photoUrl ?? undefined,
+        niveauEtudes: etudiant.niveauEtudes,
+        profession: etudiant.profession ?? undefined,
+        objectif: etudiant.objectif as EtudiantPublic["objectif"],
+        disponibilites: etudiant.disponibilites as Record<string, boolean>,
+        joursPreferees: etudiant.joursPreferees as string[],
+        niveauAllemand: etudiant.niveauAllemand as EtudiantPublic["niveauAllemand"],
+        typeCours: etudiant.typeCours,
+        statut: etudiant.statut as EtudiantPublic["statut"],
         dateInscription: etudiant.dateInscription.toISOString(),
       };
 
-      // @ts-ignore si un autre champ mineur bloque, mais le cast strict passe ici :
-      pdfBuffer = await generateInscriptionPDF(etudiantPourPdf as any);
+      pdfBuffer = await generateInscriptionPDF(etudiantPourPdf);
     } catch (error) {
       console.error("Erreur génération PDF:", error);
       pdfBuffer = Buffer.from("PDF non disponible");

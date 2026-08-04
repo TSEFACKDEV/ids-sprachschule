@@ -188,19 +188,23 @@ model Examen {
 }
 
 model Facture {
-  id           String        @id @default(cuid())
-  numeroRecu   String        @unique
-  etudiantId   String
-  etudiant     Etudiant      @relation(fields: [etudiantId], references: [id])
-  formation    String
-  montantTotal Float
-  montantVerse Float
-  resteAPayer  Float
-  nature       NatureFacture
-  modePaiement ModePaiement
-  statut       String        @default("PAYE")
-  date         DateTime      @default(now())
-  createdAt    DateTime      @default(now())
+  id                      String        @id @default(cuid())
+  numeroRecu              String        @unique
+  etudiantId              String?
+  etudiant                Etudiant?     @relation(fields: [etudiantId], references: [id])
+  etudiantNom             String?
+  etudiantPrenom          String?
+  etudiantNumeroInscription String?
+  etudiantEmail           String?
+  formation               String
+  montantTotal            Float
+  montantVerse            Float
+  resteAPayer             Float
+  nature                  NatureFacture
+  modePaiement            ModePaiement
+  statut                  String        @default("PAYE")
+  date                    DateTime      @default(now())
+  createdAt               DateTime      @default(now())
 }
 
 model Message {
