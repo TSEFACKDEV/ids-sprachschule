@@ -35,7 +35,8 @@ function SidebarContent({
     { href: `/${locale}/admin/etudiants`, label: t("students"), icon: FaUsers },
     { href: `/${locale}/admin/groupes`, label: t("groups"), icon: FaLayerGroup },
     { href: `/${locale}/admin/contrats`, label: "Contrats", icon: FaFilePdf },
-    ...(role !== "SECRETAIRE" ? [{ href: `/${locale}/admin/recus`, label: t("receipts"), icon: FaFilePdf }] : []),
+    ...(role === "ADMIN" ? [{ href: `/${locale}/admin/factures`, label: "Factures", icon: FaFilePdf }] : []),
+    ...(role === "ADMIN" ? [{ href: `/${locale}/admin/stats`, label: "Statistiques", icon: FaTachometerAlt }] : []),
     { href: `/${locale}/admin/messagerie`, label: t("messages"), icon: FaEnvelope },
   ];
 
@@ -45,7 +46,7 @@ function SidebarContent({
         <Link href={`/${locale}`} className="flex items-center gap-3">
           <div className="relative w-14 h-14 shrink-0">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-wide.jpeg"
               alt="IDS Logo"
               fill
               className="object-contain"

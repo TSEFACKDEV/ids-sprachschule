@@ -76,49 +76,25 @@ export async function generateRecuPDF(
 
   const { width, height } = page.getSize();
 
-  // ── En-tête (logo + coordonnées IDS) ──
+  // ── En-tête PDF (logo large, fond blanc) ──
   page.drawRectangle({
     x: 0,
     y: height - 110,
     width,
     height: 110,
-    color: IDS_BLACK,
+    color: rgb(1, 1, 1),
   });
 
-  const logoPath = path.join(process.cwd(), "public", "images", "logo.png");
+  const logoPath = path.join(process.cwd(), "logo.jpeg");
   if (fs.existsSync(logoPath)) {
     try {
       const logoBytes = fs.readFileSync(logoPath);
-      const logoImage = await pdfDoc.embedPng(logoBytes);
-      page.drawImage(logoImage, { x: 32, y: height - 100, width: 70, height: 70 });
+      const logoImage = await pdfDoc.embedJpg(logoBytes);
+      page.drawImage(logoImage, { x: 30, y: height - 98, width: 220, height: 80 });
     } catch {
       // Logo non lisible, on continue sans
     }
   }
-
-  page.drawText("IDS – Institut für die Deutsche Sprache", {
-    x: 118,
-    y: height - 50,
-    size: 13,
-    font: fontBold,
-    color: IDS_GOLD,
-  });
-
-  page.drawText("Carrefour Scalom, Biyem-Assi, Yaounde – Cameroun", {
-    x: 118,
-    y: height - 66,
-    size: 9,
-    font: fontRegular,
-    color: IDS_LIGHT_GRAY,
-  });
-
-  page.drawText("WhatsApp : +49 1573 0323154 | E-mail : info@ids-sprachschule.com", {
-    x: 118,
-    y: height - 82,
-    size: 9,
-    font: fontRegular,
-    color: IDS_DARK_GRAY,
-  });
 
   // ── Titre ──
   page.drawText("RECU DE PAIEMENT", {
@@ -229,22 +205,6 @@ export async function generateRecuPDF(
   });
 
   y -= 58;
-
-  // ── Signature ──
-  page.drawLine({
-    start: { x: 44, y },
-    end: { x: 240, y },
-    thickness: 1,
-    color: rgb(0.85, 0.85, 0.85),
-  });
-
-  page.drawText("Signature", {
-    x: 44,
-    y: y - 20,
-    size: 10,
-    font: fontRegular,
-    color: IDS_DARK_GRAY,
-  });
 
   // ── Pied de page ──
   page.drawRectangle({

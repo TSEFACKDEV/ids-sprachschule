@@ -101,11 +101,6 @@ export async function sendInscriptionConfirmation(
       </p>
     </div>
     <p style="color:#555;font-size:15px;line-height:1.7;">
-      Le programme et les horaires de vos cours vous seront communiqués dans les meilleurs délais.
-      En attendant, nous vous invitons à passer dans notre centre afin de récupérer vos manuels
-      de cours, si ce n'est pas déjà fait.
-    </p>
-    <p style="color:#555;font-size:15px;line-height:1.7;">
       Vous pouvez également visiter notre site web :
       <a href="https://ids-sprachschule.com/en" style="color:#CC0000;">https://ids-sprachschule.com/en</a>
     </p>
