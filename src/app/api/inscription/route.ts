@@ -68,6 +68,7 @@ export async function POST(request: Request) {
       joursPreferees,
       niveauEtudes,
       profession,
+      accepteReglement,
     } = body;
 
     // Validation serveur minimale
@@ -85,11 +86,19 @@ export async function POST(request: Request) {
       typeCours,
       objectif,
       niveauEtudes,
+      accepteReglement,
     ];
 
     if (required.some((v) => !v || String(v).trim() === "")) {
       return NextResponse.json(
         { success: false, error: "Champs obligatoires manquants." },
+        { status: 400 }
+      );
+    }
+
+    if (accepteReglement !== true) {
+      return NextResponse.json(
+        { success: false, error: "Vous devez accepter le règlement et la confidentialité pour finaliser votre inscription." },
         { status: 400 }
       );
     }

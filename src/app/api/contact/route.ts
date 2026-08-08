@@ -13,7 +13,9 @@ export async function POST(request: Request) {
     }
 
     const transporter = nodemailer.createTransport({
-      service: "Yahoo",
+      host: process.env.SMTP_HOST || "smtp.hostinger.com",
+      port: Number(process.env.SMTP_PORT || 465),
+      secure: process.env.SMTP_SECURE !== "false",
       auth: {
         user: process.env.EMAIL_ADDRESS!,
         pass: process.env.EMAIL_PASSWORD!,
