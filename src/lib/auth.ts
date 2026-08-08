@@ -67,16 +67,4 @@ export function generateTempPassword(): string {
     .join("");
 }
 
-export function generateNumeroInscription(count: number): string {
-  const year = new Date().getFullYear();
-  const padded = String(count).padStart(5, "0");
-  return `IDS-${year}-${padded}`;
-}
-
-export function generateNumeroRecu(count: number): string {
-  const year = new Date().getFullYear();
-  const padded = String(count).padStart(3, "0");
-  return `IDS-${year}-${padded}`;
-}
-
 export const COOKIE_NAME_EXPORT = COOKIE_NAME;

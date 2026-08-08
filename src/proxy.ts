@@ -6,27 +6,6 @@ import { routing } from "@/i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-const PUBLIC_PATHS = [
-  "/connexion",
-  "/mot-de-passe-oublie",
-  "/inscription",
-  "/nos-cours",
-  "/services",
-  "/preparation-examens",
-  "/offres-speciales",
-  "/a-propos",
-  "/faq",
-  "/contact",
-  "/",
-];
-
-function isPublicPath(pathname: string): boolean {
-  const withoutLocale = pathname.replace(/^\/(fr|en|de)/, "") || "/";
-  return PUBLIC_PATHS.some(
-    (p) => withoutLocale === p || withoutLocale.startsWith(p + "/")
-  );
-}
-
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 

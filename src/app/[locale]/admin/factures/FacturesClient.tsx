@@ -134,10 +134,12 @@ export default function FacturesClient({ isAdmin }: { isAdmin: boolean }) {
         <h1 className="font-display text-2xl font-bold text-ids-black">
           Facturation & Reçus
         </h1>
-        <Button onClick={() => setShowForm(true)} size="sm">
-          <FaPlus size={13} />
-          Nouveau reçu
-        </Button>
+        {isAdmin && (
+          <Button onClick={() => setShowForm(true)} size="sm">
+            <FaPlus size={13} />
+            Nouveau reçu
+          </Button>
+        )}
       </div>
 
       {/* Modal Formulaire */}

@@ -275,20 +275,53 @@ export async function sendPasswordResetEmail(
   });
 }
 
+export interface BulkSendResult {
+  sent: number;
+  failed: number;
+  failedEmails: string[];
+}
+
 export async function sendBulkMessage(
   recipients: string[],
   sujet: string,
   corps: string
-): Promise<void> {
+): Promise<BulkSendResult> {
+  const uniqueRecipients = [...new Set(recipients.filter((e) => e && e.trim()))];
+
   const content = `
     <p style="color:#333;font-size:16px;">${corps.replace(/\n/g, "<br/>")}</p>`;
 
-  for (const email of recipients) {
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM!,
-      to: email,
-      subject: sujet,
-      html: baseTemplate(content),
-    });
+  const failedEmails: string[] = [];
+  const concurrency = 5;
+  let index = 0;
+
+  async function worker() {
+    while (index < uniqueRecipients.length) {
+      const email = uniqueRecipients[index++];
+      try {
+        await transporter.sendMail({
+          from: process.env.EMAIL_FROM!,
+          to: email,
+          subject: sujet,
+          html: baseTemplate(content),
+        });
+      } catch (error) {
+        failedEmails.push(email);
+        console.error(`[MAIL] FAIL -> ${email}`, error);
+      }
+    }
   }
+
+  await Promise.all(
+    Array.from(
+      { length: Math.min(concurrency, uniqueRecipients.length) },
+      () => worker()
+    )
+  );
+
+  return {
+    sent: uniqueRecipients.length - failedEmails.length,
+    failed: failedEmails.length,
+    failedEmails,
+  };
 }

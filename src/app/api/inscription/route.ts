@@ -6,12 +6,25 @@ import {
 } from "@/lib/mailer";
 import { getTarifCours } from "@/lib/tarifs";
 
-// Les premiers dossiers réels commencent au numéro 150.
-const NUMERO_INSCRIPTION_OFFSET = 149;
+const NUMERO_INSCRIPTION_MIN = 150;
 
-function generateNumeroInscription(count: number): string {
+async function generateNumeroInscription(): Promise<string> {
   const year = new Date().getFullYear();
-  return `IDS-${year}-${String(count + NUMERO_INSCRIPTION_OFFSET).padStart(5, "0")}`;
+  const prefix = `IDS-${year}-`;
+
+  const last = await prisma.etudiant.findFirst({
+    where: { numeroInscription: { startsWith: prefix } },
+    orderBy: { numeroInscription: "desc" },
+    select: { numeroInscription: true },
+  });
+
+  let next = NUMERO_INSCRIPTION_MIN;
+  if (last) {
+    const suffix = parseInt(last.numeroInscription.slice(prefix.length), 10);
+    if (!Number.isNaN(suffix)) next = suffix + 1;
+  }
+
+  return `${prefix}${String(next).padStart(5, "0")}`;
 }
 
 const TYPE_COURS_LABELS: Record<string, string> = {
@@ -98,37 +111,47 @@ export async function POST(request: Request) {
     }
 
     // Générer numéro d'inscription
-    const count = await prisma.etudiant.count();
-    const numeroInscription = generateNumeroInscription(count + 1);
+    const numeroInscription = await generateNumeroInscription();
 
-    // Tarif du niveau/format choisi, pour l'email de confirmation
     const tarif = getTarifCours(niveauAllemand, typeCours);
 
-    // Créer l'étudiant
-    const etudiant = await prisma.etudiant.create({
-      data: {
-        numeroInscription,
-        nom: nom.trim(),
-        prenom: prenom.trim(),
-        dateNaissance: new Date(dateNaissance),
-        sexe,
-        nationalite: nationalite.trim(),
-        adresse: adresse.trim(),
-        ville: ville.trim(),
-        codePostal: codePostal?.trim() || null,
-        telephone: telephone.trim(),
-        email: email.trim().toLowerCase(),
-        photoUrl: photoUrl || null,
-        niveauAllemand,
-        typeCours: formatTypeCours(typeCours, modalites),
-        objectif,
-        disponibilites: disponibilites ?? {},
-        joursPreferees: joursPreferees ?? [],
-        niveauEtudes,
-        profession: profession?.trim() || null,
-        statut: "EN_ATTENTE",
-      },
-    });
+    let etudiant: Awaited<ReturnType<typeof prisma.etudiant.create>> | null = null;
+    for (let attempt = 0; attempt < 5 && !etudiant; attempt++) {
+      const numero = attempt === 0 ? numeroInscription : await generateNumeroInscription();
+      try {
+        etudiant = await prisma.etudiant.create({
+          data: {
+            numeroInscription: numero,
+            nom: nom.trim(),
+            prenom: prenom.trim(),
+            dateNaissance: new Date(dateNaissance),
+            sexe,
+            nationalite: nationalite.trim(),
+            adresse: adresse.trim(),
+            ville: ville.trim(),
+            codePostal: codePostal?.trim() || null,
+            telephone: telephone.trim(),
+            email: email.trim().toLowerCase(),
+            photoUrl: photoUrl || null,
+            niveauAllemand,
+            typeCours: formatTypeCours(typeCours, modalites),
+            objectif,
+            disponibilites: disponibilites ?? {},
+            joursPreferees: joursPreferees ?? [],
+            niveauEtudes,
+            profession: profession?.trim() || null,
+            statut: "EN_ATTENTE",
+          },
+        });
+      } catch (error) {
+        const code = (error as { code?: string })?.code;
+        if (code !== "P2002" || attempt === 4) throw error;
+      }
+    }
+
+    if (!etudiant) {
+      throw new Error("Impossible de générer un numéro d'inscription unique.");
+    }
 
     // Emails
     await Promise.allSettled([

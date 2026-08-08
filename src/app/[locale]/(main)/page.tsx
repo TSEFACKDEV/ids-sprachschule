@@ -4,7 +4,6 @@ import CoursApercu from "@/components/home/CoursApercu";
 import StatsSection from "@/components/home/StatsSection";
 import AboutSection from "@/components/home/AboutSection";
 import FAQApercu from "@/components/home/FAQApercu";
-import Testimonials from "@/components/home/Testimonials";
 
 export default function HomePage() {
   return (

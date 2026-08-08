@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthUser, isStaff } from "@/lib/auth";
+import { getAuthUser, isStaff, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 function buildManualNumber(): string {
@@ -7,9 +7,23 @@ function buildManualNumber(): string {
   return `MANUEL-${Date.now()}-${random}`;
 }
 
-function generateNumeroRecu(count: number): string {
+async function generateNumeroRecu(): Promise<string> {
   const year = new Date().getFullYear();
-  return `IDS-${year}-${String(count).padStart(3, "0")}`;
+  const prefix = `IDS-${year}-`;
+
+  const last = await prisma.facture.findFirst({
+    where: { numeroRecu: { startsWith: prefix } },
+    orderBy: { numeroRecu: "desc" },
+    select: { numeroRecu: true },
+  });
+
+  let next = 1;
+  if (last) {
+    const suffix = parseInt(last.numeroRecu.slice(prefix.length), 10);
+    if (!Number.isNaN(suffix)) next = suffix + 1;
+  }
+
+  return `${prefix}${String(next).padStart(3, "0")}`;
 }
 
 export async function GET(request: Request) {
@@ -72,7 +86,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || !isStaff(authUser.role)) {
+    if (!authUser || !isAdmin(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
@@ -109,8 +123,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const count = await prisma.facture.count();
-    const numeroRecu = generateNumeroRecu(count + 1);
+    const numeroRecu = await generateNumeroRecu();
     const resteAPayer = Number(montantTotal) - Number(montantVerse);
 
     const facture = await prisma.facture.create({
