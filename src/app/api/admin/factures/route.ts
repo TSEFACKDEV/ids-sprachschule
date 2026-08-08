@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthUser, isStaff, isAdmin } from "@/lib/auth";
+import { getAuthUser, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 function buildManualNumber(): string {
@@ -29,7 +29,7 @@ async function generateNumeroRecu(): Promise<string> {
 export async function GET(request: Request) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || !isStaff(authUser.role)) {
+    if (!authUser || !isAdmin(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 

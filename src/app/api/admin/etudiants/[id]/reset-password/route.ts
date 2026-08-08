@@ -38,9 +38,7 @@ export async function POST(
 
     await sendPasswordResetEmail(
       etudiant.email,
-      etudiant.prenom,
-      etudiant.numeroInscription,
-      motDePasseTemp
+      etudiant.prenom
     );
 
     return NextResponse.json({ success: true });

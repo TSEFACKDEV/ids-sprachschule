@@ -7,6 +7,8 @@ const IDS_RED = rgb(0.8, 0, 0);
 const IDS_GOLD = rgb(0.83, 0.686, 0.216);
 const IDS_BLACK = rgb(0.039, 0.039, 0.039);
 const IDS_GRAY = rgb(0.96, 0.96, 0.96);
+const IDS_LIGHT_GRAY = rgb(0.75, 0.75, 0.75);
+const IDS_DARK_GRAY = rgb(0.45, 0.45, 0.45);
 
 const LABEL_NATURE: Record<string, string> = {
   ACOMPTE: "Avance (Acompte)",
@@ -15,27 +17,44 @@ const LABEL_NATURE: Record<string, string> = {
 
 const LABEL_MODE: Record<string, string> = {
   ESPECES: "Especes",
-  VIREMENT: "Virement bancaire",
+  VIREMENT: "Virement",
   PAYPAL: "PayPal",
   ORANGE_MONEY: "Orange Money",
   MTN_MONEY: "MTN Mobile Money",
 };
 
+// Caractères WinAnsi "étendus" (au-delà de \x00-\xFF) à préserver.
+const WINANSI_EXTRA: Record<number, number> = {
+  0x2013: 0x96, // – en dash
+  0x2014: 0x97, // — em dash
+  0x2018: 0x91, // ‘
+  0x2019: 0x92, // ’
+  0x201C: 0x93, // “
+  0x201D: 0x94, // ”
+  0x20AC: 0x80, // €
+  0x2022: 0x95, // •
+  0x2026: 0x85, // …
+};
+
 /**
- * Supprime tous les caractères non supportés par WinAnsi (pdf-lib).
- * Remplace les espaces insécables et narrow no-break spaces par un espace normal.
+ * Conforme la chaîne au sous-ensemble WinAnsi (pdf-lib).
+ * Les espaces insécables sont remplacés par un espace normal ; les
+ * caractères "étendus" WinAnsi (tirets, guillemets, €, ...) sont mappés
+ * vers leur octet WinAnsi, et tout le reste devient "?".
  */
 function sanitize(str: string): string {
   return str
-    .replace(/[\u00a0\u202f\u2009\u2007\u2008]/g, " ") // espaces spéciaux → espace normal
-    .replace(/[^\x00-\xFF]/g, "?"); // tout ce qui dépasse Latin-1 → ?
+    .replace(/[\u00a0\u202f\u2009\u2007\u2008]/g, " ")
+    .replace(/[^\x00-\xFF]/g, (ch) => {
+      const mapped = WINANSI_EXTRA[ch.charCodeAt(0)];
+      return mapped !== undefined ? String.fromCharCode(mapped) : "?";
+    });
 }
 
 /**
  * Formate un montant en FCFA sans toLocaleString (évite les espaces insécables).
  */
 function formatMontant(n: number): string {
-  // Formatage manuel : séparateur de milliers = espace simple
   const parts = Math.round(n).toString().split("");
   const result: string[] = [];
   parts.reverse().forEach((d, i) => {
@@ -56,9 +75,8 @@ export async function generateRecuPDF(
   const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
   const { width, height } = page.getSize();
-  let y = height - 40;
 
-  // ── Header background ──
+  // ── En-tête (logo + coordonnées IDS) ──
   page.drawRectangle({
     x: 0,
     y: height - 110,
@@ -67,7 +85,6 @@ export async function generateRecuPDF(
     color: IDS_BLACK,
   });
 
-  // Logo (si disponible)
   const logoPath = path.join(process.cwd(), "public", "images", "logo.png");
   if (fs.existsSync(logoPath)) {
     try {
@@ -79,88 +96,80 @@ export async function generateRecuPDF(
     }
   }
 
-  // Texte header
-  page.drawText("IDS-Sprachschule", {
-    x: 115,
-    y: height - 52,
+  page.drawText("IDS – Institut für die Deutsche Sprache", {
+    x: 118,
+    y: height - 50,
     size: 13,
     font: fontBold,
     color: IDS_GOLD,
   });
 
-  page.drawText("Carrefour Scalom, Biyem-Assi, Yaounde, Cameroun", {
-    x: 115,
-    y: height - 68,
+  page.drawText("Carrefour Scalom, Biyem-Assi, Yaounde – Cameroun", {
+    x: 118,
+    y: height - 66,
     size: 9,
     font: fontRegular,
-    color: rgb(0.75, 0.75, 0.75),
+    color: IDS_LIGHT_GRAY,
   });
 
-  page.drawText("WhatsApp : +49 1573 0323154  |  info@ids-sprachschule.com", {
-    x: 115,
+  page.drawText("WhatsApp : +49 1573 0323154 | E-mail : info@ids-sprachschule.com", {
+    x: 118,
     y: height - 82,
     size: 9,
     font: fontRegular,
-    color: rgb(0.65, 0.65, 0.65),
+    color: IDS_DARK_GRAY,
   });
-
-  y = height - 130;
 
   // ── Titre ──
   page.drawText("RECU DE PAIEMENT", {
     x: width / 2 - 80,
-    y,
+    y: height - 148,
     size: 18,
     font: fontBold,
     color: IDS_BLACK,
   });
 
-  y -= 22;
-
-  const date = new Date(facture.date);
-  const dateStr = sanitize(
-    `${String(date.getDate()).padStart(2, "0")} / ${String(date.getMonth() + 1).padStart(2, "0")} / ${date.getFullYear()}`
-  );
-
-  page.drawText(sanitize(`N° ${facture.numeroRecu}   |   Date : ${dateStr}`), {
-    x: width / 2 - 110,
-    y,
+  page.drawText(sanitize(`N° : ${facture.numeroRecu}`), {
+    x: width / 2 - 75,
+    y: height - 170,
     size: 11,
     font: fontRegular,
     color: IDS_RED,
   });
 
-  y -= 30;
-
-  // Divider
   page.drawLine({
-    start: { x: 32, y },
-    end: { x: width - 32, y },
+    start: { x: 32, y: height - 190 },
+    end: { x: width - 32, y: height - 190 },
     thickness: 1,
-    color: IDS_GRAY,
+    color: rgb(0.85, 0.85, 0.85),
   });
 
-  y -= 24;
+  // ── Champs dynamiques (remplis après soumission du formulaire) ──
+  const date = new Date(facture.date);
+  const dateStr = sanitize(
+    `${String(date.getDate()).padStart(2, "0")} / ${String(date.getMonth() + 1).padStart(2, "0")} / ${date.getFullYear()}`
+  );
 
-  // ── Lignes de données ──
   const rows: [string, string][] = [
+    ["Date", dateStr],
     ["Nom de l'etudiant(e)", sanitize(`${etudiant.prenom} ${etudiant.nom}`)],
     ["Formation / Service", sanitize(facture.formation)],
-    ["Montant total", sanitize(formatMontant(facture.montantTotal))],
+    ["Montant total de la formation", sanitize(formatMontant(facture.montantTotal))],
     ["Montant verse", sanitize(formatMontant(facture.montantVerse))],
     ["Reste a payer", sanitize(formatMontant(facture.resteAPayer))],
     ["Nature du paiement", sanitize(LABEL_NATURE[facture.nature] ?? facture.nature)],
     ["Mode de paiement", sanitize(LABEL_MODE[facture.modePaiement] ?? facture.modePaiement)],
   ];
 
+  let y = height - 224;
+
   for (const [label, value] of rows) {
-    // Fond alterné
     page.drawRectangle({
       x: 32,
       y: y - 6,
       width: width - 64,
       height: 26,
-      color: rgb(0.97, 0.97, 0.97),
+      color: IDS_GRAY,
     });
 
     page.drawText(label, {
@@ -171,8 +180,16 @@ export async function generateRecuPDF(
       color: IDS_BLACK,
     });
 
+    page.drawText(":", {
+      x: 268,
+      y: y + 2,
+      size: 10,
+      font: fontBold,
+      color: IDS_BLACK,
+    });
+
     page.drawText(value, {
-      x: 270,
+      x: 282,
       y: y + 2,
       size: 10,
       font: fontRegular,
@@ -182,17 +199,17 @@ export async function generateRecuPDF(
     y -= 34;
   }
 
-  y -= 8;
+  y -= 10;
 
   // Divider
   page.drawLine({
     start: { x: 32, y },
     end: { x: width - 32, y },
     thickness: 1,
-    color: IDS_GRAY,
+    color: rgb(0.85, 0.85, 0.85),
   });
 
-  y -= 32;
+  y -= 36;
 
   // ── Statut PAYÉ ──
   page.drawRectangle({
@@ -211,18 +228,25 @@ export async function generateRecuPDF(
     color: rgb(1, 1, 1),
   });
 
-  y -= 56;
+  y -= 58;
 
-  // ── Remerciement ──
-  page.drawText("Merci pour votre confiance et a tres bientot.", {
-    x: width / 2 - 152,
-    y,
-    size: 11,
-    font: fontRegular,
-    color: rgb(0.45, 0.45, 0.45),
+  // ── Signature ──
+  page.drawLine({
+    start: { x: 44, y },
+    end: { x: 240, y },
+    thickness: 1,
+    color: rgb(0.85, 0.85, 0.85),
   });
 
-  // ── Footer ──
+  page.drawText("Signature", {
+    x: 44,
+    y: y - 20,
+    size: 10,
+    font: fontRegular,
+    color: IDS_DARK_GRAY,
+  });
+
+  // ── Pied de page ──
   page.drawRectangle({
     x: 0,
     y: 0,
@@ -245,4 +269,3 @@ export async function generateRecuPDF(
   const pdfBytes = await pdfDoc.save();
   return Buffer.from(pdfBytes);
 }
-
