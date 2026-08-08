@@ -10,7 +10,6 @@ export default function AProposPage() {
   const t = useTranslations("about");
   const locale = useLocale();
   const values = t.raw("values") as { title: string; desc: string }[];
-  const teamMembers = t.raw("teamMembers") as { nom: string; poste: string }[];
 
   
 

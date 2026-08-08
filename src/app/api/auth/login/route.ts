@@ -60,7 +60,6 @@ export async function POST(request: Request) {
 
     // Vérifier aussi si c'est un admin (connexion par email)
     let user = etudiant?.user ?? null;
-    let isAdmin = false;
 
     if (!user) {
       // Tentative admin / secrétaire par email
@@ -69,7 +68,6 @@ export async function POST(request: Request) {
       });
       if (adminUser && (adminUser.role === "ADMIN" || adminUser.role === "SECRETAIRE")) {
         user = adminUser;
-        isAdmin = true;
       }
     }
 

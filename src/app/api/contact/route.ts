@@ -23,7 +23,6 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: process.env.EMAIL_FROM!,
       to: process.env.ADMIN_EMAIL!,
-      replyTo: email,
       subject: `[IDS Contact] ${sujet}`,
       html: `
         <h2>Nouveau message de contact – IDS</h2>

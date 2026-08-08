@@ -84,7 +84,11 @@ export default function MessagerieClient() {
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
-      toast.success(`Message envoyé à ${data.data.sent} destinataire(s) !`);
+      if (data.warning) {
+        toast.warning(`Message envoyé à ${data.data.sent} destinataire(s). ${data.warning}`);
+      } else {
+        toast.success(`Message envoyé à ${data.data.sent} destinataire(s) !`);
+      }
       setSujet("");
       setCorps("");
       setDestinataires(["all"]);

@@ -1,10 +1,9 @@
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import ContactForm from "@/components/forms/ContactForm";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaClock } from "react-icons/fa";
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
-  const locale = await getLocale();
 
   const infos = [
     { icon: FaMapMarkerAlt, label: t("addressLabel"), value: "Carrefour Scalom, Immeuble Africa Finance, Biyem-Assi, Yaoundé", href: null },

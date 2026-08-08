@@ -104,17 +104,29 @@ export async function POST(request: Request) {
       },
     });
 
-    // Envoyer les emails
-    await sendBulkMessage(emails, sujet, corps);
+    // Envoyer les emails (les échecs individuels ne bloquent pas le lot)
+    const result = await sendBulkMessage(emails, sujet, corps);
 
-    // Marquer comme envoyé
+    // Marquer comme envoyé si au moins un email est parti
     await prisma.message.update({
       where: { id: message.id },
-      data: { envoye: true, sentAt: new Date() },
+      data: {
+        envoye: result.sent > 0,
+        sentAt: result.sent > 0 ? new Date() : null,
+      },
     });
 
+    const warning =
+      result.failed > 0
+        ? `${result.failed} destinataire(s) n'ont pas pu être joints (adresse invalide ou quota d'envoi).`
+        : undefined;
+
     return NextResponse.json(
-      { success: true, data: { sent: emails.length } },
+      {
+        success: true,
+        data: { sent: result.sent, failed: result.failed },
+        ...(warning ? { warning } : {}),
+      },
       { status: 201 }
     );
   } catch (error) {

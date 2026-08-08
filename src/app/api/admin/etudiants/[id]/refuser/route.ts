@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthUser, isStaff } from "@/lib/auth";
+import { getAuthUser, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendRefusEmail } from "@/lib/mailer";
 
@@ -9,7 +9,7 @@ export async function POST(
 ) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || !isStaff(authUser.role)) {
+    if (!authUser || !isAdmin(authUser.role)) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
