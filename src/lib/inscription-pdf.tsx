@@ -160,7 +160,7 @@ function InscriptionDocument({ etudiant }: { etudiant: EtudiantPublic }) {
           <View style={styles.logoContainer}>
             <PDFImage
               style={styles.logo}
-              src="./public/images/logo.png"
+              src="./logo.jpeg"
             />
           </View>
           <View style={styles.headerText}>

@@ -9,20 +9,19 @@ export async function GET() {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-
     const [
       totalEtudiants,
-      newThisWeek,
+      newThisWeekQuery,
       pending,
       revenueResult,
       inscriptionsParMois,
     ] = await Promise.all([
       prisma.etudiant.count(),
-      prisma.etudiant.count({
-        where: { dateInscription: { gte: sevenDaysAgo } },
-      }),
+      prisma.$queryRaw<{ count: bigint }[]>`
+        SELECT COUNT(*)::int AS count
+        FROM "Etudiant"
+        WHERE "dateInscription" >= NOW() - INTERVAL '7 days'
+      `,
       prisma.etudiant.count({ where: { statut: "EN_ATTENTE" } }),
       prisma.facture.aggregate({ _sum: { montantVerse: true } }),
       prisma.$queryRaw<{ mois: string; count: bigint }[]>`
@@ -34,6 +33,8 @@ export async function GET() {
         ORDER BY mois ASC
       `,
     ]);
+
+    const newThisWeek = Number(newThisWeekQuery[0]?.count ?? 0);
 
     const chartData = inscriptionsParMois.map((row) => ({
       mois: row.mois,

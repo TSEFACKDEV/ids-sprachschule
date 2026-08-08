@@ -47,7 +47,7 @@ export default function Footer() {
           <Link href={`/${locale}`} className="flex items-center gap-3">
             <div className="relative w-14 h-14 flex-shrink-0">
               <Image
-                src="/images/logo.png"
+                src="/images/logo-wide.jpeg"
                 alt="IDS Logo"
                 fill
                 className="object-contain"
@@ -58,9 +58,7 @@ export default function Footer() {
             </div>
             <div className="hidden sm:block">
               <p className="font-display font-bold text-white text-sm leading-tight uppercase tracking-wide">
-                Institut für die
-                <br />
-                Deutsche Sprache
+                IDS-Sprachschule
               </p>
               <p className="text-ids-red text-xs font-semibold mt-0.5">
                 Lernen. Verstehen. Erfolgreich sein.

@@ -10,16 +10,18 @@ export default async function AdminPage() {
   const authUser = await getAuthUser();
   if (!authUser || !isAdmin(authUser.role)) redirect(`/${locale}/admin/etudiants`);
 
-  const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  const [totalEtudiants, newThisWeekQuery, pending, revenueResult] = await Promise.all([
+    prisma.etudiant.count(),
+    prisma.$queryRaw<{ count: bigint }[]>`
+      SELECT COUNT(*)::int AS count
+      FROM "Etudiant"
+      WHERE "dateInscription" >= NOW() - INTERVAL '7 days'
+    `,
+    prisma.etudiant.count({ where: { statut: "EN_ATTENTE" } }),
+    prisma.facture.aggregate({ _sum: { montantVerse: true } }),
+  ]);
 
-  const [totalEtudiants, newThisWeek, pending, revenueResult] =
-    await Promise.all([
-      prisma.etudiant.count(),
-      prisma.etudiant.count({ where: { dateInscription: { gte: sevenDaysAgo } } }),
-      prisma.etudiant.count({ where: { statut: "EN_ATTENTE" } }),
-      prisma.facture.aggregate({ _sum: { montantVerse: true } }),
-    ]);
+  const newThisWeek = Number(newThisWeekQuery[0]?.count ?? 0);
 
   const rawChart = await prisma.$queryRaw<{ mois: string; count: bigint }[]>`
     SELECT TO_CHAR("dateInscription", 'YYYY-MM') as mois, COUNT(*) as count

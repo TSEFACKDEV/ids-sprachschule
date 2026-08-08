@@ -35,64 +35,32 @@ export async function GET() {
 
     const contractId = generateUniqueContractId();
 
-    // ── En-tête : UN seul logo ──
+    // ── En-tête PDF structuré : logo large sur fond blanc ──
     page.drawRectangle({
       x: 0,
       y: height - 120,
       width,
       height: 120,
-      color: IDS_BLACK,
+      color: rgb(1, 1, 1),
     });
 
-    const logoPath = path.join(process.cwd(), "public", "images", "logo.png");
+    const logoPath = path.join(process.cwd(), "logo.jpeg");
     if (fs.existsSync(logoPath)) {
       try {
         const logoBytes = fs.readFileSync(logoPath);
-        const logoImage = await pdfDoc.embedPng(logoBytes);
-        page.drawImage(logoImage, { x: 40, y: height - 102, width: 72, height: 72 });
+        const logoImage = await pdfDoc.embedJpg(logoBytes);
+        page.drawImage(logoImage, { x: 38, y: height - 100, width: 220, height: 76 });
       } catch {
         // Logo non lisible, on continue sans
       }
     }
-
-    page.drawText("IDS-SPRACHSCHULE", {
-      x: 128,
-      y: height - 62,
-      size: 17,
-      font: fontBold,
-      color: IDS_GOLD,
-    });
-
-    page.drawText("Lernen. Verstehen. Erfolgreich sein.", {
-      x: 128,
-      y: height - 78,
-      size: 9,
-      font: fontRegular,
-      color: IDS_LIGHT_GRAY,
-    });
-
-    page.drawText("Carrefour Scalom, Biyem-Assi, Yaounde, Cameroun", {
-      x: 128,
-      y: height - 92,
-      size: 9,
-      font: fontRegular,
-      color: IDS_LIGHT_GRAY,
-    });
-
-    page.drawText("WhatsApp : +49 1573 0323154  |  info@ids-sprachschule.com", {
-      x: 128,
-      y: height - 106,
-      size: 9,
-      font: fontRegular,
-      color: IDS_GRAY,
-    });
 
     page.drawText(`Ref. : ${contractId}`, {
       x: width - 40 - 140,
       y: height - 62,
       size: 9,
       font: fontBold,
-      color: rgb(1, 1, 1),
+      color: IDS_BLACK,
     });
 
     // ── Titre ──
@@ -336,51 +304,6 @@ export async function GET() {
       x: 40,
       y: fieldY,
       size: 9.5,
-      font: fontRegular,
-      color: IDS_GRAY,
-    });
-
-    // ── Signatures ──
-    const signatureY = 100;
-
-    page.drawText("L'ETUDIANT(E)", {
-      x: 40,
-      y: signatureY,
-      size: 10,
-      font: fontBold,
-      color: IDS_BLACK,
-    });
-    page.drawLine({
-      start: { x: 40, y: signatureY - 18 },
-      end: { x: 250, y: signatureY - 18 },
-      thickness: 1,
-      color: IDS_LINE,
-    });
-    page.drawText("(Nom et signature)", {
-      x: 40,
-      y: signatureY - 34,
-      size: 9,
-      font: fontRegular,
-      color: IDS_GRAY,
-    });
-
-    page.drawText("IDS-SPRACHSCHULE", {
-      x: 330,
-      y: signatureY,
-      size: 10,
-      font: fontBold,
-      color: IDS_BLACK,
-    });
-    page.drawLine({
-      start: { x: 330, y: signatureY - 18 },
-      end: { x: 540, y: signatureY - 18 },
-      thickness: 1,
-      color: IDS_LINE,
-    });
-    page.drawText("(Nom et signature)", {
-      x: 330,
-      y: signatureY - 34,
-      size: 9,
       font: fontRegular,
       color: IDS_GRAY,
     });
