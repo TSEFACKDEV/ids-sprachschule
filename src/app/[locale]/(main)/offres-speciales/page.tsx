@@ -42,8 +42,8 @@ export default function OffresSpecialesPage() {
                     ].map((p) => (
                       <div key={p.label} className="bg-ids-gray rounded-xl p-4 text-center">
                         <p className="text-xs text-gray-500 mb-1">{p.label}</p>
-                        <p className="font-display font-bold text-ids-black text-lg leading-tight">{p.prix}</p>
-                        <p className="text-xs text-gray-400">{p.prixEUR}</p>
+                        <p className="font-display font-bold text-ids-black text-lg leading-tight opacity-0 select-none">—</p>
+                        <p className="text-xs text-gray-400 opacity-0 select-none">—</p>
                       </div>
                     ))}
                   </div>
@@ -81,8 +81,10 @@ export default function OffresSpecialesPage() {
                 <div key={pack.titre} className="bg-white rounded-2xl p-6 shadow-sm">
                   <h3 className="font-display text-xl font-bold text-ids-black mb-1">{pack.titre}</h3>
                   <p className="text-ids-red text-sm font-semibold mb-4">{t("externalB2")}</p>
-                  <p className="font-display text-3xl font-bold text-ids-black mb-1">{pack.prix}</p>
-                  <p className="text-sm text-gray-400 mb-5">{pack.prixEUR}</p>
+                  <div className="mb-5">
+                    <p className="font-display text-3xl font-bold text-ids-black mb-1 opacity-0 select-none">—</p>
+                    <p className="text-sm text-gray-400 opacity-0 select-none">—</p>
+                  </div>
                   <ul className="space-y-2 mb-6">
                     {pack.inclus.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-gray-700">

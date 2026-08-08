@@ -27,6 +27,7 @@ export default function Navbar() {
   const locale = useLocale();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
 
@@ -59,6 +60,7 @@ export default function Navbar() {
     const withoutLocale = pathname.replace(/^\/(fr|en|de)/, "") || "/";
     window.location.assign(`/${newLocale}${withoutLocale}`);
     setLangOpen(false);
+    setMobileLangOpen(false);
   };
 
  
@@ -187,6 +189,38 @@ export default function Navbar() {
               {t("nav.studentSpace")}
             </Link>
 
+            {/* Langues mobile (près du burger) */}
+            <div className="relative md:hidden">
+              <button
+                onClick={() => setMobileLangOpen(!mobileLangOpen)}
+                className="flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm font-semibold text-ids-black hover:bg-gray-100 transition-colors"
+              >
+                {locale.toUpperCase()}
+                <FaChevronDown size={9} />
+              </button>
+              <AnimatePresence>
+                {mobileLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full right-0 mt-1 bg-white rounded-lg shadow-lg overflow-hidden z-50 w-20 border border-gray-100"
+                  >
+                    {LOCALES.filter((l) => l.code !== locale).map((l) => (
+                      <button
+                        key={l.code}
+                        onClick={() => switchLocale(l.code)}
+                        className="w-full text-left px-3 py-2 text-xs text-ids-black hover:bg-ids-gray transition-colors"
+                      >
+                        {l.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             {/* Burger mobile */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -229,22 +263,6 @@ export default function Navbar() {
                 >
                   {t("nav.studentSpace")}
                 </Link>
-                {/* Langues mobile */}
-                <div className="flex gap-2 mt-3 pt-3 border-t border-gray-100">
-                  {LOCALES.map((l) => (
-                    <button
-                      key={l.code}
-                      onClick={() => switchLocale(l.code)}
-                      className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
-                        l.code === locale
-                          ? "bg-ids-red text-white"
-                          : "bg-gray-100 text-ids-black hover:bg-gray-200"
-                      }`}
-                    >
-                      {l.label}
-                    </button>
-                  ))}
-                </div>
               </div>
             </motion.div>
           )}

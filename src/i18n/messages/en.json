@@ -114,7 +114,7 @@
     "next": "Next", "previous": "Previous", "submit": "Submit my registration", "submitting": "Submitting...",
     "successTitle": "Registration received!", "successText": "Your file has been registered. Your file number is:",
     "successNote": "You will receive this number by email, along with all the information needed to make your payment. If you prefer, you can also come directly to our center located in Biyem-Assi, at Carrefour Scalom, where our team welcomes you Monday to Saturday.",
-    "recap": "Registration summary", "reglementText": "I have read and accept the internal regulations of the Institut für die Deutsche Sprache.",
+    "recap": "Registration summary", "reglementText": "By ticking this box, I authorize IDS-Sprachschule to collect and process my personal data. This information will be used exclusively for the management of my German courses, the processing of my payments, and for all support procedures related to my project to Germany.",
     "pageTitle": "Registration form", "pageSubtitle": "Join the Institut für die Deutsche Sprache. Complete the 3 steps below. Your file will be reviewed as soon as possible.",
     "paymentTitle": "Our payment methods",
     "paymentOrange": "Orange Money",
