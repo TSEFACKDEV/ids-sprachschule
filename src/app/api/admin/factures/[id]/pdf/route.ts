@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthUser, isStaff } from "@/lib/auth";
+import { getAuthUser, isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { generateRecuPDF } from "@/lib/pdf";
 
@@ -9,7 +9,7 @@ export async function GET(
 ) {
   try {
     const authUser = await getAuthUser();
-    if (!authUser || !isStaff(authUser.role)) {
+    if (!authUser) {
       return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
@@ -24,6 +24,12 @@ export async function GET(
 
     if (!facture) {
       return NextResponse.json({ success: false, error: "Facture introuvable." }, { status: 404 });
+    }
+
+    // Seul l'ADMIN gère les reçus. L'étudiant concerné peut télécharger SON reçu.
+    const isOwner = authUser.role === "ETUDIANT" && authUser.etudiantId === facture.etudiantId;
+    if (!isAdmin(authUser.role) && !isOwner) {
+      return NextResponse.json({ success: false, error: "Accès refusé." }, { status: 403 });
     }
 
     const etudiantForPdf = facture.etudiant

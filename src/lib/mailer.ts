@@ -10,22 +10,34 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-function getLogoBase64(): string | null {
+function getLogoAttachment(): { filename: string; path: string; cid: string } | null {
   try {
-    const logoPath = path.join(process.cwd(), "public", "images", "logo.png");
+    const logoPath = path.join(process.cwd(), "logo.jpeg");
     if (!fs.existsSync(logoPath)) return null;
-    const logoBytes = fs.readFileSync(logoPath);
-    return `data:image/png;base64,${logoBytes.toString("base64")}`;
+
+    return {
+      filename: "logo.jpeg",
+      path: logoPath,
+      cid: "ids-sprachschule-logo",
+    };
   } catch {
     return null;
   }
 }
 
+function withLogoAttachment(attachments: Array<Record<string, unknown>> = []): Array<Record<string, unknown>> {
+  const logo = getLogoAttachment();
+  if (!logo) return attachments;
+
+  return [{
+    filename: logo.filename,
+    path: logo.path,
+    cid: logo.cid,
+  }, ...attachments];
+}
+
 function baseTemplate(content: string): string {
-  const logo = getLogoBase64();
-  const headerImg = logo
-    ? `<img src="${logo}" alt="IDS-Sprachschule" style="height:70px;width:auto;display:block;margin:0 auto;" />`
-    : `<p style="color:#D4AF37;font-size:22px;font-weight:bold;margin:0;">IDS-Sprachschule</p>`;
+  const headerImg = `<img src="cid:ids-sprachschule-logo" alt="IDS-Sprachschule" style="display:block;max-width:100%;width:320px;height:auto;margin:0 auto;border:0;" />`;
 
   return `
 <!DOCTYPE html>
@@ -43,9 +55,6 @@ function baseTemplate(content: string): string {
           <tr>
             <td style="background:#0a0a0a;padding:24px 32px;text-align:center;">
               ${headerImg}
-              <p style="color:#CC0000;font-size:13px;margin:8px 0 0 0;">
-                Lernen. Verstehen. Erfolgreich sein.
-              </p>
             </td>
           </tr>
           <tr>
@@ -92,6 +101,15 @@ export async function sendInscriptionConfirmation(
       </p>
     </div>
     <p style="color:#555;font-size:15px;line-height:1.7;">
+      Le programme et les horaires de vos cours vous seront communiqués dans les meilleurs délais.
+      En attendant, nous vous invitons à passer dans notre centre afin de récupérer vos manuels
+      de cours, si ce n'est pas déjà fait.
+    </p>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Vous pouvez également visiter notre site web :
+      <a href="https://ids-sprachschule.com/en" style="color:#CC0000;">https://ids-sprachschule.com/en</a>
+    </p>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
       Pour confirmer votre inscription, veuillez effectuer votre paiement en utilisant l'un des moyens suivants :
     </p>
     <ul style="color:#555;font-size:15px;line-height:1.9;padding-left:20px;">
@@ -135,6 +153,7 @@ export async function sendInscriptionConfirmation(
     to,
     subject: "Inscription reçue – IDS-Sprachschule",
     html: baseTemplate(content),
+    attachments: withLogoAttachment(),
   });
 }
 
@@ -160,6 +179,7 @@ export async function sendAdminNewInscription(
     to: process.env.ADMIN_EMAIL!,
     subject: `Nouvelle inscription – ${prenom} ${nom} – Niveau ${niveau}`,
     html: baseTemplate(content),
+    attachments: withLogoAttachment(),
   });
 }
 
@@ -184,6 +204,10 @@ export async function sendValidationEmail(
       En attendant, nous vous invitons à passer dans notre centre afin de récupérer vos manuels
       de cours, si ce n'est pas déjà fait.
     </p>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Vous pouvez également visiter notre site web :
+      <a href="https://ids-sprachschule.com/en" style="color:#CC0000;">https://ids-sprachschule.com/en</a>
+    </p>
     <p style="color:#555;font-size:14px;">
       Vous trouverez ci-joint votre fiche d'inscription.
     </p>
@@ -195,13 +219,13 @@ export async function sendValidationEmail(
     to,
     subject: "Inscription validée – IDS-Sprachschule",
     html: baseTemplate(content),
-    attachments: [
+    attachments: withLogoAttachment([
       {
         filename: `fiche-inscription-${numeroInscription}.pdf`,
         content: pdfBuffer,
         contentType: "application/pdf",
       },
-    ],
+    ]),
   });
 }
 
@@ -231,38 +255,27 @@ export async function sendRefusEmail(
     to,
     subject: "Mise à jour de votre dossier IDS-Sprachschule",
     html: baseTemplate(content),
+    attachments: withLogoAttachment(),
   });
 }
 
 export async function sendPasswordResetEmail(
   to: string,
-  prenom: string,
-  numeroInscription: string,
-  motDePasseTemp: string
+  prenom: string
 ): Promise<void> {
-  const appUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
   const content = `
     <p style="color:#333;font-size:16px;">Bonjour <strong>${prenom}</strong>,</p>
     <p style="color:#555;font-size:15px;line-height:1.7;margin-top:16px;">
-      Votre mot de passe a été réinitialisé par l'administration IDS-Sprachschule.
+      Votre dossier IDS-Sprachschule a été pris en charge par l'administration.
     </p>
-    <div style="background:#0a0a0a;color:#fff;padding:20px 24px;margin:24px 0;border-radius:6px;">
-      <p style="margin:0 0 8px 0;font-size:14px;color:#D4AF37;font-weight:bold;">
-        Nouveau mot de passe temporaire
-      </p>
-      <p style="margin:4px 0;font-size:15px;">
-        Identifiant : <strong style="color:#D4AF37;">${numeroInscription}</strong>
-      </p>
-      <p style="margin:4px 0;font-size:15px;">
-        Mot de passe : <strong style="color:#D4AF37;">${motDePasseTemp}</strong>
-      </p>
-    </div>
-    <p style="color:#555;font-size:15px;">
-      Connectez-vous sur :
-      <a href="${appUrl}/fr/connexion" style="color:#CC0000;">${appUrl}/fr/connexion</a>
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Le programme et les horaires de vos cours vous seront communiqués dans les meilleurs délais.
+      En attendant, nous vous invitons à passer dans notre centre afin de récupérer vos manuels
+      de cours, si ce n'est pas déjà fait.
     </p>
-    <p style="color:#555;font-size:14px;">
-      Vous devrez définir un nouveau mot de passe personnel à votre prochaine connexion.
+    <p style="color:#555;font-size:15px;line-height:1.7;">
+      Vous pouvez aussi visiter notre site web :
+      <a href="https://ids-sprachschule.com/en" style="color:#CC0000;">https://ids-sprachschule.com/en</a>
     </p>
     <p style="color:#555;font-size:15px;margin-top:24px;">Cordialement,</p>
     <p style="color:#0a0a0a;font-weight:bold;font-size:15px;">L'équipe IDS-Sprachschule</p>`;
@@ -270,8 +283,9 @@ export async function sendPasswordResetEmail(
   await transporter.sendMail({
     from: process.env.EMAIL_FROM!,
     to,
-    subject: "Réinitialisation de votre mot de passe – IDS-Sprachschule",
+    subject: "Mise à jour de votre dossier IDS-Sprachschule",
     html: baseTemplate(content),
+    attachments: withLogoAttachment(),
   });
 }
 
@@ -304,6 +318,7 @@ export async function sendBulkMessage(
           to: email,
           subject: sujet,
           html: baseTemplate(content),
+          attachments: withLogoAttachment(),
         });
       } catch (error) {
         failedEmails.push(email);

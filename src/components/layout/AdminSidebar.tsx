@@ -6,8 +6,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  FaTachometerAlt, FaUsers, FaLayerGroup, FaGraduationCap,
-  FaFileInvoiceDollar, FaFilePdf, FaEnvelope, FaSignOutAlt, FaBars, FaTimes,
+  FaTachometerAlt, FaUsers, FaLayerGroup,
+  FaFilePdf, FaEnvelope, FaSignOutAlt, FaBars, FaTimes,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -34,10 +34,8 @@ function SidebarContent({
     ...(role !== "SECRETAIRE" ? [{ href: `/${locale}/admin`, label: t("dashboard"), icon: FaTachometerAlt }] : []),
     { href: `/${locale}/admin/etudiants`, label: t("students"), icon: FaUsers },
     { href: `/${locale}/admin/groupes`, label: t("groups"), icon: FaLayerGroup },
-    { href: `/${locale}/admin/examens`, label: t("exams"), icon: FaGraduationCap },
-    { href: `/${locale}/admin/factures`, label: t("invoices"), icon: FaFileInvoiceDollar },
     { href: `/${locale}/admin/contrats`, label: "Contrats", icon: FaFilePdf },
-    { href: `/${locale}/admin/recus`, label: t("receipts"), icon: FaFilePdf },
+    ...(role !== "SECRETAIRE" ? [{ href: `/${locale}/admin/recus`, label: t("receipts"), icon: FaFilePdf }] : []),
     { href: `/${locale}/admin/messagerie`, label: t("messages"), icon: FaEnvelope },
   ];
 

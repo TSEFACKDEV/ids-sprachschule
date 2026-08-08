@@ -569,7 +569,7 @@
   },
   "admin": {
     "dashboard": "Tableau de bord", "students": "Étudiants", "groups": "Groupes",
-    "exams": "Examens", "invoices": "Facturation", "messages": "Messagerie",
+    "messages": "Messagerie",
     "totalStudents": "Total étudiants", "newThisWeek": "Nouvelles inscriptions (7j)",
     "pending": "En attente", "totalRevenue": "Revenus totaux",
     "validate": "Valider", "refuse": "Refuser", "delete": "Supprimer",
