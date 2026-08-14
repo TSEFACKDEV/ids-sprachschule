@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "IDS – Institut für die Deutsche Sprache | Yaoundé, Cameroun",
   description:
     "Apprenez l'allemand avec IDS à Yaoundé. Cours A1 à C1, préparation examens, accompagnement visa et études en Allemagne.",
-  icons: { icon: "/favicon.ico" },
 };
 
 export function generateStaticParams() {
