@@ -1,13 +1,13 @@
 import { PrismaClient, Role } from '@/generated/prisma/client';
 import bcrypt from 'bcryptjs';
-
+import { sanitizeDatabaseUrl } from '../src/lib/database-url';
 
 import { PrismaPg } from '@prisma/adapter-pg'
 
 // connectionTimeoutMillis plus généreux : une base Neon en veille ("auto-suspend")
 // peut mettre plusieurs secondes à se réveiller lors de la toute première connexion.
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL!,
+  connectionString: sanitizeDatabaseUrl(process.env.DATABASE_URL),
   connectionTimeoutMillis: 30_000,
 })
 const prisma = new PrismaClient({ adapter });

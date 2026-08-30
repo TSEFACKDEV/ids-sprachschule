@@ -93,14 +93,18 @@ export async function POST(
     }
 
     // Envoyer email avec PJ
-    await sendValidationEmail(
-      etudiant.email,
-      etudiant.prenom,
-      etudiant.nom,
-      etudiant.numeroInscription,
-      motDePasseTemp,
-      pdfBuffer
-    );
+    try {
+      await sendValidationEmail(
+        etudiant.email,
+        etudiant.prenom,
+        etudiant.nom,
+        etudiant.numeroInscription,
+        motDePasseTemp,
+        pdfBuffer
+      );
+    } catch (error) {
+      console.error("[VALIDER] Échec envoi email:", error);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

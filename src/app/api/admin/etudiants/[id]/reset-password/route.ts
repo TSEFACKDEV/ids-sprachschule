@@ -36,10 +36,14 @@ export async function POST(
       data: { password: hashed, mustChangePassword: true },
     });
 
-    await sendPasswordResetEmail(
-      etudiant.email,
-      etudiant.prenom
-    );
+    try {
+      await sendPasswordResetEmail(
+        etudiant.email,
+        etudiant.prenom
+      );
+    } catch (error) {
+      console.error("[RESET_PASSWORD] Échec envoi email:", error);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
