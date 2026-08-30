@@ -126,14 +126,38 @@ export async function POST(request: Request) {
     const numeroRecu = await generateNumeroRecu();
     const resteAPayer = Number(montantTotal) - Number(montantVerse);
 
+    let factureEtudiantNom = manualNom || null;
+    let factureEtudiantPrenom = manualPrenom || null;
+    let factureEtudiantNumero = manualNumero || null;
+    let factureEtudiantEmail = manualEmail || null;
+
+    if (etudiantId) {
+      const etudiant = await prisma.etudiant.findUnique({
+        where: { id: etudiantId },
+        select: { nom: true, prenom: true, numeroInscription: true, email: true },
+      });
+
+      if (!etudiant) {
+        return NextResponse.json(
+          { success: false, error: "Étudiant introuvable." },
+          { status: 400 }
+        );
+      }
+
+      factureEtudiantNom = factureEtudiantNom || etudiant.nom;
+      factureEtudiantPrenom = factureEtudiantPrenom || etudiant.prenom;
+      factureEtudiantNumero = factureEtudiantNumero || etudiant.numeroInscription;
+      factureEtudiantEmail = factureEtudiantEmail || etudiant.email;
+    }
+
     const facture = await prisma.facture.create({
       data: {
         numeroRecu,
         etudiantId: etudiantId || null,
-        etudiantNom: manualNom || null,
-        etudiantPrenom: manualPrenom || null,
-        etudiantNumeroInscription: manualNumero || buildManualNumber(),
-        etudiantEmail: manualEmail || null,
+        etudiantNom: factureEtudiantNom,
+        etudiantPrenom: factureEtudiantPrenom,
+        etudiantNumeroInscription: factureEtudiantNumero || buildManualNumber(),
+        etudiantEmail: factureEtudiantEmail,
         formation,
         montantTotal: Number(montantTotal),
         montantVerse: Number(montantVerse),

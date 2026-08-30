@@ -34,7 +34,11 @@ export async function POST(
       data: { statut: "REFUSE" },
     });
 
-    await sendRefusEmail(etudiant.email, etudiant.prenom, motif.trim());
+    try {
+      await sendRefusEmail(etudiant.email, etudiant.prenom, motif.trim());
+    } catch (error) {
+      console.error("[REFUSER] Échec envoi email:", error);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
